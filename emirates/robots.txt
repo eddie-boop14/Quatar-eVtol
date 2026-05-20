@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://evtolemirates.com/sitemap.xml
