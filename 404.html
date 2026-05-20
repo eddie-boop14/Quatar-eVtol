@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>404 / NO FLIGHT PATH FOUND</title>
+<meta name="description" content="Route not found. The aircraft is recalibrating." />
+<meta name="theme-color" content="#0a1620" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@600;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#eef2f5;
+    --paper-2:#dfe6ec;
+    --ink:#0a1620;
+    --ink-soft:#2a3a48;
+    --cyan:#00d4ff;
+    --cyan-deep:#0099cc;
+    --amber:#ffb938;
+    --amber-deep:#cc8800;
+    --red:#ff4040;
+    --grid:rgba(10,22,32,.07);
+    --grid-strong:rgba(10,22,32,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden;-webkit-font-smoothing:antialiased}
+  body{
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    position:relative;
+    user-select:none;
+  }
+
+  /* ── BLUEPRINT GRID BACKGROUND ─────────────────── */
+  .grid-bg{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+      linear-gradient(var(--grid-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px);
+    background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  }
+
+  /* radial vignette + warm-cool gradient sky */
+  .atmosphere{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 80% 60% at 75% 20%, rgba(0,212,255,.12), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 25% 90%, rgba(255,185,56,.08), transparent 60%),
+      radial-gradient(ellipse 100% 80% at 50% 50%, transparent 50%, rgba(10,22,32,.06) 100%);
+  }
+
+  /* paper grain */
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/></svg>");
+  }
+
+  /* corner crosshairs / registration marks (like blueprint corners) */
+  .reg-mark{position:fixed;width:20px;height:20px;z-index:2;pointer-events:none}
+  .reg-mark::before,.reg-mark::after{
+    content:"";position:absolute;background:var(--ink-soft);
+  }
+  .reg-mark::before{width:20px;height:1px;top:9.5px;left:0}
+  .reg-mark::after{width:1px;height:20px;top:0;left:9.5px}
+  .reg-mark.tl{top:14px;left:14px}
+  .reg-mark.tr{top:14px;right:14px}
+  .reg-mark.bl{bottom:14px;left:14px}
+  .reg-mark.br{bottom:14px;right:14px}
+
+  /* ── LAYOUT ────────────────────────────────────── */
+  .stage{position:fixed;inset:0;display:flex;flex-direction:column;z-index:5;padding:0}
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 32px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.12em;color:var(--ink);
+    flex-shrink:0;
+    border-bottom:1px solid var(--grid-strong);
+    background:rgba(238,242,245,.6);
+    backdrop-filter:blur(8px);
+  }
+  header .brand{display:flex;align-items:center;gap:12px;font-weight:500}
+  header .logo{
+    width:20px;height:20px;border:1.5px solid var(--ink);position:relative;
+    transform:rotate(45deg);
+  }
+  header .logo::before{
+    content:"";position:absolute;inset:3px;border:1px solid var(--ink);
+  }
+  header .logo::after{
+    content:"";position:absolute;inset:7px;background:var(--cyan);
+  }
+  header .meta{display:flex;gap:22px;align-items:center;font-size:10px;color:var(--ink-soft)}
+  header .meta .live{display:flex;align-items:center;gap:6px}
+  header .meta .live .dot{width:6px;height:6px;border-radius:50%;background:var(--red);
+    box-shadow:0 0 0 3px rgba(255,64,64,.2);animation:livePulse 1.4s ease-in-out infinite}
+  @keyframes livePulse{0%,100%{box-shadow:0 0 0 3px rgba(255,64,64,.15);opacity:1}50%{box-shadow:0 0 0 6px rgba(255,64,64,0);opacity:.6}}
+
+  .scene{flex:1;min-height:0;display:flex;flex-direction:column;position:relative}
+
+  /* craft canvas */
+  .craft-wrap{position:relative;flex:1 1 auto;min-height:340px;width:100%;order:1;overflow:hidden}
+  #craft-canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none;display:block;z-index:2}
+  #craft-canvas.dragging{cursor:grabbing}
+
+  /* dimension lines around the craft (engineering drawing style) */
+  .dim-lines{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .dim-lines svg{width:100%;height:100%;overflow:visible}
+
+  /* HUD telemetry panel */
+  .hud{
+    position:absolute;top:20px;left:20px;z-index:4;
+    background:rgba(10,22,32,.92);color:var(--paper);
+    border:1px solid var(--cyan-deep);
+    padding:14px 18px;border-radius:4px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.08em;line-height:1.6;
+    min-width:200px;
+    box-shadow:0 8px 24px -8px rgba(0,212,255,.3);
+    backdrop-filter:blur(8px);
+  }
+  .hud::before{
+    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:2px;
+    background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+    animation:scan 3s linear infinite;
+  }
+  @keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  .hud .hud-title{display:flex;justify-content:space-between;align-items:center;gap:14px;
+    color:var(--cyan);font-weight:500;margin-bottom:10px;padding-bottom:8px;
+    border-bottom:1px solid rgba(0,212,255,.2);font-size:9px;letter-spacing:.18em;
+    white-space:nowrap}
+  .hud .hud-title .status{color:var(--amber);animation:flicker 2s ease-in-out infinite;font-size:8.5px}
+  @keyframes flicker{0%,100%{opacity:1}45%{opacity:.4}50%{opacity:1}55%{opacity:.6}}
+  .hud .row{display:flex;justify-content:space-between;gap:18px;color:var(--paper-2)}
+  .hud .row .lbl{color:rgba(238,242,245,.5)}
+  .hud .row .val{font-variant-numeric:tabular-nums;color:var(--paper)}
+  .hud .row .val.warn{color:var(--amber)}
+  .hud .row .val.err{color:var(--red)}
+
+  /* error code badge — top right */
+  .err-badge{
+    position:absolute;top:20px;right:20px;z-index:4;
+    background:var(--amber);color:var(--ink);
+    padding:10px 14px;border-radius:4px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+    letter-spacing:.12em;
+    box-shadow:0 6px 16px -4px rgba(255,185,56,.5);
+    display:flex;align-items:center;gap:8px;
+    animation:errBob 4s ease-in-out infinite;
+  }
+  @keyframes errBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .err-badge::before{
+    content:"";width:8px;height:8px;background:var(--ink);transform:rotate(45deg);
+  }
+
+  .err-badge .err-short{display:none}
+  @media (max-width:520px){
+    .err-badge .err-full{display:none}
+    .err-badge .err-short{display:inline}
+  }
+
+  /* copy section */
+  .copy{position:relative;z-index:6;padding:24px 32px 18px;flex-shrink:0;order:2;
+    background:var(--paper);border-top:1px solid var(--grid-strong)}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.25em;
+    text-transform:uppercase;color:var(--cyan-deep);margin-bottom:6px;
+    display:inline-flex;align-items:center;gap:8px;font-weight:500}
+  .eyebrow::before{content:"";display:inline-block;width:5px;height:5px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+
+  h1{
+    font-family:'Big Shoulders Stencil',sans-serif;
+    font-weight:900;
+    font-size:clamp(80px, 22vw, 180px);
+    line-height:.82;letter-spacing:.02em;
+    color:var(--ink);
+    margin-bottom:6px;
+    display:flex;align-items:baseline;gap:.02em;
+  }
+  h1 .four-a, h1 .four-b{display:inline-block}
+  h1 .zero{display:inline-block;color:var(--cyan);position:relative}
+  h1 .zero::after{
+    content:"";position:absolute;left:-10%;right:-10%;bottom:8%;height:8%;
+    background:var(--amber);z-index:-1;transform:skewX(-10deg);
+  }
+  h1 .glitch{display:inline-block;animation:glitch 8s ease-in-out infinite}
+  @keyframes glitch{
+    0%,90%,100%{transform:translate(0,0);filter:none}
+    91%{transform:translate(-2px,1px);filter:hue-rotate(90deg)}
+    92%{transform:translate(2px,-1px);filter:hue-rotate(-90deg)}
+    93%{transform:translate(0,0);filter:none}
+  }
+
+  .lede{font-size:15px;line-height:1.5;color:var(--ink-soft);max-width:52ch;margin-bottom:18px;
+    font-family:'IBM Plex Sans',sans-serif;font-weight:400}
+  .lede em{font-style:italic;color:var(--ink);font-weight:500;
+    border-bottom:2px solid var(--amber);padding-bottom:1px}
+  .lede code{font-family:'IBM Plex Mono',monospace;background:var(--paper-2);
+    padding:2px 6px;border-radius:3px;font-size:.92em;color:var(--cyan-deep)}
+
+  .actions{display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap}
+  @media (max-width:520px){
+    .actions{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+  .cta{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--ink);color:var(--paper);text-decoration:none;
+    padding:14px 22px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+    border:1px solid var(--ink);
+    transition:all .15s ease;
+    position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:"";position:absolute;inset:0;
+    background:var(--cyan);
+    transform:translateX(-101%);transition:transform .25s ease;
+  }
+  .cta:hover::before{transform:translateX(0)}
+  .cta span{position:relative;z-index:1;transition:color .25s ease}
+  .cta:hover span{color:var(--ink)}
+  .cta .arrow{font-family:monospace}
+
+  .secondary{
+    display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;text-decoration:none;
+    border-bottom:1px dashed var(--ink-soft);padding-bottom:2px;
+    transition:color .2s, border-color .2s;font-weight:500;
+  }
+  .secondary:hover{color:var(--cyan-deep);border-color:var(--cyan-deep)}
+
+  .hint{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;
+    gap:8px;margin-top:14px;opacity:.7}
+  .hint .pulse{width:5px;height:5px;background:var(--cyan);animation:pulse 1.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.8)}}
+
+  /* desktop */
+  @media (min-width:860px){
+    .scene{display:grid;grid-template-columns:1fr 1.15fr;align-items:center;padding:0 6vw;gap:48px;flex:1}
+    .copy{padding:0;order:0;border-top:none;max-width:560px;background:transparent}
+    .craft-wrap{height:100%;order:0;min-height:0}
+    h1{font-size:clamp(140px,14vw,260px)}
+    .lede{font-size:17px}
+    .hud{top:32px;left:32px;font-size:11px;min-width:230px}
+    .err-badge{top:32px;right:32px;font-size:11px}
+  }
+
+  /* footer */
+  footer{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    padding:14px 32px 18px;
+    font-family:'IBM Plex Mono',monospace;font-size:9px;
+    letter-spacing:.16em;color:var(--ink-soft);
+    z-index:6;flex-shrink:0;
+    border-top:1px solid var(--grid-strong);
+    background:rgba(238,242,245,.6);
+    backdrop-filter:blur(8px);
+  }
+  footer .sig{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  footer .sig .sep{display:inline-block;width:3px;height:3px;background:var(--cyan);flex-shrink:0;transform:rotate(45deg)}
+  footer .sig .accent{color:var(--cyan-deep);font-weight:500}
+  footer a{color:inherit;text-decoration:none;border-bottom:1px dashed var(--ink-soft);
+    padding-bottom:1px;white-space:nowrap;transition:color .2s, border-color .2s}
+  footer a:hover{color:var(--cyan-deep);border-color:var(--cyan-deep)}
+  @media (max-width:520px){
+    footer{font-size:8.5px;letter-spacing:.12em;padding:12px 20px 16px}
+    header{padding:18px 20px;font-size:10px;letter-spacing:.1em}
+    header .meta{gap:14px}
+    .copy{padding:18px 20px 14px}
+    .err-badge{font-size:9px;padding:7px 10px;top:14px;right:14px}
+    .hud{font-size:9px;min-width:0;max-width:60%;padding:10px 12px;top:14px;left:14px;line-height:1.5}
+    .hud .hud-title{font-size:8px;letter-spacing:.14em}
+    .hud .hud-title .status{font-size:7.5px}
+    .hud .row{gap:10px}
+  }
+
+  /* loader */
+  .loader{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-soft);pointer-events:none;z-index:8;
+    transition:opacity .4s ease}
+  .loader.hidden{opacity:0}
+  .loader .bar{display:inline-block;width:60px;height:1px;background:var(--ink-soft);margin:0 10px;
+    position:relative;overflow:hidden;vertical-align:middle}
+  .loader .bar::after{content:"";position:absolute;inset:0;background:var(--cyan);
+    animation:load 1.2s ease-in-out infinite}
+  @keyframes load{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+  /* entrance reveals */
+  .reveal{opacity:0;transform:translateY(14px);animation:reveal 1s cubic-bezier(.2,.7,.2,1) forwards}
+  .reveal.d1{animation-delay:.1s}.reveal.d2{animation-delay:.25s}.reveal.d3{animation-delay:.4s}
+  .reveal.d4{animation-delay:.55s}.reveal.d5{animation-delay:.7s}.reveal.d6{animation-delay:.85s}
+  @keyframes reveal{to{opacity:1;transform:translateY(0)}}
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;top:30px;transform:translateX(-50%) translateY(-80px);
+    background:var(--ink);color:var(--paper);
+    padding:12px 20px;border:1px solid var(--cyan);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    box-shadow:0 12px 30px -8px rgba(0,212,255,.4);
+    transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+    z-index:80;pointer-events:none;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  .toast .icon{color:var(--cyan);margin-right:8px}
+
+  /* ── TAKEOVER ─────────────────────────────── */
+  .takeover{
+    position:fixed;inset:0;z-index:90;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--ink);
+    opacity:0;pointer-events:none;
+    transition:opacity .4s ease;
+    padding:24px;
+  }
+  .takeover.show{opacity:1}
+  /* animated tech background */
+  .takeover .tech-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(0,212,255,.15), transparent 70%),
+      linear-gradient(180deg, #0a1620, #051018);
+  }
+  .takeover .tech-bg::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(0,212,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,.06) 1px, transparent 1px);
+    background-size:40px 40px;
+    animation:gridDrift 8s linear infinite;
+  }
+  @keyframes gridDrift{0%{background-position:0 0}100%{background-position:40px 40px}}
+  .takeover .tech-bg::after{
+    content:"";position:absolute;left:0;right:0;top:50%;height:2px;
+    background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+    animation:scanline 2.5s ease-in-out infinite;
+  }
+  @keyframes scanline{0%,100%{top:20%;opacity:0}50%{top:80%;opacity:.8}}
+
+  /* center stamp card (large for evtol — these aren't photos, they're tech specs) */
+  .takeover .stamp{
+    position:relative;z-index:2;
+    background:var(--paper);color:var(--ink);
+    padding:32px 36px;
+    border:1px solid var(--cyan-deep);
+    box-shadow:0 0 60px -10px rgba(0,212,255,.5), 0 20px 60px -10px rgba(0,0,0,.7);
+    font-family:'IBM Plex Sans',sans-serif;
+    text-align:left;
+    transform:translateY(40px) scale(.95);opacity:0;
+    transition:all .6s cubic-bezier(.34,1.56,.64,1) .15s;
+    max-width:min(92vw, 520px);
+    width:100%;
+  }
+  .takeover.show .stamp{transform:translateY(0) scale(1);opacity:1}
+  .takeover .stamp .kicker{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--cyan-deep);
+    margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed var(--ink-soft);
+    font-weight:500;
+  }
+  .takeover .stamp .kicker .badge{
+    background:var(--amber);color:var(--ink);padding:3px 8px;font-size:9px;font-weight:600;
+  }
+  .takeover .stamp .big{
+    display:block;font-family:'Big Shoulders Stencil',sans-serif;font-weight:900;
+    font-size:clamp(32px,7vw,52px);line-height:1;letter-spacing:.01em;
+    margin-bottom:14px;color:var(--ink);
+  }
+  .takeover .stamp .sub{
+    display:block;font-size:14px;line-height:1.5;color:var(--ink-soft);
+    margin-bottom:18px;font-weight:400;
+  }
+  /* data grid for telemetry-style specs */
+  .takeover .stamp .data-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    padding-top:14px;border-top:1px dashed var(--ink-soft);
+  }
+  .takeover .stamp .data-grid .item{display:flex;flex-direction:column;gap:2px}
+  .takeover .stamp .data-grid .lbl{color:var(--ink-soft);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+  .takeover .stamp .data-grid .val{color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  .takeover .stamp .data-grid .val.cyan{color:var(--cyan-deep)}
+  .takeover .stamp .data-grid .val.amber{color:var(--amber-deep)}
+  .takeover .stamp .data-grid .val.red{color:var(--red)}
+
+  /* quack count = test number */
+  .takeover .test-num{
+    position:absolute;top:24px;right:24px;z-index:3;
+    font-family:'Big Shoulders Stencil',sans-serif;font-weight:900;
+    font-size:clamp(48px,10vw,84px);line-height:.85;color:var(--paper);
+    letter-spacing:.02em;opacity:0;transform:translateY(-20px);
+    transition:all .6s ease .3s;
+  }
+  .takeover.show .test-num{transform:translateY(0);opacity:.95}
+  .takeover .test-num::before{
+    content:"#";font-size:.5em;color:var(--cyan);margin-right:.05em;font-weight:600;
+  }
+  .takeover .corner-badge{
+    position:absolute;top:24px;left:24px;z-index:3;
+    background:rgba(0,212,255,.1);border:1px solid var(--cyan-deep);
+    padding:8px 14px;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);
+    backdrop-filter:blur(8px);
+    transform:translateY(-20px);opacity:0;transition:all .6s ease .35s;
+  }
+  .takeover.show .corner-badge{transform:translateY(0);opacity:1}
+  .takeover .close-hint{
+    position:absolute;bottom:16px;right:24px;z-index:3;
+    font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--paper);opacity:0;
+    transform:translateY(20px);transition:all .6s ease .5s;
+  }
+  .takeover.show .close-hint{opacity:.5;transform:translateY(0)}
+
+  /* personality per milestone */
+  /* CERT (100) — gold stamp aesthetic */
+  .takeover.cert .stamp{border-color:var(--amber);box-shadow:0 0 60px -10px rgba(255,185,56,.5), 0 20px 60px -10px rgba(0,0,0,.7)}
+  .takeover.cert .stamp .kicker{color:var(--amber-deep)}
+  .takeover.cert .stamp .kicker .badge{background:var(--cyan)}
+  .takeover.cert .stamp::before{
+    content:"CERTIFIED";position:absolute;top:50%;right:-15px;
+    background:var(--amber);color:var(--ink);padding:6px 12px;
+    font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;font-weight:600;
+    transform:translateY(-50%) rotate(8deg);
+  }
+
+  /* FULL SEND (150) — neon party */
+  .takeover.send{background:#0a0a0a}
+  .takeover.send .tech-bg{background:radial-gradient(ellipse, rgba(255,64,128,.3), transparent 60%), linear-gradient(180deg, #1a0a1a, #050010)}
+  .takeover.send .stamp{
+    background:linear-gradient(135deg, #ff4080, #00d4ff);
+    color:var(--paper);border-color:#ff4080;
+    animation:sendShake .25s ease-in-out infinite;
+  }
+  @keyframes sendShake{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-2px) rotate(-.5deg)}75%{transform:translateY(2px) rotate(.5deg)}}
+  .takeover.send .stamp .kicker{color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.3)}
+  .takeover.send .stamp .kicker .badge{background:var(--ink);color:var(--paper)}
+  .takeover.send .stamp .big{color:var(--paper)}
+  .takeover.send .stamp .sub{color:rgba(255,255,255,.85)}
+  .takeover.send .stamp .data-grid{border-color:rgba(255,255,255,.3)}
+  .takeover.send .stamp .data-grid .lbl{color:rgba(255,255,255,.7)}
+  .takeover.send .stamp .data-grid .val{color:var(--paper)}
+  .takeover.send .test-num{animation:hueRotate 1s linear infinite}
+  @keyframes hueRotate{from{filter:hue-rotate(0)}to{filter:hue-rotate(360deg)}}
+
+  /* confetti */
+  .confetti{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+  .confetti span{position:absolute;width:6px;height:14px;top:-20px;
+    animation:confettiFall linear forwards}
+  @keyframes confettiFall{to{transform:translateY(110vh) rotate(720deg)}}
+
+  /* rave/afterburner mode permanent post-150 */
+  body.afterburner .grid-bg{background-image:
+    linear-gradient(rgba(255,64,128,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,.1) 1px, transparent 1px),
+    linear-gradient(rgba(255,185,56,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,64,128,.1) 1px, transparent 1px);
+    animation:gridShift 3s linear infinite}
+  @keyframes gridShift{from{background-position:0 0}to{background-position:20px 20px}}
+  body.afterburner h1 .zero{animation:hueRotate 1.5s linear infinite}
+
+  /* sound toggle */
+  .sound-toggle{
+    position:fixed;bottom:60px;right:20px;z-index:30;
+    width:42px;height:42px;
+    background:var(--ink);border:1px solid var(--cyan-deep);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cyan);cursor:pointer;
+    transition:transform .2s, background .2s;
+  }
+  .sound-toggle:hover{transform:scale(1.1)}
+  .sound-toggle svg{width:18px;height:18px}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="atmosphere"></div>
+<div class="grain"></div>
+
+<div class="reg-mark tl"></div>
+<div class="reg-mark tr"></div>
+<div class="reg-mark bl"></div>
+<div class="reg-mark br"></div>
+
+<div class="toast" id="toast"><span class="icon">▸</span><span id="toast-text">Telemetry received</span></div>
+
+<!-- TAKEOVER -->
+<div class="takeover" id="takeover">
+  <div class="tech-bg"></div>
+  <div class="confetti" id="takeover-confetti"></div>
+  <div class="corner-badge" id="takeover-badge">FLIGHT LOG</div>
+  <div class="test-num" id="takeover-num">050</div>
+  <div class="stamp" id="takeover-stamp">
+    <div class="kicker">
+      <span id="takeover-kicker">TEST FLIGHT · ITERATION</span>
+      <span class="badge" id="takeover-badge2">LIVE</span>
+    </div>
+    <span class="big" id="takeover-big">FIFTY TESTS DEEP</span>
+    <span class="sub" id="takeover-sub">The aircraft has been clicked into oblivion. Telemetry attached.</span>
+    <div class="data-grid" id="takeover-data"></div>
+  </div>
+  <div class="close-hint">Tap to dismiss · Auto 5s</div>
+</div>
+
+<button class="sound-toggle" id="sound-toggle" aria-label="Audio">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+</button>
+
+<div class="stage">
+
+  <header class="reveal d1">
+    <div class="brand">
+      <span class="logo"></span>
+      <span>EVTOL · GROUND CONTROL</span>
+    </div>
+    <div class="meta">
+      <span class="live"><span class="dot"></span>LIVE</span>
+      <span id="utc-clock">--:--:-- UTC</span>
+    </div>
+  </header>
+
+  <main class="scene">
+
+    <div class="craft-wrap reveal d2">
+      <div class="loader" id="loader">acquiring telemetry<span class="bar"></span></div>
+
+      <!-- dimension lines -->
+      <div class="dim-lines" aria-hidden="true">
+        <svg preserveAspectRatio="none">
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 z" fill="currentColor"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+
+      <canvas id="craft-canvas"></canvas>
+
+      <div class="hud" id="hud">
+        <div class="hud-title"><span>FLIGHT TELEMETRY</span><span class="status" id="hud-status">RECALIBRATING</span></div>
+        <div class="row"><span class="lbl">ALT</span><span class="val" id="hud-alt">--- M</span></div>
+        <div class="row"><span class="lbl">HDG</span><span class="val warn" id="hud-hdg">--- °</span></div>
+        <div class="row"><span class="lbl">VEL</span><span class="val" id="hud-vel">-.- M/S</span></div>
+        <div class="row"><span class="lbl">PWR</span><span class="val" id="hud-pwr">98 %</span></div>
+        <div class="row"><span class="lbl">GPS</span><span class="val err" id="hud-gps">LOST</span></div>
+      </div>
+
+      <div class="err-badge"><span class="err-full">ERR 404 · ROUTE NOT FOUND</span><span class="err-short">ERR 404</span></div>
+    </div>
+
+    <div class="copy">
+      <span class="eyebrow reveal d3">FLIGHT PATH UNRESOLVED</span>
+      <h1 class="reveal d3">
+        <span class="four-a">4</span><span class="zero glitch">0</span><span class="four-b">4</span>
+      </h1>
+      <p class="lede reveal d4">
+        The requested route is <em>not in our flight plan</em>.
+        The aircraft is <code>auto-recalibrating</code> while ground control re-routes you to base.
+      </p>
+      <div class="actions reveal d5">
+        <a href="/" class="cta">
+          <span class="arrow">◂</span>
+          <span>RETURN TO BASE</span>
+        </a>
+        <a href="/" class="secondary">
+          <span>contact mission control</span>
+        </a>
+      </div>
+      <div class="hint reveal d6">
+        <span class="pulse"></span>
+        <span>Drag the craft · Tap to recalibrate</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="reveal d6">
+    <div class="sig">
+      <span class="accent">EVTOL-PROTO-X</span>
+      <span class="sep"></span>
+      <span>Build 2026.05</span>
+      <span class="sep"></span>
+      <span>Ground Control Ops</span>
+    </div>
+    <a href="/">return →</a>
+  </footer>
+
+</div>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('craft-canvas');
+const loader = document.getElementById('loader');
+const hudStatus = document.getElementById('hud-status');
+const hudAlt = document.getElementById('hud-alt');
+const hudHdg = document.getElementById('hud-hdg');
+const hudVel = document.getElementById('hud-vel');
+const hudPwr = document.getElementById('hud-pwr');
+const toastEl = document.getElementById('toast');
+const toastText = document.getElementById('toast-text');
+
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+camera.position.set(4, 2.5, 6);
+camera.lookAt(0, 0, 0);
+
+// Lighting — cool key + cyan rim + warm fill
+scene.add(new THREE.HemisphereLight(0xe8f0f5, 0x2a3a48, 0.9));
+const key = new THREE.DirectionalLight(0xffffff, 1.3);
+key.position.set(4, 6, 4);
+key.castShadow = true;
+key.shadow.mapSize.set(1024,1024);
+key.shadow.camera.near = 1; key.shadow.camera.far = 20;
+key.shadow.camera.left=-4; key.shadow.camera.right=4; key.shadow.camera.top=4; key.shadow.camera.bottom=-4;
+key.shadow.bias = -0.0005;
+scene.add(key);
+const rim = new THREE.DirectionalLight(0x00d4ff, 0.9);
+rim.position.set(-4, 1, -3);
+scene.add(rim);
+const fill = new THREE.DirectionalLight(0xffb938, 0.4);
+fill.position.set(2, -2, 4);
+scene.add(fill);
+
+// Materials
+const matBody = new THREE.MeshStandardMaterial({color:0xe8eef2, roughness:0.4, metalness:0.5});
+const matAccent = new THREE.MeshStandardMaterial({color:0x0a1620, roughness:0.6, metalness:0.3});
+const matCyan = new THREE.MeshStandardMaterial({color:0x00d4ff, emissive:0x00d4ff, emissiveIntensity:0.6, roughness:0.3});
+const matCyanLow = new THREE.MeshStandardMaterial({color:0x0099cc, emissive:0x0099cc, emissiveIntensity:0.2, roughness:0.3});
+const matRotor = new THREE.MeshStandardMaterial({color:0x1a2a38, roughness:0.7, metalness:0.4});
+const matAmber = new THREE.MeshStandardMaterial({color:0xffb938, emissive:0xffb938, emissiveIntensity:0.7, roughness:0.3});
+const matRed = new THREE.MeshStandardMaterial({color:0xff4040, emissive:0xff4040, emissiveIntensity:0.7, roughness:0.3});
+
+// ── CRAFT ──────────────────────────────────────
+const craft = new THREE.Group();
+scene.add(craft);
+
+// Main body — sleek pod/capsule shape
+const bodyGeo = new THREE.CapsuleGeometry(0.55, 1.3, 8, 24);
+const body = new THREE.Mesh(bodyGeo, matBody);
+body.rotation.z = Math.PI/2;
+body.castShadow = true; body.receiveShadow = true;
+craft.add(body);
+
+// Cockpit canopy — tinted glass dome on top-front
+const canopyGeo = new THREE.SphereGeometry(0.45, 32, 24, 0, Math.PI*2, 0, Math.PI*0.5);
+const canopyMat = new THREE.MeshStandardMaterial({color:0x051018, roughness:0.1, metalness:0.7,
+  transparent:true, opacity:0.85, emissive:0x00d4ff, emissiveIntensity:0.08});
+const canopy = new THREE.Mesh(canopyGeo, canopyMat);
+canopy.position.set(0.55, 0.15, 0);
+canopy.scale.set(1, 0.5, 1.1);
+craft.add(canopy);
+
+// Belly accent strip (cyan glow line along bottom)
+const stripGeo = new THREE.BoxGeometry(2.1, 0.04, 0.18);
+const strip = new THREE.Mesh(stripGeo, matCyan);
+strip.position.set(0, -0.5, 0);
+craft.add(strip);
+
+// Tail fin
+const finGeo = new THREE.BoxGeometry(0.5, 0.45, 0.05);
+const fin = new THREE.Mesh(finGeo, matBody);
+fin.position.set(-1.05, 0.25, 0);
+fin.castShadow = true;
+craft.add(fin);
+const finAccent = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.06), matCyan);
+finAccent.position.set(-1.05, 0.42, 0);
+craft.add(finAccent);
+
+// Arms holding rotors — 4 arms extending diagonally
+const arms = [];
+const rotorPositions = [
+  {x: 1.0, z: 0.95, name:'FR'},
+  {x: 1.0, z: -0.95, name:'FL'},
+  {x: -0.6, z: 0.95, name:'BR'},
+  {x: -0.6, z: -0.95, name:'BL'}
+];
+
+const rotors = [];
+const rotorLights = [];
+
+rotorPositions.forEach((pos, i) => {
+  // arm — thin cylinder from body to rotor
+  const armLen = Math.hypot(pos.x, pos.z) * 0.7;
+  const armGeo = new THREE.CylinderGeometry(0.06, 0.08, armLen, 12);
+  const arm = new THREE.Mesh(armGeo, matAccent);
+  const armX = pos.x * 0.5;
+  const armZ = pos.z * 0.5;
+  arm.position.set(armX, -0.15, armZ);
+  // rotate to point at rotor position
+  arm.lookAt(new THREE.Vector3(pos.x, -0.15, pos.z));
+  arm.rotateX(Math.PI/2);
+  arm.castShadow = true;
+  craft.add(arm);
+  arms.push(arm);
+
+  // motor housing
+  const motorGeo = new THREE.CylinderGeometry(0.18, 0.22, 0.14, 16);
+  const motor = new THREE.Mesh(motorGeo, matBody);
+  motor.position.set(pos.x, -0.08, pos.z);
+  motor.castShadow = true;
+  craft.add(motor);
+
+  // rotor disc (4-blade prop)
+  const rotor = new THREE.Group();
+  rotor.position.set(pos.x, 0.05, pos.z);
+  craft.add(rotor);
+
+  // hub
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.08, 12), matAccent);
+  rotor.add(hub);
+
+  // 4 blades
+  for (let b=0; b<4; b++){
+    const blade = new THREE.Mesh(
+      new THREE.BoxGeometry(0.55, 0.012, 0.06),
+      matRotor
+    );
+    blade.position.x = 0.25;
+    blade.rotation.y = b * Math.PI/2;
+    const bladeGroup = new THREE.Group();
+    bladeGroup.add(blade);
+    bladeGroup.rotation.y = b * Math.PI/2;
+    rotor.add(bladeGroup);
+  }
+  // visual disc when spinning fast (slightly translucent)
+  const disc = new THREE.Mesh(
+    new THREE.CircleGeometry(0.32, 32),
+    new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.05, side:THREE.DoubleSide})
+  );
+  disc.rotation.x = -Math.PI/2;
+  disc.position.y = 0.01;
+  rotor.add(disc);
+
+  rotors.push({group:rotor, disc:disc, dir: (i%2===0) ? 1 : -1});
+
+  // navigation light under each motor (red on left/port side, green on right/starboard)
+  const lightGeo = new THREE.SphereGeometry(0.045, 12, 10);
+  const isRight = pos.z > 0;
+  const lightMat = isRight ? matRed.clone() : new THREE.MeshStandardMaterial({color:0x00ff66, emissive:0x00ff66, emissiveIntensity:0.7, roughness:0.3});
+  const navLight = new THREE.Mesh(lightGeo, lightMat);
+  navLight.position.set(pos.x, -0.22, pos.z);
+  craft.add(navLight);
+  rotorLights.push({mesh:navLight, mat:lightMat});
+});
+
+// underside spotlight (amber, blinking — like position beacon)
+const beaconGeo = new THREE.SphereGeometry(0.06, 12, 10);
+const beacon = new THREE.Mesh(beaconGeo, matAmber);
+beacon.position.set(0, -0.55, 0);
+craft.add(beacon);
+
+// nose-tip cyan light
+const noseGeo = new THREE.SphereGeometry(0.05, 12, 10);
+const noseLight = new THREE.Mesh(noseGeo, matCyan);
+noseLight.position.set(1.18, 0, 0);
+craft.add(noseLight);
+
+// ── CLOUDS / depth particles ────────────────────
+const clouds = [];
+for (let i=0; i<14; i++){
+  const cloud = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5 + Math.random()*0.5, 16, 12),
+    new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.15 + Math.random()*0.1})
+  );
+  cloud.position.set(
+    (Math.random()-0.5) * 12,
+    (Math.random()-0.5) * 4,
+    -5 - Math.random()*8
+  );
+  cloud.scale.set(2 + Math.random()*2, 0.8, 1);
+  scene.add(cloud);
+  clouds.push({mesh:cloud, speed: 0.05 + Math.random()*0.08});
+}
+
+// soft ground shadow
+const shadow = new THREE.Mesh(
+  new THREE.CircleGeometry(1.6, 48),
+  new THREE.MeshBasicMaterial({color:0x000000, transparent:true, opacity:0.15})
+);
+shadow.rotation.x = -Math.PI/2;
+shadow.position.y = -1.8;
+scene.add(shadow);
+
+// initial craft pose
+craft.rotation.y = 0.2;
+craft.rotation.x = -0.05;
+
+setTimeout(()=>loader.classList.add('hidden'), 400);
+
+// ── INTERACTION ────────────────────────────────
+let isDown = false, lastX = 0, lastY = 0, velX = 0, velY = 0;
+let targetRotX = craft.rotation.x;
+let targetRotY = craft.rotation.y;
+let bobIntensity = 1;
+let clickCount = 0;
+const counterEl = document.createElement('div'); // dummy
+let rotorSpeed = 6;
+let rotorSpeedTarget = 6;
+
+function pointerDown(e){
+  isDown = true;
+  canvas.classList.add('dragging');
+  const p = ('touches' in e && e.touches[0]) ? e.touches[0] : e;
+  lastX = p.clientX; lastY = p.clientY;
+  velX = 0; velY = 0;
+}
+function pointerMove(e){
+  if(!isDown) return;
+  const p = ('touches' in e && e.touches[0]) ? e.touches[0] : e;
+  const dx = p.clientX - lastX;
+  const dy = p.clientY - lastY;
+  lastX = p.clientX; lastY = p.clientY;
+  targetRotY += dx * 0.008;
+  targetRotX += dy * 0.005;
+  targetRotX = Math.max(-0.5, Math.min(0.5, targetRotX));
+  velX = dy * 0.005;
+  velY = dx * 0.008;
+  if (e.cancelable) e.preventDefault();
+}
+function pointerUp(){
+  isDown = false;
+  canvas.classList.remove('dragging');
+}
+canvas.addEventListener('mousedown', pointerDown);
+window.addEventListener('mousemove', pointerMove);
+window.addEventListener('mouseup', pointerUp);
+canvas.addEventListener('touchstart', pointerDown, {passive:false});
+window.addEventListener('touchmove', pointerMove, {passive:false});
+window.addEventListener('touchend', pointerUp);
+
+let lastTap = 0;
+canvas.addEventListener('click', (e)=>{
+  const now = Date.now();
+  const isDouble = (now - lastTap < 350);
+  lastTap = now;
+  if (isDouble){ velY = 0.5; return; }
+
+  clickCount++;
+  updateHudStatus();
+  triggerWobble();
+  triggerSound();
+  rotorSpeedTarget = 14;
+  setTimeout(()=>{ rotorSpeedTarget = 6; }, 600);
+
+  if (clickCount === 10) showToast("TELEMETRY · 10 CONFIRMED PINGS");
+  else if (clickCount === 25) showToast("SYSTEM · NOMINAL");
+  else if (clickCount === 50) triggerTakeover('test');
+  else if (clickCount === 100) triggerTakeover('cert');
+  else if (clickCount === 150) {
+    triggerTakeover('send');
+    document.body.classList.add('afterburner');
+  }
+});
+
+function triggerWobble(){
+  bobIntensity = 3;
+  targetRotX += (Math.random()-0.5) * 0.15;
+  setTimeout(()=>{ bobIntensity = 1; }, 600);
+}
+
+const STATUSES = [
+  'RECALIBRATING','GPS LOCK PENDING','ROUTING','HOLDING PATTERN','OPTIMIZING','SCANNING'
+];
+function updateHudStatus(){
+  hudStatus.textContent = STATUSES[Math.floor(Math.random()*STATUSES.length)];
+}
+
+function showToast(msg){
+  toastText.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastEl._t);
+  toastEl._t = setTimeout(()=>toastEl.classList.remove('show'), 3500);
+}
+
+// ── TAKEOVERS ───────────────────────────────────
+const takeoverEl = document.getElementById('takeover');
+const takeoverNum = document.getElementById('takeover-num');
+const takeoverKicker = document.getElementById('takeover-kicker');
+const takeoverBadge2 = document.getElementById('takeover-badge2');
+const takeoverBig = document.getElementById('takeover-big');
+const takeoverSub = document.getElementById('takeover-sub');
+const takeoverData = document.getElementById('takeover-data');
+const takeoverCornerBadge = document.getElementById('takeover-badge');
+const takeoverConfetti = document.getElementById('takeover-confetti');
+
+const TAKEOVERS = {
+  test: {
+    cls:'test',
+    num:'050',
+    kicker:'TEST FLIGHT · ITERATION',
+    badge:'LIVE',
+    big:'FIFTY TESTS DEEP',
+    sub:'The aircraft has logged 50 successful pings. Telemetry holds.',
+    cornerBadge:'FLIGHT LOG · TEST PROGRAM',
+    data:[
+      {lbl:'PINGS', val:'50', cls:'cyan'},
+      {lbl:'ALTITUDE', val:'1,400 M'},
+      {lbl:'BATTERY', val:'89 %'},
+      {lbl:'STATUS', val:'NOMINAL', cls:'cyan'}
+    ],
+    duration:5000,
+    confettiColors:['#00d4ff','#ffb938','#eef2f5']
+  },
+  cert: {
+    cls:'cert',
+    num:'100',
+    kicker:'CERTIFICATION · APPROVED',
+    badge:'STAMPED',
+    big:'TYPE-RATED',
+    sub:'The aircraft has passed 100 click-cycles. Certification dossier attached.',
+    cornerBadge:'AIRWORTHINESS · CONFIRMED',
+    data:[
+      {lbl:'CYCLES', val:'100', cls:'amber'},
+      {lbl:'CLASS', val:'eVTOL-Class-X'},
+      {lbl:'REG', val:'F-CNAL'},
+      {lbl:'VALID', val:'2026-2031', cls:'amber'}
+    ],
+    duration:5500,
+    confettiColors:['#ffb938','#00d4ff','#eef2f5','#0099cc']
+  },
+  send: {
+    cls:'send',
+    num:'150',
+    kicker:'AFTERBURNER · ENGAGED',
+    badge:'SEND IT',
+    big:'FULL SEND',
+    sub:'You broke the test program. The aircraft is doing whatever it wants now.',
+    cornerBadge:'CHAOS MODE · UNLOCKED',
+    data:[
+      {lbl:'CLICKS', val:'150', cls:'cyan'},
+      {lbl:'G-FORCE', val:'9.9', cls:'red'},
+      {lbl:'BATTERY', val:'∞ %'},
+      {lbl:'MOOD', val:'EUPHORIC'}
+    ],
+    duration:6000,
+    confettiColors:['#ff4080','#00d4ff','#ffb938','#eef2f5','#ff8a00']
+  }
+};
+
+function triggerTakeover(key){
+  const t = TAKEOVERS[key];
+  if (!t) return;
+
+  takeoverEl.className = 'takeover ' + t.cls;
+  takeoverNum.textContent = t.num;
+  takeoverKicker.textContent = t.kicker;
+  takeoverBadge2.textContent = t.badge;
+  takeoverBig.textContent = t.big;
+  takeoverSub.textContent = t.sub;
+  takeoverCornerBadge.textContent = t.cornerBadge;
+
+  // build data grid
+  takeoverData.innerHTML = '';
+  t.data.forEach(d => {
+    const item = document.createElement('div');
+    item.className = 'item';
+    item.innerHTML = `<span class="lbl">${d.lbl}</span><span class="val ${d.cls||''}">${d.val}</span>`;
+    takeoverData.appendChild(item);
+  });
+
+  // confetti
+  takeoverConfetti.innerHTML = '';
+  const n = key === 'send' ? 100 : 60;
+  for (let i=0;i<n;i++){
+    const c = document.createElement('span');
+    c.style.left = (Math.random()*100)+'%';
+    c.style.background = t.confettiColors[i % t.confettiColors.length];
+    c.style.animationDuration = (1.5 + Math.random()*2.5)+'s';
+    c.style.animationDelay = (Math.random()*0.7)+'s';
+    c.style.transform = `rotate(${Math.random()*360}deg)`;
+    if (Math.random()>0.5) c.style.width = '4px';
+    takeoverConfetti.appendChild(c);
+  }
+
+  requestAnimationFrame(()=>{
+    takeoverEl.classList.add('show');
+    takeoverEl.style.pointerEvents = 'auto';
+  });
+
+  if (soundOn) playStingFor(key);
+
+  let closed = false;
+  const close = ()=>{
+    if (closed) return; closed = true;
+    takeoverEl.classList.remove('show');
+    takeoverEl.style.pointerEvents = 'none';
+    takeoverEl.removeEventListener('click', close);
+  };
+  takeoverEl.addEventListener('click', close);
+  setTimeout(close, t.duration);
+}
+
+// dev shortcuts
+window.addEventListener('keydown',(e)=>{
+  if (e.key === '1') triggerTakeover('test');
+  else if (e.key === '2') triggerTakeover('cert');
+  else if (e.key === '3') triggerTakeover('send');
+});
+
+// ── SOUND ───────────────────────────────────────
+let audioCtx = null;
+let soundOn = false;
+let ambientNodes = [];
+const soundToggle = document.getElementById('sound-toggle');
+
+soundToggle.addEventListener('click', ()=>{
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  soundOn = !soundOn;
+  soundToggle.style.background = soundOn ? '#00d4ff' : 'var(--ink)';
+  soundToggle.style.color = soundOn ? 'var(--ink)' : 'var(--cyan)';
+  if (soundOn) startRotorHum();
+  else stopRotorHum();
+});
+
+function startRotorHum(){
+  if (!audioCtx) return;
+  // low rotor drone via two slightly detuned saw oscillators
+  const osc1 = audioCtx.createOscillator();
+  osc1.type = 'sawtooth'; osc1.frequency.value = 65;
+  const osc2 = audioCtx.createOscillator();
+  osc2.type = 'sawtooth'; osc2.frequency.value = 66.5;
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = 'lowpass'; filter.frequency.value = 350; filter.Q.value = 2;
+  const gain = audioCtx.createGain(); gain.gain.value = 0.04;
+  osc1.connect(filter); osc2.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+  osc1.start(); osc2.start();
+  ambientNodes.push(osc1, osc2, filter, gain);
+}
+function stopRotorHum(){
+  ambientNodes.forEach(n=>{ try{ n.stop?.(); n.disconnect?.(); }catch(e){} });
+  ambientNodes = [];
+}
+function triggerSound(){
+  if (!soundOn || !audioCtx) return;
+  const now = audioCtx.currentTime;
+  const osc = audioCtx.createOscillator();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(1200, now);
+  osc.frequency.exponentialRampToValueAtTime(800, now + 0.08);
+  const g = audioCtx.createGain();
+  g.gain.setValueAtTime(0, now);
+  g.gain.linearRampToValueAtTime(0.08, now + 0.01);
+  g.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+  osc.connect(g); g.connect(audioCtx.destination);
+  osc.start(now); osc.stop(now + 0.13);
+}
+function playStingFor(key){
+  if (!audioCtx) return;
+  const now = audioCtx.currentTime;
+  const notes = {
+    test:[440, 523, 659],
+    cert:[523, 659, 784, 1047],
+    send:[392, 523, 659, 784, 1047]
+  }[key] || [440];
+  notes.forEach((freq, i)=>{
+    const osc = audioCtx.createOscillator();
+    osc.type = 'sine'; osc.frequency.value = freq;
+    const g = audioCtx.createGain();
+    g.gain.setValueAtTime(0, now + i*0.09);
+    g.gain.linearRampToValueAtTime(0.1, now + i*0.09 + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.001, now + i*0.09 + 0.5);
+    osc.connect(g); g.connect(audioCtx.destination);
+    osc.start(now + i*0.09);
+    osc.stop(now + i*0.09 + 0.55);
+  });
+}
+
+// ── HUD CLOCK + TELEMETRY UPDATES ───────────────
+const utcClock = document.getElementById('utc-clock');
+function updateClock(){
+  const d = new Date();
+  const h = String(d.getUTCHours()).padStart(2,'0');
+  const m = String(d.getUTCMinutes()).padStart(2,'0');
+  const s = String(d.getUTCSeconds()).padStart(2,'0');
+  utcClock.textContent = `${h}:${m}:${s} UTC`;
+}
+setInterval(updateClock, 1000); updateClock();
+
+// fake telemetry — drift around plausible values
+let altBase = 1420, hdgBase = 270, velBase = 12.4, pwrBase = 87;
+function updateTelemetry(){
+  altBase += (Math.random()-0.5)*8;
+  hdgBase = (hdgBase + (Math.random()-0.4)*3 + 360) % 360;
+  velBase = Math.max(8, Math.min(18, velBase + (Math.random()-0.5)*1.5));
+  pwrBase = Math.max(72, pwrBase - 0.02);
+  hudAlt.textContent = `${Math.round(altBase)} M`;
+  hudHdg.textContent = `${Math.round(hdgBase).toString().padStart(3,'0')} °`;
+  hudVel.textContent = `${velBase.toFixed(1)} M/S`;
+  hudPwr.textContent = `${Math.round(pwrBase)} %`;
+}
+setInterval(updateTelemetry, 800);
+updateTelemetry();
+
+// ── RESIZE ──────────────────────────────────────
+function resize(){
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (w === 0 || h === 0) return;
+  renderer.setSize(w, h, false);
+  camera.aspect = w/h;
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(canvas);
+resize();
+
+// ── ANIMATION LOOP ──────────────────────────────
+const clock = new THREE.Clock();
+function tick(){
+  const t = clock.getElapsedTime();
+
+  // rotor speed smoothing
+  rotorSpeed += (rotorSpeedTarget - rotorSpeed) * 0.1;
+
+  // craft rotation w/ inertia
+  if(!isDown){
+    targetRotY += velY;
+    targetRotX += velX;
+    velY *= 0.94;
+    velX *= 0.94;
+    targetRotX = Math.max(-0.5, Math.min(0.5, targetRotX));
+    if (Math.abs(velY) < 0.001 && Math.abs(velX) < 0.001){
+      targetRotY += (0.2 - targetRotY) * 0.005;
+      targetRotX += (-0.05 - targetRotX) * 0.01;
+    }
+  }
+  craft.rotation.y += (targetRotY - craft.rotation.y) * 0.12;
+  craft.rotation.x += (targetRotX - craft.rotation.x) * 0.12;
+
+  // hovering bob
+  craft.position.y = (Math.sin(t*1.6)*0.12 + Math.sin(t*3.7)*0.04) * bobIntensity;
+  craft.position.x = Math.sin(t*0.9)*0.08;
+  // subtle z drift
+  craft.rotation.z = Math.sin(t*1.2) * 0.04;
+
+  // rotors spin (alternating directions for stability realism)
+  rotors.forEach(r => {
+    r.group.rotation.y += rotorSpeed * 0.05 * r.dir;
+    r.disc.material.opacity = Math.min(0.25, (rotorSpeed - 5) * 0.04);
+  });
+
+  // nav lights blink
+  rotorLights.forEach((l, i) => {
+    const blink = Math.sin(t*2 + i*0.5) > 0.85 ? 1 : 0.4;
+    l.mat.emissiveIntensity = blink;
+  });
+  // beacon flash
+  beacon.material.emissiveIntensity = (Math.sin(t*4) > 0.7) ? 1.2 : 0.1;
+  noseLight.material.emissiveIntensity = 0.6 + Math.sin(t*3)*0.3;
+
+  // clouds drift left, recycle
+  clouds.forEach(c => {
+    c.mesh.position.x -= c.speed * 0.04;
+    if (c.mesh.position.x < -7) c.mesh.position.x = 7;
+  });
+
+  // shadow follows craft, scaled by altitude bob
+  shadow.position.x = craft.position.x;
+  shadow.scale.setScalar(1 - craft.position.y * 0.2);
+  shadow.material.opacity = 0.15 - craft.position.y * 0.04;
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(tick);
+}
+tick();
+</script>
+
+</body>
+</html>
