@@ -354,10 +354,20 @@ def build_site(site, entities_by_site, keep, global_chip_statuses):
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         open(dst, "w", encoding="utf-8").write(txt)
 
+    # custom 404 page — site root, not localised, kept out of the sitemap
+    src404 = os.path.join(SRC, "404.html")
+    extra = 0
+    if os.path.exists(src404):
+        txt = open(src404, encoding="utf-8").read()
+        txt = transform(txt, "404.html", site, keep, entities_by_site,
+                        global_chip_statuses)
+        open(os.path.join(outdir, "404.html"), "w", encoding="utf-8").write(txt)
+        extra = 1
+
     write_sitemap(outdir, cfg["domain"], site_ents)
     write_robots(outdir, cfg["domain"])
     write_entities(outdir, site_slugs)
-    return len(relpaths)
+    return len(relpaths) + extra
 
 
 # --------------------------------------------------------------------------
