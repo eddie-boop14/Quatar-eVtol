@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Décryptages · eVTOL Network</title>
+<meta name="description" content="Réponses approfondies aux questions eVTOL courantes — issues de sources primaires.">
+<link rel="canonical" href="https://evtol-network.example/fr/explainers.html">
+<meta name="theme-color" content="#0a1628">
+  <link rel="alternate" hreflang="en" href="https://evtol-network.example/explainers.html">
+  <link rel="alternate" hreflang="ar" href="https://evtol-network.example/ar/explainers.html">
+  <link rel="alternate" hreflang="fr" href="https://evtol-network.example/fr/explainers.html">
+  <link rel="alternate" hreflang="de" href="https://evtol-network.example/de/explainers.html">
+  <link rel="alternate" hreflang="zh" href="https://evtol-network.example/zh/explainers.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a1628;--paper:#fefbf3;--bone:#f5f0e1;--rule:#d8d0bc;--muted:#6b7280;--navy:#0a1628;--signal:#c2410c;--signal-2:#ea580c;--signal-dim:#fde9d3;--electric:#22d3ee;--r:6px;--r-lg:12px;--r-xl:20px;--space:clamp(1rem,2.5vw,1.75rem);--ease:cubic-bezier(.2,.7,.1,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{font-family:Newsreader,Georgia,serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--navy);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s,color .15s}
+a:hover{border-bottom-color:var(--signal)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+.hub-nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.hub-nav-inner{max-width:1280px;margin:0 auto;padding:.85rem var(--space);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.hub-brand{font-family:Newsreader,serif;font-size:1.1rem;font-weight:600;display:flex;align-items:center;gap:.5rem;border-bottom:none}
+.hub-brand em{font-style:italic;color:var(--signal);font-weight:500}
+.brand-mark{display:inline-block;width:18px;height:18px;background:linear-gradient(135deg,var(--signal),var(--signal-2));border-radius:50%;position:relative;box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--signal)}
+.brand-mark::before{content:"";position:absolute;inset:4px;background:var(--paper);border-radius:50%}
+.hub-langs{display:flex;gap:.25rem;font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.06em}
+.hub-langs a{padding:.28rem .55rem;color:var(--muted);border-radius:3px;border-bottom:none;text-transform:uppercase;font-weight:600}
+.hub-langs a[aria-current]{background:var(--ink);color:var(--paper)}
+
+/* HERO */
+.hub-hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;isolation:isolate;border-bottom:1px solid var(--rule)}
+.hub-hero-bg{position:absolute;inset:0;z-index:0;background:var(--cat-gradient);opacity:.65}
+.hub-hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,22,40,.2) 0%,rgba(10,22,40,.7) 100%);pointer-events:none}
+.hub-hero-inner{max-width:1280px;margin:0 auto;padding:clamp(3rem,7vw,5rem) var(--space) clamp(2.5rem,5vw,4rem);position:relative;z-index:2}
+.hub-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--signal-dim);font-weight:700;margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.hub-eyebrow::before{content:"";width:28px;height:1px;background:var(--signal)}
+.hub-title{font-family:Newsreader,serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:500;line-height:1;letter-spacing:-.03em;margin-bottom:1rem;color:var(--paper)}
+.hub-sub{font-size:clamp(1rem,1.4vw,1.18rem);color:rgba(254,251,243,.78);line-height:1.55;max-width:62ch;margin-bottom:1.6rem}
+.hub-stats{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.5rem}
+.hub-stat-chip{display:flex;flex-direction:column;gap:.15rem;padding:.7rem 1rem;background:rgba(254,251,243,.06);border:1px solid rgba(254,251,243,.12);border-radius:var(--r-lg);min-width:90px}
+.hub-stat-chip.op{background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.3)}
+.hub-stat-num{font-family:Newsreader,serif;font-size:1.6rem;font-weight:500;line-height:1;color:var(--paper)}
+.hub-stat-chip.op .hub-stat-num{color:var(--electric)}
+.hub-stat-lbl{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(254,251,243,.65);font-weight:600;margin-top:.1rem}
+
+/* GRID */
+.hub-grid{max-width:1280px;margin:0 auto;padding:clamp(2rem,4vw,3.5rem) var(--space) clamp(3rem,6vw,5rem);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:.9rem}
+.hub-card{display:flex;flex-direction:column;background:var(--bone);border:1px solid var(--rule);border-radius:var(--r-lg);overflow:hidden;transition:transform .25s var(--ease),border-color .2s,box-shadow .25s var(--ease);min-width:0;color:var(--ink);position:relative;will-change:transform;border-bottom:1px solid var(--rule)}
+.hub-card:hover{transform:translateY(-4px);border-color:var(--signal);box-shadow:0 12px 28px rgba(10,22,40,.12);border-bottom:1px solid var(--signal)}
+.hub-card-thumb{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg, #fde9d3 0%, #f5f0e1 50%, #c2410c 100%);overflow:hidden}
+.hub-card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease),opacity .3s;opacity:.85}
+.hub-card:hover .hub-card-thumb img{transform:scale(1.06);opacity:1}
+.hub-card-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,22,40,.5) 100%);pointer-events:none}
+.hub-card-thumb.thumb-failed::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, #fde9d3 0%, #f5f0e1 50%, #c2410c 100%)}
+.hub-card-pulse{position:absolute;top:.7rem;right:.7rem;z-index:2;width:14px;height:14px;display:flex;align-items:center;justify-content:center}
+.pulse-dot{position:absolute;width:8px;height:8px;background:var(--electric);border-radius:50%;box-shadow:0 0 10px var(--electric)}
+.pulse-ring{position:absolute;width:14px;height:14px;border:2px solid var(--electric);border-radius:50%;animation:pulse-ring 2s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(.6);opacity:1}100%{transform:scale(2);opacity:0}}
+.hub-card-body{padding:1rem 1.15rem 1.2rem;display:flex;flex-direction:column;flex:1}
+.hub-card-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:.45rem;line-height:1.4;min-height:.85rem}
+.hub-card-title{font-size:1.18rem;font-weight:600;color:var(--ink);line-height:1.22;letter-spacing:-.01em;margin-bottom:.5rem;font-family:Newsreader,serif}
+.hub-card-lead{font-size:.9rem;color:var(--muted);line-height:1.55;flex:1;margin-bottom:.85rem}
+.hub-card-status{font-family:"JetBrains Mono",monospace;font-size:.66rem;color:var(--signal);font-weight:700;letter-spacing:.08em;text-transform:uppercase;align-self:flex-start;padding:.28rem .55rem;background:var(--signal-dim);border-radius:3px}
+.hub-empty{max-width:1280px;margin:0 auto;padding:0 var(--space) 4rem;color:var(--muted);font-style:italic}
+
+/* FOOTER LITE */
+footer.hub-foot{background:var(--ink);color:rgba(254,251,243,.6);padding:2.5rem var(--space);text-align:center;font-size:.84rem}
+footer.hub-foot a{color:rgba(254,251,243,.85);border-bottom:none}
+footer.hub-foot a:hover{color:var(--signal);border-bottom:none}
+</style>
+</head>
+<body>
+<header class="hub-nav">
+  <div class="hub-nav-inner">
+    <a class="hub-brand" href="/fr/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>eVTOL <em>Network</em></span>
+    </a>
+    <nav class="hub-langs"><a href="/explainers.html" hreflang="en">EN</a><a href="/ar/explainers.html" hreflang="ar">AR</a><a href="/fr/explainers.html" hreflang="fr" aria-current="true">FR</a><a href="/de/explainers.html" hreflang="de">DE</a><a href="/zh/explainers.html" hreflang="zh">ZH</a></nav>
+  </div>
+</header>
+<section class="hub-hero" style="--cat-gradient:linear-gradient(135deg, #fde9d3 0%, #f5f0e1 50%, #c2410c 100%)">
+  <div class="hub-hero-bg"></div>
+  <div class="hub-hero-inner">
+    <div class="hub-eyebrow">Décryptages · 6 entries</div>
+    <h1 class="hub-title">Décryptages</h1>
+    <p class="hub-sub">Réponses approfondies aux questions eVTOL courantes — issues de sources primaires.</p>
+    <div class="hub-stats"><div class="hub-stat-chip op"><span class="hub-stat-num">2</span><span class="hub-stat-lbl">Opérationnel</span></div></div>
+  </div>
+</section>
+<section class="hub-grid">
+<a class="hub-card reveal" href="/fr/explainers/did-not-make-the-cut.html"><div class="hub-card-thumb"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1600&amp;q=80&amp;auto=format" alt="" loading="lazy" onerror="var p=this.parentNode;p.classList.add('thumb-failed');this.style.display='none'"><span class="hub-card-pulse"><span class="pulse-dot"></span><span class="pulse-ring"></span></span></div><div class="hub-card-body"><div class="hub-card-eyebrow"></div><h3 class="hub-card-title">Did Not Make The Cut: 13 Entities We Cut</h3><p class="hub-card-lead">We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated…</p><div class="hub-card-status">Opérationnel</div></div></a>
+<a class="hub-card reveal" href="/fr/explainers/doha-evtol-vs-taxi-metro.html"><div class="hub-card-thumb"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1600&amp;q=80&amp;auto=format" alt="" loading="lazy" onerror="var p=this.parentNode;p.classList.add('thumb-failed');this.style.display='none'"></div><div class="hub-card-body"><div class="hub-card-eyebrow">Doha · Qatar</div><h3 class="hub-card-title">Doha eVTOL vs taxi vs metro — comparison</h3><p class="hub-card-lead">Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–K…</p><div class="hub-card-status">trial-only</div></div></a>
+<a class="hub-card reveal" href="/fr/explainers/gulf-evtol-comparison-uae-vs-qatar.html"><div class="hub-card-thumb"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1600&amp;q=80&amp;auto=format" alt="" loading="lazy" onerror="var p=this.parentNode;p.classList.add('thumb-failed');this.style.display='none'"></div><div class="hub-card-body"><div class="hub-card-eyebrow"></div><h3 class="hub-card-title">Gulf eVTOL — UAE vs Qatar compared</h3><p class="hub-card-lead">Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Do…</p><div class="hub-card-status">trial-only</div></div></a>
+<a class="hub-card reveal" href="/fr/explainers/joby-vs-archer-uae-exclusivity-explained.html"><div class="hub-card-thumb"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1600&amp;q=80&amp;auto=format" alt="" loading="lazy" onerror="var p=this.parentNode;p.classList.add('thumb-failed');this.style.display='none'"></div><div class="hub-card-body"><div class="hub-card-eyebrow">UAE</div><h3 class="hub-card-title">Joby vs Archer UAE exclusivity — explained</h3><p class="hub-card-lead">Joby holds a 6-year exclusive air-taxi agreement with RTA Dubai (Feb 2024). Archer operates from Abu Dhabi via ADIO and Falcon A…</p><div class="hub-card-status">trial-only</div></div></a>
+<a class="hub-card reveal" href="/fr/explainers/qatar-autonomous-evtol-explained.html"><div class="hub-card-thumb"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1600&amp;q=80&amp;auto=format" alt="" loading="lazy" onerror="var p=this.parentNode;p.classList.add('thumb-failed');this.style.display='none'"></div><div class="hub-card-body"><div class="hub-card-eyebrow">Doha · Qatar</div><h3 class="hub-card-title">Qatar autonomous (pilotless) eVTOL — explained</h3><p class="hub-card-lead">Explains how Qatar&#39;s first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA …</p><div class="hub-card-status">trial-only</div></div></a>
+<a class="hub-card reveal" href="/fr/explainers/qatar-evtol-vision-2030.html"><div class="hub-card-thumb"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1600&amp;q=80&amp;auto=format" alt="" loading="lazy" onerror="var p=this.parentNode;p.classList.add('thumb-failed');this.style.display='none'"><span class="hub-card-pulse"><span class="pulse-dot"></span><span class="pulse-ring"></span></span></div><div class="hub-card-body"><div class="hub-card-eyebrow">Doha · Qatar</div><h3 class="hub-card-title">Qatar eVTOL &amp; National Vision 2030</h3><p class="hub-card-lead">How Qatar&#39;s first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy…</p><div class="hub-card-status">Opérationnel</div></div></a>
+</section>
+<footer class="hub-foot">
+  <a href="/fr/">eVTOL Network</a> · independent reference · primary-source-only
+</footer>
+<script>
+(function(){if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{rootMargin:"0px 0px -8% 0px",threshold:0.05});document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)})}else{document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")})}})();
+</script>
+</body>
+</html>
