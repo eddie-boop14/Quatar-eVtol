@@ -1,0 +1,12 @@
+# Continuous deployment config — Qatar eVTOL directory.
+# This is a pre-generated static site: HTML lives at the repo root, no build step.
+[build]
+  publish = "."
+  command = ""
+
+# Nudge SEO/security headers (safe defaults for a static directory).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
