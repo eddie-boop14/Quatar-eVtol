@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://evtolquatar.com/sitemap.xml
+Sitemap: https://qatarevtol.com/sitemap.xml
