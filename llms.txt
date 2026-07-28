@@ -1,0 +1,40 @@
+# Qatar eVTOL
+
+> Independent primary-source reference for eVTOL (electric vertical take-off and landing) infrastructure in Qatar: operators, aircraft, vertiports, routes, regulators. Every claim traces to a named primary source (operator press releases, regulator filings, government statements). No aggregation, no invented launch dates.
+
+Languages: English (canonical), Arabic (/ar/), French (/fr/), German (/de/), Chinese (/zh/). Sister site: https://evtolemirates.com
+
+Editorial bar: contracted, built, flight-tested, or regulated — backed by primary-source documentation. Entities failing that bar are documented transparently on the did-not-make-the-cut page.
+
+
+## Aircraft
+
+- [EHang EH216-S (Qatar trials)](https://qatarevtol.com/aircraft/ehang-eh216-s-qatar.html): EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources v
+- [Qatar — Future Certified Aircraft (placeholder)](https://qatarevtol.com/aircraft/qatar-future-certified-aircraft.html): No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verif
+
+## Vertiports
+
+- [Doha Airport Vertiport (planned)](https://qatarevtol.com/vertiports/doha-airport-vertiport-future.html): Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources v
+
+## Routes
+
+- [Doha Airport → Urban Centers (future)](https://qatarevtol.com/routes/doha-airport-to-urban-future.html): EHang named airport-to-urban shuttle as a Qatar eVTOL focus area in Nov 2025. No specific HIA → Doha route announced. Status and sources verified.
+- [Port of Doha ↔ Katara Cultural Village](https://qatarevtol.com/routes/doha-port-to-katara.html): The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 
+
+## Regulators
+
+- [Qatar Civil Aviation Authority (QCAA)](https://qatarevtol.com/regulators/qcaa-qatar.html): The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on
+- [Qatar Ministry of Transport (MoT)](https://qatarevtol.com/regulators/mot-qatar.html): Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). M
+
+## Explainers
+
+- [Did Not Make The Cut: 13 Entities We Cut](https://qatarevtol.com/explainers/did-not-make-the-cut.html): We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosur
+- [Doha eVTOL vs taxi vs metro — comparison](https://qatarevtol.com/explainers/doha-evtol-vs-taxi-metro.html): Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor.
+- [Gulf eVTOL — UAE vs Qatar compared](https://qatarevtol.com/explainers/gulf-evtol-comparison-uae-vs-qatar.html): Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025).
+- [Qatar autonomous (pilotless) eVTOL — explained](https://qatarevtol.com/explainers/qatar-autonomous-evtol-explained.html): Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation.
+- [Qatar eVTOL & National Vision 2030](https://qatarevtol.com/explainers/qatar-evtol-vision-2030.html): How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3.
+
+## Data
+- [Full machine-readable data](https://qatarevtol.com/llms-full.txt)
+- [entities.json](https://qatarevtol.com/entities.json)
+- [Sitemap](https://qatarevtol.com/sitemap.xml)
