@@ -138,6 +138,43 @@ done
 raw=$(grep -rhoE 'class="(hub-)?card-status">[a-z][a-z_-]*<' --include='*.html' . | sort -u)
 [ -z "$raw" ] || say "raw status slug rendered as a label: $(echo $raw | tr -d '<')"
 
+# 15 ── Every indexable page declares a canonical that points at ITSELF, and no
+#       two pages claim the same one. A canonical pointing somewhere else is a
+#       request to de-index the page, so a copy-paste here deletes a page from
+#       search silently -- nothing breaks, traffic just never arrives.
+#       404.html is excluded: it must NOT have a canonical, and must say noindex.
+LIVE="https://${LIVE_HOST}"
+canon_tmp=$(mktemp)
+for f in $(pages); do
+  rel="${f#./}"
+  [ "$rel" = "404.html" ] && continue
+  case "$rel" in
+    index.html)   want="$LIVE/" ;;
+    */index.html) want="$LIVE/${rel%index.html}" ;;
+    *)            want="$LIVE/$rel" ;;
+  esac
+  got=$(grep -o '<link[^>]*rel="canonical"[^>]*>' "$f" | head -1 | grep -o 'href="[^"]*"' | sed 's/href="//;s/"//')
+  if [ -z "$got" ]; then
+    say "$rel: no canonical"
+  elif [ "$got" != "$want" ]; then
+    say "$rel: canonical is $got, should be $want"
+  else
+    echo "$got" >> "$canon_tmp"
+  fi
+  grep -qF "<loc>$want</loc>" sitemap.xml || say "$rel: not in sitemap.xml"
+done
+dupes=$(sort "$canon_tmp" | uniq -d)
+[ -z "$dupes" ] || say "canonical URL claimed by more than one page: $(echo $dupes)"
+rm -f "$canon_tmp"
+
+# 16 ── The 404 page must be uncrawlable and unlisted, or it competes with real
+#       pages in the index.
+if [ -f 404.html ]; then
+  grep -q 'noindex' 404.html || say "404.html is missing noindex"
+  grep -q '<link[^>]*rel="canonical"' 404.html && say "404.html must not declare a canonical"
+  grep -qF "<loc>${LIVE}/404.html</loc>" sitemap.xml && say "404.html must not be in sitemap.xml"
+fi
+
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
