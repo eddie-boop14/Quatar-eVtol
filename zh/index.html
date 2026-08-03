@@ -21,7 +21,7 @@
 
 
 
-<link rel="preload" href="/fonts/newsreader-wght-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/jetbrains-mono-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Newsreader';src:url('/fonts/newsreader-wght-normal.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}@font-face{font-family:'Newsreader';src:url('/fonts/newsreader-wght-italic.woff2') format('woff2');font-weight:200 800;font-style:italic;font-display:swap}@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-wght-normal.woff2') format('woff2');font-weight:100 800;font-style:normal;font-display:swap}</style><style>
+<link rel="preload" href="/fonts/newsreader-wght-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/jetbrains-mono-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Newsreader';src:url('/fonts/newsreader-wght-normal.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:optional}@font-face{font-family:'Newsreader';src:url('/fonts/newsreader-wght-italic.woff2') format('woff2');font-weight:200 800;font-style:italic;font-display:optional}@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-wght-normal.woff2') format('woff2');font-weight:100 800;font-style:normal;font-display:optional}</style><style>
 :root{--ink:#0a1628;--paper:#fefbf3;--bone:#f5f0e1;--rule:#d8d0bc;--muted:#6b7280;--navy:#0a1628;--navy-2:#0f2547;--navy-3:#1e3a5f;--signal:#c2410c;--signal-2:#ea580c;--signal-dim:#fde9d3;--sand:#f5e6c8;--ember:#e85d04;--electric:#22d3ee;--ok:#15803d;--warn:#a16207;--r:6px;--r-lg:12px;--r-xl:20px;--space:clamp(1rem,2.5vw,1.75rem);--head-h:3.75rem;--ticker-h:2.4rem;--ease:cubic-bezier(.2,.7,.1,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + var(--ticker-h) + 1rem)}
@@ -78,7 +78,7 @@ main{padding-top:calc(var(--head-h) + var(--ticker-h))}
 .hero-eyebrow::after{content:"";width:8px;height:8px;background:var(--electric);border-radius:50%;animation:pulse 2s ease-in-out infinite;box-shadow:0 0 12px var(--electric)}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 .hero h1{font-family:Newsreader,serif;font-size:clamp(2.6rem,7.5vw,5.6rem);font-weight:500;line-height:.98;letter-spacing:-.03em;margin-bottom:1.4rem;max-width:18ch;color:var(--paper)}
-.hero h1 em{font-style:italic;color:var(--signal);font-weight:500;position:relative;display:inline-block}
+.hero h1 em{font-style:italic;color:#e44c0e;font-weight:500;position:relative;display:inline-block}
 .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.05em;height:.06em;background:var(--signal);opacity:.4;transform:scaleX(0);transform-origin:left;animation:underline-in 1.2s var(--ease) 0.5s forwards}
 @keyframes underline-in{to{transform:scaleX(1)}}
 .hero-lead{font-size:clamp(1.05rem,1.5vw,1.25rem);color:rgba(254,251,243,.78);line-height:1.55;max-width:60ch;margin-bottom:2rem}
@@ -217,7 +217,7 @@ main{padding-top:calc(var(--head-h) + var(--ticker-h))}
 .manifesto-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(2rem,5vw,4rem);position:relative;z-index:1}
 @media(max-width:900px){.manifesto-inner{grid-template-columns:1fr}}
 .manifesto h2{font-family:Newsreader,serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;line-height:1.05;letter-spacing:-.025em;margin-bottom:1.4rem;color:var(--paper)}
-.manifesto h2 em{font-style:italic;color:var(--signal);font-weight:500}
+.manifesto h2 em{font-style:italic;color:#e44c0e;font-weight:500}
 .manifesto p{margin-bottom:1.1rem;color:rgba(254,251,243,.75);line-height:1.65;max-width:54ch}
 .manifesto-list{list-style:none;margin:0;padding:0}
 .manifesto-rule{display:flex;gap:1.2rem;padding:1.3rem 0;border-bottom:1px solid rgba(254,251,243,.08);align-items:flex-start}
@@ -227,7 +227,7 @@ main{padding-top:calc(var(--head-h) + var(--ticker-h))}
 .manifesto-report{margin-top:2.2rem;padding:1.4rem 1.6rem;background:rgba(254,251,243,.04);border:1px solid rgba(254,251,243,.1);border-radius:var(--r-lg);border-left:3px solid var(--signal)}
 .manifesto-report h3{font-family:Newsreader,serif;font-size:1.2rem;font-weight:600;margin-bottom:.5rem;color:var(--paper)}
 .manifesto-report p{font-size:.92rem;color:rgba(254,251,243,.7);margin-bottom:.7rem}
-.manifesto-report a{color:var(--signal);font-weight:600;border-bottom:1px solid var(--signal)}
+.manifesto-report a{color:#e44c0e;font-weight:600;border-bottom:1px solid var(--signal)}
 .manifesto-report a:hover{color:var(--signal-2);border-bottom-color:var(--signal-2)}
 
 /* FOOTER */
@@ -236,14 +236,14 @@ footer.site .inner{max-width:1280px;margin:0 auto;display:grid;grid-template-col
 @media(max-width:760px){footer.site .inner{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:480px){footer.site .inner{grid-template-columns:1fr}}
 footer.site h4{font-family:Newsreader,serif;font-size:1.05rem;font-weight:600;color:#fefbf3;margin-bottom:.85rem}
-footer.site h4 em{font-style:italic;color:var(--signal);font-weight:500}
+footer.site h4 em{font-style:italic;color:#e44c0e;font-weight:500}
 footer.site p{font-size:.86rem;line-height:1.55;margin-bottom:.7rem;color:rgba(254,251,243,.65)}
 footer.site .tagline{font-size:.92rem;color:rgba(254,251,243,.85)}
 footer.site .disclaimer{font-size:.76rem;color:rgba(254,251,243,.5);line-height:1.55;font-style:italic}
 footer.site ul{list-style:none}
 footer.site ul li{margin-bottom:.45rem}
 footer.site ul a{font-size:.86rem;color:rgba(254,251,243,.7);border-bottom:none}
-footer.site ul a:hover{color:var(--signal);border-bottom:none}
+footer.site ul a:hover{color:#e44c0e;border-bottom:none}
 footer.site .bottom{max-width:1280px;margin:2.8rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(254,251,243,.12);display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;font-size:.78rem;color:rgba(254,251,243,.5)}
 footer.site .bottom .credit{font-style:italic}
 </style>
