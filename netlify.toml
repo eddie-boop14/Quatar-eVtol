@@ -2,7 +2,7 @@
 # This is a pre-generated static site: HTML lives at the repo root, no build step.
 [build]
   publish = "."
-  command = ""
+  command = "./guard.sh"
 
 # Nudge SEO/security headers (safe defaults for a static directory).
 [[headers]]
@@ -17,3 +17,21 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Access-Control-Allow-Origin = "*"
+
+# ── Regression gate ────────────────────────────────────────────
+# Runs Lighthouse on every deploy and fails the build if a score drops
+# below threshold. Deliberately set to catch a real regression (the
+# pre-fix state scored 0.90 performance) without failing on Lighthouse's
+# normal run-to-run variance, which we measured at 96-100 on identical
+# builds. Raise these once a few deploys confirm a stable floor.
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs]
+    output_path = "reports/lighthouse.html"
+
+  [plugins.inputs.thresholds]
+    performance = 0.92
+    accessibility = 0.95
+    best-practices = 1.0
+    seo = 1.0
