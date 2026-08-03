@@ -115,6 +115,29 @@ if [ -d ar ]; then
   [ "$n" -eq "$m" ] || say "ar/: $((n-m)) page(s) missing dir=\"rtl\""
 fi
 
+# 13 ── The status filter must be able to reach every card. The homepage JS
+#       compares dataset.status to the selected <option value>; when the data
+#       drifted into two spellings of one status, 18 of 51 UAE cards and 9 of
+#       20 Qatar cards became unreachable by any selection, and two dropdown
+#       options matched nothing at all. Pure set comparison, no dependencies.
+for f in $(grep -rl 'id="f-status"' --include='*.html' . ); do
+  # only the status <select>, not the type/country ones sharing the filter bar
+  opts=$(tr '<' '\n' < "$f" \
+         | awk '/select .*id="f-status"/{i=1;next} i&&/^\/select/{exit} i' \
+         | grep -oE 'value="[^"]+"' | sed 's/value="//;s/"//' | sort -u)
+  cards=$(grep -oE 'data-status="[^"]+"' "$f" | sed 's/.*="//;s/"//' | sort -u)
+  orphan=$(comm -13 <(echo "$opts") <(echo "$cards"))
+  dead=$(comm -23 <(echo "$opts") <(echo "$cards"))
+  [ -z "$orphan" ] || say "$f: card status with no filter option: $(echo $orphan)"
+  [ -z "$dead" ]   || say "$f: filter option matching no card: $(echo $dead)"
+done
+
+# 14 ── A status badge must render a human label, never the raw token. Eight
+#       cards on each homepage showed 'trial-only' in five languages instead of
+#       Trial-only / Essais seulement / Nur Tests / تجريبي فقط / 仅试运行.
+raw=$(grep -rhoE 'class="(hub-)?card-status">[a-z][a-z_-]*<' --include='*.html' . | sort -u)
+[ -z "$raw" ] || say "raw status slug rendered as a label: $(echo $raw | tr -d '<')"
+
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
