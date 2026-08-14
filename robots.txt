@@ -52,3 +52,6 @@ User-agent: DuckAssistBot
 Allow: /
 
 Sitemap: https://qatarevtol.com/sitemap.xml
+
+# Open dataset, CC BY 4.0 — documented at /data.html
+# Sitemap lists every page; these are the machine-readable exports.

@@ -7,6 +7,15 @@ Languages: English (canonical), Arabic (/ar/), French (/fr/), German (/de/), Chi
 Editorial bar: contracted, built, flight-tested, or regulated — backed by primary-source documentation. Entities failing that bar are documented transparently on the did-not-make-the-cut page.
 
 
+## Dataset
+
+The full corpus is published as open data under CC BY 4.0 — free to use, redistribute and build on, attribution the only condition.
+
+- [Dataset documentation](https://qatarevtol.com/data.html): what is in it, the primary-source-only editorial standard, per-record verification dates, and how to cite it.
+- [entities.json](https://qatarevtol.com/entities.json): full dataset, five-language i18n block and complete source lists per entity.
+- [entities.csv](https://qatarevtol.com/entities.csv): flat export, one row per entity.
+- [feed.xml](https://qatarevtol.com/feed.xml): Atom feed of recently re-verified entities.
+
 ## Aircraft
 
 - [EHang EH216-S (Qatar trials)](https://qatarevtol.com/aircraft/ehang-eh216-s-qatar.html): EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources v

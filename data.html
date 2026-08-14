@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html dir="ltr" lang="en">
 <head>
+<title>Qatar eVTOL Reference Dataset — free, primary-sourced, CC BY 4.0</title>
+<meta name="description" content="12 eVTOL entities in Qatar as open data: operators, aircraft, vertiports, routes and regulators, each with status, coordinates, a verification date and named primary sources. JSON and CSV, CC BY 4.0.">
+<link rel="canonical" href="https://qatarevtol.com/data.html">
+<meta property="og:title" content="Qatar eVTOL Reference Dataset">
+<meta property="og:description" content="12 entities, 18 primary sources, per-record verification dates. Free with attribution.">
+<meta property="og:url" content="https://qatarevtol.com/data.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qatar eVTOL Reference Dataset">
+<meta name="twitter:description" content="12 entities, 18 primary sources, CC BY 4.0.">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Operators · Qatar eVTOL</title>
-<meta name="description" content="Companies authorized or applying to operate eVTOL services.">
-<link rel="canonical" href="https://qatarevtol.com/operators.html">
+
+
+
 <meta name="theme-color" content="#0a1628">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="alternate" hreflang="en" href="https://qatarevtol.com/operators.html">
-  <link rel="alternate" hreflang="ar" href="https://qatarevtol.com/ar/operators.html">
-  <link rel="alternate" hreflang="fr" href="https://qatarevtol.com/fr/operators.html">
-  <link rel="alternate" hreflang="de" href="https://qatarevtol.com/de/operators.html">
-  <link rel="alternate" hreflang="zh" href="https://qatarevtol.com/zh/operators.html">
+  
+  
+  
+  
+  
 
+<link rel="preconnect" href="https://images.unsplash.com">
 
 <link rel="preload" href="/fonts/newsreader-wght-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/jetbrains-mono-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Newsreader';src:url('/fonts/newsreader-wght-normal.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:optional}@font-face{font-family:'Newsreader';src:url('/fonts/newsreader-wght-italic.woff2') format('woff2');font-weight:200 800;font-style:italic;font-display:optional}@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-wght-normal.woff2') format('woff2');font-weight:100 800;font-style:normal;font-display:optional}</style>
 <style>
@@ -61,11 +72,11 @@ a:hover{border-bottom-color:var(--signal)}
 .hub-grid{max-width:1280px;margin:0 auto;padding:clamp(2rem,4vw,3.5rem) var(--space) clamp(3rem,6vw,5rem);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:.9rem}
 .hub-card{display:flex;flex-direction:column;background:var(--bone);border:1px solid var(--rule);border-radius:var(--r-lg);overflow:hidden;transition:transform .25s var(--ease),border-color .2s,box-shadow .25s var(--ease);min-width:0;color:var(--ink);position:relative;will-change:transform;border-bottom:1px solid var(--rule)}
 .hub-card:hover{transform:translateY(-4px);border-color:var(--signal);box-shadow:0 12px 28px rgba(10,22,40,.12);border-bottom:1px solid var(--signal)}
-.hub-card-thumb{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg, #fefbf3 0%, #d8d0bc 50%, #6b7280 100%);overflow:hidden}
+.hub-card-thumb{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #c2410c 100%);overflow:hidden}
 .hub-card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease),opacity .3s;opacity:.85}
 .hub-card:hover .hub-card-thumb img{transform:scale(1.06);opacity:1}
 .hub-card-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,22,40,.5) 100%);pointer-events:none}
-.hub-card-thumb.thumb-failed::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, #fefbf3 0%, #d8d0bc 50%, #6b7280 100%)}
+.hub-card-thumb.thumb-failed::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #c2410c 100%)}
 .hub-card-pulse{position:absolute;top:.7rem;right:.7rem;z-index:2;width:14px;height:14px;display:flex;align-items:center;justify-content:center}
 .pulse-dot{position:absolute;width:8px;height:8px;background:var(--electric);border-radius:50%;box-shadow:0 0 10px var(--electric)}
 .pulse-ring{position:absolute;width:14px;height:14px;border:2px solid var(--electric);border-radius:50%;animation:pulse-ring 2s ease-out infinite}
@@ -82,7 +93,76 @@ footer.hub-foot{background:var(--ink);color:rgba(254,251,243,.6);padding:2.5rem 
 footer.hub-foot a{color:rgba(254,251,243,.85);border-bottom:none}
 footer.hub-foot a:hover{color:var(--signal);border-bottom:none}
 </style>
-<link rel="alternate" type="application/atom+xml" title="Recently verified" href="https://qatarevtol.com/feed.xml"></head>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Dataset",
+ "name": "Qatar eVTOL Reference Dataset",
+ "alternateName": "Qatar eVTOL entities — operators, aircraft, vertiports, routes, regulators",
+ "description": "A primary-source reference dataset of the Qatar electric vertical take-off and landing (eVTOL) sector: 12 entities across aircraft, answer, regulator, route, vertiport, each with status, coordinates where applicable, a per-entity last-verified date, and citations to named primary sources (18 distinct source documents). Every claim traces to company investor relations, a regulator, or a government body. Aggregators and trade press are never cited. Records are re-checked against their sources on a monthly schedule and the verification date is published per record.",
+ "url": "https://qatarevtol.com/data.html",
+ "sameAs": "https://qatarevtol.com/entities.json",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "isAccessibleForFree": true,
+ "dateModified": "2026-05-20",
+ "creator": {
+  "@type": "Organization",
+  "name": "Qatar eVTOL",
+  "url": "https://qatarevtol.com/"
+ },
+ "spatialCoverage": {
+  "@type": "Place",
+  "name": "Qatar"
+ },
+ "keywords": [
+  "eVTOL",
+  "air taxi",
+  "vertiport",
+  "advanced air mobility",
+  "urban air mobility",
+  "Qatar",
+  "aviation infrastructure"
+ ],
+ "variableMeasured": [
+  {
+   "@type": "PropertyValue",
+   "name": "status",
+   "description": "Lifecycle state: planned, announced, design_approved, under_construction, trial_only, certified, operational, orphaned, decommissioned"
+  },
+  {
+   "@type": "PropertyValue",
+   "name": "last_verified",
+   "description": "Date the record was last re-checked against its primary sources"
+  },
+  {
+   "@type": "PropertyValue",
+   "name": "sources",
+   "description": "Named primary-source citations with URL, type and access date"
+  }
+ ],
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://qatarevtol.com/entities.json",
+   "name": "Full dataset (JSON, includes five-language i18n and full source lists)"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "text/csv",
+   "contentUrl": "https://qatarevtol.com/entities.csv",
+   "name": "Flat export (CSV, one row per entity)"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/atom+xml",
+   "contentUrl": "https://qatarevtol.com/feed.xml",
+   "name": "Atom feed of recently re-verified entities"
+  }
+ ]
+}
+</script>
+</head>
 <body>
 <header class="hub-nav">
   <div class="hub-nav-inner">
@@ -90,25 +170,67 @@ footer.hub-foot a:hover{color:var(--signal);border-bottom:none}
       <span class="brand-mark" aria-hidden="true"></span>
       <span>Qatar <em>eVTOL</em></span>
     </a>
-    <nav class="hub-langs"><a href="/operators.html" hreflang="en" aria-current="true">EN</a><a href="/ar/operators.html" hreflang="ar">AR</a><a href="/fr/operators.html" hreflang="fr">FR</a><a href="/de/operators.html" hreflang="de">DE</a><a href="/zh/operators.html" hreflang="zh">ZH</a></nav>
   </div>
 </header>
-<section class="hub-hero" style="--cat-gradient:linear-gradient(135deg, #fefbf3 0%, #d8d0bc 50%, #6b7280 100%)">
-  <div class="hub-hero-bg"></div>
+
+<section class="hub-hero">
   <div class="hub-hero-inner">
-    <div class="hub-eyebrow">Operators · 0 entries</div>
-    <h1 class="hub-title">Operators</h1>
-    <p class="hub-sub">Companies authorized or applying to operate eVTOL services.</p>
-    <div class="hub-stats"></div></div>
+    <div class="hub-eyebrow"><span class="pip"></span>Dataset · CC BY 4.0</div>
+    <h1 class="hero-title">Qatar eVTOL Reference Dataset</h1>
+    <p class="hero-lead">Every entity in this reference, as data. 12 records across
+    5 entity types, 18 distinct primary-source documents, a
+    per-record verification date, and five languages. Free to use with attribution.</p>
   </div>
 </section>
-<section class="hub-grid"><p class="hub-empty">Nothing is documented in this category yet.</p>
-</section>
-<footer class="hub-foot">
-  <a href="/">Qatar eVTOL</a> · independent reference · primary-source-only
-</footer>
-<script>
-(function(){if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{rootMargin:"0px 0px -8% 0px",threshold:0.05});document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)})}else{document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")})}})();
-</script>
+
+<article class="body">
+
+<h2 id="download">Download</h2>
+<div class="spec-table">
+<div class="spec-row"><div class="spec-k"><a href="/entities.json">entities.json</a></div>
+<div class="spec-v">Full dataset. Five-language <code>i18n</code> block and complete source
+lists per entity. This is the source of truth the site is built from.</div></div>
+<div class="spec-row"><div class="spec-k"><a href="/entities.csv">entities.csv</a></div>
+<div class="spec-v">Flat export, one row per entity, primary-source URLs pipe-separated.</div></div>
+<div class="spec-row"><div class="spec-k"><a href="/feed.xml">feed.xml</a></div>
+<div class="spec-v">Atom feed of the most recently re-verified entities.</div></div>
+</div>
+
+<h2 id="contents">What is in it</h2>
+<div class="spec-table"><div class="spec-row"><div class="spec-k">answer</div><div class="spec-v">5</div></div><div class="spec-row"><div class="spec-k">route</div><div class="spec-v">2</div></div><div class="spec-row"><div class="spec-k">aircraft</div><div class="spec-v">2</div></div><div class="spec-row"><div class="spec-k">regulator</div><div class="spec-v">2</div></div><div class="spec-row"><div class="spec-k">vertiport</div><div class="spec-v">1</div></div></div>
+<p>By lifecycle status:</p>
+<div class="spec-table"><div class="spec-row"><div class="spec-k">trial_only</div><div class="spec-v">5</div></div><div class="spec-row"><div class="spec-k">operational</div><div class="spec-v">4</div></div><div class="spec-row"><div class="spec-k">announced</div><div class="spec-v">2</div></div><div class="spec-row"><div class="spec-k">planned</div><div class="spec-v">1</div></div></div>
+
+<h2 id="standard">The editorial standard</h2>
+<p><strong>Primary sources only.</strong> Every claim traces to company investor relations,
+a regulator, or a government body. Trade press and aggregators may point us at a story;
+they are never cited as the source of a fact. An entity with no primary source on file is
+not published.</p>
+<p><strong>Verification dates are published, not implied.</strong> Each record carries
+<code>last_verified</code> — the date its claims were last re-checked against those sources.
+Currently 2026-05-01 to 2026-05-20. Records are re-checked on a monthly
+schedule; the riskiest are re-read first, ranked by age weighted by how fast that class of
+claim moves.</p>
+<p><strong>A new fact does not erase the old one.</strong> When something changes, the
+historical event keeps its timeline entry and its citation. Only claims phrased as current
+status are rewritten. The history is part of the record.</p>
+<p><strong>Targets are labelled as targets.</strong> "Targeted for Q3 2026" is a target.
+"Launching Q3 2026" would be a claim we cannot source, so we do not make it.</p>
+
+<h2 id="cite">How to cite</h2>
+<p>The licence is <a href="https://creativecommons.org/licenses/by/4.0/"
+rel="license noopener" target="_blank">CC BY 4.0</a>. Use it commercially, redistribute it,
+build on it — attribution is the only condition.</p>
+<pre><code>Qatar eVTOL Reference Dataset. qatarevtol.com, 2026-05-20.
+https://qatarevtol.com/data.html — CC BY 4.0</code></pre>
+<p>If you are an operator, regulator or vertiport developer and a record about you is wrong,
+that is a bug and we want it: the correction path is a primary source we can read.</p>
+
+<h2 id="sister">Companion dataset</h2>
+<p>The same standard, applied to the neighbouring market:
+<a href="https://evtolemirates.com/data.html" rel="noopener">evtolemirates.com</a>.</p>
+
+</article>
+<footer class="site-foot"><p>CC BY 4.0 · generated from entities.json · 2026-05-20</p></footer>
 </body>
 </html>

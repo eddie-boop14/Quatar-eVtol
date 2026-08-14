@@ -175,6 +175,40 @@ if [ -f 404.html ]; then
   grep -qF "<loc>${LIVE}/404.html</loc>" sitemap.xml && say "404.html must not be in sitemap.xml"
 fi
 
+# 17 ── The dataset is a product now, not a build artifact. Google Dataset
+#       Search is a separate index from web search and it is the surface this
+#       site can actually win on today, so the exports and the markup that
+#       declares them are load-bearing.
+for f in data.html entities.json entities.csv feed.xml; do
+  [ -s "$f" ] || say "missing or empty dataset artifact: $f"
+done
+if [ -s data.html ]; then
+  grep -q '"@type": "Dataset"'                      data.html || say "data.html: schema.org/Dataset markup gone"
+  grep -q 'creativecommons.org/licenses/by/4.0'     data.html || say "data.html: CC BY licence declaration gone (attribution IS the citation mechanism)"
+  grep -q '"@type": "DataDownload"'                 data.html || say "data.html: no DataDownload distribution declared"
+fi
+
+# 18 ── The exports must be regenerated, not stale. A CSV that disagrees with
+#       entities.json is worse than no CSV: it is a wrong answer served with
+#       confidence.
+if [ -s entities.csv ] && [ -s entities.json ]; then
+  j=$(grep -c '"slug":' entities.json)
+  c=$(( $(wc -l < entities.csv) - 1 ))
+  [ "$j" -eq "$c" ] || say "entities.csv has $c rows but entities.json has $j entities — re-run build_data.py"
+fi
+
+# 19 ── A citable source needs something to cite. One source once shipped typed
+#       'primary' with url: null -- an editorial note counted toward the
+#       primary-source tally the whole site's credibility rests on.
+if grep -q '"url": null' entities.json; then
+  say "entities.json has a source with url: null — retype it or give it a URL"
+fi
+
+# 20 ── Feed autodiscovery on every page, or the feed is unfindable.
+missing=0
+for f in $(pages); do grep -q 'application/atom+xml' "$f" || missing=$((missing+1)); done
+[ "$missing" -eq 0 ] || say "$missing page(s) missing the Atom feed autodiscovery link"
+
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
