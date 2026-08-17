@@ -209,6 +209,19 @@ missing=0
 for f in $(pages); do grep -q 'application/atom+xml' "$f" || missing=$((missing+1)); done
 [ "$missing" -eq 0 ] || say "$missing page(s) missing the Atom feed autodiscovery link"
 
+# 21 ── The reverse of 15. Invariant 15 proves every page is listed; nothing
+#       proved every listed URL exists. data.html shipped with a copy-pasted
+#       hreflang block advertising /ar/, /de/, /fr/ and /zh/ translations that
+#       were never written — four sitemap-declared 404s handed straight to
+#       Googlebot, on a domain whose entire problem is index trust.
+missing=0
+for u in $(grep -ohE 'https://'"$LIVE_HOST"'/[^"<]*' sitemap.xml | sort -u); do
+  rel="${u#https://$LIVE_HOST/}"
+  case "$rel" in ''|*/) rel="${rel}index.html" ;; esac
+  [ -f "$rel" ] || { say "sitemap.xml lists $u but $rel does not exist"; missing=$((missing+1)); }
+done
+[ "$missing" -eq 0 ] || say "$missing sitemap URL(s) point at nothing"
+
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
