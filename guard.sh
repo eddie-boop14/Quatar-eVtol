@@ -236,6 +236,27 @@ if [ -n "$badhref" ]; then
   say "link(s) with no valid target: $(echo $badhref | tr '\n' ' ')"
 fi
 
+# 23 ── One page, one URL. Netlify serves every page at BOTH /foo and /foo.html
+#       with a 200. Search Console showed Google indexing the extensionless
+#       form and earning impressions on it -- 75% of Qatar's page impressions
+#       landed on URLs the page's own canonical disowns. _redirects collapses
+#       them; it must stay complete or the split silently returns.
+if [ ! -s _redirects ]; then
+  say "_redirects missing or empty — run build_redirects.py"
+else
+  want=$(find . -name '*.html' -not -path './.git/*' ! -name 'index.html' ! -name '404.html' | wc -l)
+  got=$(awk '!/^#/ && NF' _redirects | wc -l)
+  [ "$want" -eq "$got" ] || say "_redirects has $got rules but $want pages need one — run build_redirects.py"
+  bad=0; shadow=0
+  while read -r from to code; do
+    [ -f ".${to}" ] || { say "_redirects target does not exist: $to"; bad=$((bad+1)); }
+    [ "$code" = "301!" ] || { say "_redirects rule not a forced 301: $from $code"; bad=$((bad+1)); }
+    [ -f ".${from}/index.html" ] && { say "_redirects rule shadows a directory index: $from"; shadow=$((shadow+1)); }
+  done < <(awk '!/^#/ && NF' _redirects)
+  dup=$(awk '!/^#/ && NF{print $1}' _redirects | sort | uniq -d)
+  [ -z "$dup" ] || say "_redirects has duplicate source path(s): $(echo $dup | head -c 120)"
+fi
+
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
