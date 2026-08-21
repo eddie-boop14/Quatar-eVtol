@@ -200,8 +200,10 @@ fi
 # 19 ── A citable source needs something to cite. One source once shipped typed
 #       'primary' with url: null -- an editorial note counted toward the
 #       primary-source tally the whole site's credibility rests on.
-if grep -q '"url": null' entities.json; then
-  say "entities.json has a source with url: null — retype it or give it a URL"
+badurl=$(grep -n '"url":' entities.json | grep -v '"url": "https\?://' || true)
+if [ -n "$badurl" ]; then
+  say "entities.json source(s) with a non-citable url (null, empty or not http):"
+  echo "$badurl" | head -5
 fi
 
 # 20 ── Feed autodiscovery on every page, or the feed is unfindable.
@@ -221,6 +223,18 @@ for u in $(grep -ohE 'https://'"$LIVE_HOST"'/[^"<]*' sitemap.xml | sort -u); do
   [ -f "$rel" ] || { say "sitemap.xml lists $u but $rel does not exist"; missing=$((missing+1)); }
 done
 [ "$missing" -eq 0 ] || say "$missing sitemap URL(s) point at nothing"
+
+# 22 ── Every in-page link must actually go somewhere. A source list once
+#       rendered <a href="internal"> and <a href=""> for notes that had no URL
+#       to cite: five live 404s per language plus a self-link, and Search
+#       Console reported the 404 while all 21 invariants passed.
+badhref=$(for f in $(pages); do grep -oE 'href="[^"]*"' "$f"; done \
+  | sed 's/^href="//; s/"$//' | sed 's/^$/<empty>/' | sort -u \
+  | grep -vE '^(https?://|/|#|mailto:|tel:|data:)' \
+  | grep -vE '^[A-Za-z0-9._~-]+\.(html|xml|json|csv|txt|png|svg|ico|woff2)$' || true)
+if [ -n "$badhref" ]; then
+  say "link(s) with no valid target: $(echo $badhref | tr '\n' ' ')"
+fi
 
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
