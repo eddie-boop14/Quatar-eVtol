@@ -32,9 +32,9 @@ a:hover{border-bottom-color:var(--signal)}
 button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 
 /* REVEAL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.in{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+html.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.js .reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 
 /* HEADER + TICKER */
 .head{position:fixed;top:0;left:0;right:0;z-index:60;background:color-mix(in srgb,var(--paper) 85%,transparent);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s,background .2s}
@@ -250,7 +250,7 @@ footer.site .bottom .credit{font-style:italic}
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="alternate" type="application/atom+xml" title="最近核实" href="https://qatarevtol.com/feed.xml"></head>
+<link rel="alternate" type="application/atom+xml" title="最近核实" href="https://qatarevtol.com/feed.xml"><script>if('IntersectionObserver' in window)document.documentElement.classList.add('js')</script></head>
 <body>
 <header class="head" id="site-head">
 <div class="head-inner">

@@ -38,9 +38,9 @@ img{max-width:100%;display:block;height:auto}
 a{color:var(--navy);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s,color .15s}
 a:hover{border-bottom-color:var(--signal)}
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.reveal.in{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+html.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+html.js .reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 
 .hub-nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
 .hub-nav-inner{max-width:1280px;margin:0 auto;padding:.85rem var(--space);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
@@ -162,7 +162,7 @@ footer.hub-foot a:hover{color:var(--signal);border-bottom:none}
  ]
 }
 </script>
-</head>
+<script>if('IntersectionObserver' in window)document.documentElement.classList.add('js')</script></head>
 <body>
 <header class="hub-nav">
   <div class="hub-nav-inner">

@@ -450,9 +450,9 @@
   }
 
   /* SCROLL REVEAL */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-  .reveal.in{opacity:1;transform:translateY(0)}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  html.js .reveal.in{opacity:1;transform:translateY(0)}
+  @media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 
   /* HEADER UPGRADE — gradient brand mark matching landing */
   .header{background:color-mix(in srgb,var(--paper) 90%,transparent);
@@ -710,7 +710,7 @@
   /* SECTION ID anchor offset for sticky header */
   .body h2[id]{scroll-margin-top:calc(var(--header-h) + 1.2rem)}
 </style>
-<link rel="alternate" type="application/atom+xml" title="Vérifié récemment" href="https://qatarevtol.com/feed.xml"></head>
+<link rel="alternate" type="application/atom+xml" title="Vérifié récemment" href="https://qatarevtol.com/feed.xml"><script>if('IntersectionObserver' in window)document.documentElement.classList.add('js')</script></head>
 <body>
 <a class="skip-link" href="#main">Accueil</a>
 <div class="auto-trans-banner">Cette page est traduite automatiquement depuis l’anglais. Les sources originales restent en anglais — cliquez sur un lien source pour lire le document primaire.</div>

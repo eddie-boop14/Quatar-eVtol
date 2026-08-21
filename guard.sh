@@ -257,6 +257,26 @@ else
   [ -z "$dup" ] || say "_redirects has duplicate source path(s): $(echo $dup | head -c 120)"
 fi
 
+# 24 ── Content is visible by default; JS opts into hiding it. .reveal{opacity:0}
+#       with JS adding .in meant every reveal block was invisible to anything
+#       that does not execute JavaScript -- including the nine AI crawlers
+#       robots.txt invites by name, most of which do not. The hiding rule must
+#       stay scoped to html.js, and the class must be set from an inline head
+#       script gated on IntersectionObserver, so the animation only ever arms
+#       when it can actually run. 404.html is exempt: it self-reveals with a
+#       pure CSS animation and needs no JS at all.
+for f in $(pages); do
+  [ "${f#./}" = "404.html" ] && continue
+  grep -q '\.reveal\.in{' "$f" || continue          # page has no JS-driven reveal
+  a=$(grep -o '\.reveal{opacity:0' "$f" | wc -l)
+  b=$(grep -o 'html\.js \.reveal{opacity:0' "$f" | wc -l)
+  [ "$a" -eq "$b" ] || say "$f: .reveal{opacity:0} not scoped to html.js — hidden without JS"
+  grep -q "classList.add('js')" "$f" \
+    || say "$f: missing the html.js opt-in script"
+  grep -q "'IntersectionObserver' in window" "$f" \
+    || say "$f: html.js opt-in not gated on IntersectionObserver"
+done
+
 # 12 ── The machine-readable surface. This is the whole point of the site.
 for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
