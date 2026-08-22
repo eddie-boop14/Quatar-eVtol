@@ -59,7 +59,8 @@ I18N = {
 
 MARK_OPEN = "<!-- sister-site -->"
 MARK_CLOSE = "<!-- /sister-site -->"
-FOOTER = '<footer class="site">'
+# Three real footer variants across the templates; 404/stubs have none.
+FOOTERS = ('<footer class="site">', '<footer class="site-foot"', '<footer class="hub-foot"')
 LANG_DIRS = {"ar", "fr", "de", "zh"}
 
 
@@ -101,7 +102,8 @@ def main() -> int:
         if rel.parts[0] == ".git":
             continue
         html = path.read_text(encoding="utf-8")
-        if FOOTER not in html:
+        footer = next((f for f in FOOTERS if f in html), None)
+        if footer is None:
             skipped += 1
             continue
         blk = block(lang_of(rel))
@@ -115,7 +117,7 @@ def main() -> int:
             )
             refreshed += 1
         else:
-            new = html.replace(FOOTER, blk + FOOTER, 1)
+            new = html.replace(footer, blk + footer, 1)
             injected += 1
         if new != html:
             path.write_text(new, encoding="utf-8")
