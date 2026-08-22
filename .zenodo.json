@@ -1,12 +1,29 @@
 {
  "title": "Qatar eVTOL Reference Dataset",
  "upload_type": "dataset",
- "description": "Primary-source reference dataset for eVTOL infrastructure in the State of Qatar: aircraft, routes, vertiports, regulators and explainers, with per-record status, verification date and full primary-source lists. Published at https://qatarevtol.com/data.html (CC BY 4.0). Sister dataset: https://qatarevtol.com.",
+ "description": "Primary-source reference dataset for eVTOL infrastructure in the State of Qatar: aircraft, routes, vertiports, regulators and explainers, with per-record status, verification date and full primary-source lists. Published at https://qatarevtol.com/data.html (CC BY 4.0). Sister dataset: https://evtolemirates.com.",
  "license": "CC-BY-4.0",
- "creators": [{"name": "Qatar eVTOL (qatarevtol.com)"}],
- "keywords": ["eVTOL", "advanced air mobility", "air taxi", "Doha", "Qatar", "vertiport"],
+ "creators": [
+  {
+   "name": "Qatar eVTOL (qatarevtol.com)"
+  }
+ ],
+ "keywords": [
+  "eVTOL",
+  "advanced air mobility",
+  "air taxi",
+  "Doha",
+  "Qatar",
+  "vertiport"
+ ],
  "related_identifiers": [
-  {"relation": "isSupplementTo", "identifier": "https://qatarevtol.com/data.html"},
-  {"relation": "isPartOf", "identifier": "https://qatarevtol.com/entities.json"}
+  {
+   "relation": "isSupplementTo",
+   "identifier": "https://qatarevtol.com/data.html"
+  },
+  {
+   "relation": "isPartOf",
+   "identifier": "https://qatarevtol.com/entities.json"
+  }
  ]
 }
