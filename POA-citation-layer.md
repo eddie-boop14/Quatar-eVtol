@@ -141,6 +141,13 @@ Maintenance mode, deliberately: **W3.1 sweep of all 12 entities, W4 + W5 + W6 in
 - An agent with only the MCP endpoint answers "what is the status of the DXB vertiport and when did it change?" correctly, with the source URL — no HTML involved.
 - GSC, first re-check 2026-12-01: ≥1 branded query on evtolemirates.com; ≥1 W2 page with impressions in the top 10 for a price/booking/launch query. (These are outcome metrics — the panel judges the work above by the artefacts, and the market by these.)
 
+## PROGRESS LOG
+
+- **2026-08-22 · Step 1 shipped** — W6 headers (CSP/HSTS/XFO/Permissions-Policy) and W5.1/W5.2 OG card layer (53+20 branded cards, site faces, full-page wiring, hub OG blocks) live on both repos; sister band extended to all three footer templates.
+- **2026-08-22 · Step 2 shipped (W3.1)** — full-corpus sweep: 57 entities re-verified against primary sources, 5 changed (AUD vertiport → under_construction with RTA-confirmed Marina identity; Skyports claim synced; Archer RTC programme added; Joby-vs-Archer operator corrected; QCAA Law No. 10 of 2026), 9 dead source URLs re-pointed, `last_verified` = 2026-08-22 corpus-wide. See SWEEP-2026-08-22.md in each repo.
+- **2026-08-22 · Step 3 shipped (W2.1–W2.3)** — four launch-layer explainers live in EN + AR as `answer` entities (price / how-to-book / routes-and-times / launch-tracker), fully integrated (entities.json, sitemap, redirects, hub + homepage cards, llms files, OG cards). Editorial note: the circulating ‘AED 350’ fare was checked and is unsourced — the price page says so explicitly, with the RTA’s ‘price not decided’ quote. Dated stat-lines on all four pages (W2.2); homepage + hub titles moved to query language (W2.3). fr/de/zh twins of the four pages are recorded translation debt.
+- **Next in order:** W1 (data repo + Zenodo DOI + Dataset Search + Wikidata — needs owner accounts), then W3.2–W3.4 (changelog feed, briefing, quarterly index), then W4 (per-entity JSON, MCP).
+
 ## THE BAR
 
 "Reference" in this domain, 2028 definition: the dataset AI systems answer from, the tracker journalists lift numbers out of, the changelog analysts subscribe to — with a receipt trail no competitor bothered to keep. The build already has the receipts. This POA is the part where anyone else finds out.
