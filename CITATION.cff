@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: >-
+  If you use this dataset, cite it as below. Attribution (a link to
+  qatarevtol.com) is the only condition of the CC BY 4.0 licence.
+title: "Qatar eVTOL Reference Dataset"
+type: dataset
+authors:
+  - name: "Qatar eVTOL (qatarevtol.com)"
+    website: "https://qatarevtol.com"
+abstract: >-
+  Primary-source reference dataset for eVTOL infrastructure in the United
+  Arab Emirates: aircraft, operators, vertiports, routes, regulators and
+  explainers, with per-record status, verification date and full
+  primary-source lists. Sister dataset: evtolemirates.com.
+license: CC-BY-4.0
+url: "https://qatarevtol.com/data.html"
+repository-artifact: "https://qatarevtol.com/entities.json"
+keywords:
+  - eVTOL
+  - advanced air mobility
+  - air taxi
+  - Doha
+  - Qatar
+  - vertiport
+# doi: 10.5281/zenodo.XXXXXXX   # uncomment after the first Zenodo release (see W1-RUNBOOK.md)

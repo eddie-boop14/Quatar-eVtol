@@ -1,0 +1,50 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/explainers/did-not-make-the-cut.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "did-not-make-the-cut",
+  "entity_type": "answer",
+  "country": null,
+  "city": null,
+  "status": "operational",
+  "last_verified": "2026-08-22",
+  "name": "Did Not Make The Cut: 13 Entities We Cut",
+  "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources.",
+  "latitude": null,
+  "longitude": null,
+  "sources": [
+   {
+    "id": "research-2026-05-20",
+    "name": "Primary-source audit (May 2026)",
+    "type": "editorial-note",
+    "accessed": "2026-05-20"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Did Not Make The Cut: 13 Entities We Cut",
+    "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
+   },
+   "ar": {
+    "name": "Did Not Make The Cut: 13 Entities We Cut",
+    "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
+   },
+   "fr": {
+    "name": "Did Not Make The Cut: 13 Entities We Cut",
+    "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
+   },
+   "de": {
+    "name": "Did Not Make The Cut: 13 Entities We Cut",
+    "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
+   },
+   "zh": {
+    "name": "Did Not Make The Cut: 13 Entities We Cut",
+    "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
+   }
+  }
+ }
+}

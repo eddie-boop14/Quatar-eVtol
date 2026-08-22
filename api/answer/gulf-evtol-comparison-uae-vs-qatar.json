@@ -1,0 +1,93 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/explainers/gulf-evtol-comparison-uae-vs-qatar.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "gulf-evtol-comparison-uae-vs-qatar",
+  "entity_type": "answer",
+  "country": null,
+  "city": null,
+  "status": "trial_only",
+  "last_verified": "2026-08-22",
+  "name": "Gulf eVTOL — UAE vs Qatar compared",
+  "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025).",
+  "latitude": 25.0746,
+  "longitude": 53.4108,
+  "sources": [
+   {
+    "id": "joby-rta-flying",
+    "name": "Flying Magazine — Joby Aviation Signs Exclusive 6-Year Deal for Electric Air Taxi Service in Dubai",
+    "url": "https://www.flyingmag.com/joby-aviation-signs-exclusive-6-year-deal-for-electric-air-taxi-service-in-dubai/",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "archer-falcon-pr-2024",
+    "name": "Archer Aviation IR — Archer and Falcon Aviation to Jointly Develop Vertiport Network in Dubai and Abu Dhabi (11 Mar 2024)",
+    "url": "https://investors.archer.com/news/news-details/2024/Archer-and-Falcon-Aviation-to-Jointly-Develop-Vertiport-Network-in-Dubai-and-Abu-Dhabi-for-the-Launch-of-Flying-Car-Operations-in-UAE-as-Soon-as-2025/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-ir-2025-11-17",
+    "name": "EHang IR — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://ir.ehang.com/news-releases/news-release-details/ehang-eh216-s-conducts-first-urban-human-carrying-pilotless/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-ir-2024-driftx",
+    "name": "EHang — EH216-S Completes Debut Flight in Abu Dhabi at DRIFTx (29 Apr 2024)",
+    "url": "https://www.ehang.com/news/1082.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "aviation-week-2025-10",
+    "name": "Aviation Week — Archer, Joby Advance UAE Commercial Launches In 2026 (Oct 2025)",
+    "url": "https://aviationweek.com/air-transport/aircraft-propulsion/archer-joby-advance-uae-commercial-launches-2026",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "mot-strategy-2025-2030",
+    "name": "Qatar Ministry of Transport — Prime Minister Launches Ministry of Transport Strategy 2025-2030",
+    "url": "https://mot.gov.qa/en/news/prime-minister-launches-ministry-transport-strategy-2025-2030",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "flyingmag-driftx-2024",
+    "name": "Flying Magazine — Air Taxi Manufacturers Archer, Joby Set Sights on Abu Dhabi (DriftX, April 2024)",
+    "url": "https://www.flyingmag.com/air-taxi-manufacturers-archer-joby-set-sights-on-abu-dhabi/",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Gulf eVTOL — UAE vs Qatar compared",
+    "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025)."
+   },
+   "ar": {
+    "name": "Gulf eVTOL — UAE vs Qatar compared",
+    "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025)."
+   },
+   "fr": {
+    "name": "Gulf eVTOL — UAE vs Qatar compared",
+    "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025)."
+   },
+   "de": {
+    "name": "Gulf eVTOL — UAE vs Qatar compared",
+    "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025)."
+   },
+   "zh": {
+    "name": "Gulf eVTOL — UAE vs Qatar compared",
+    "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025)."
+   }
+  }
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/aircraft/qatar-future-certified-aircraft.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "qatar-future-certified-aircraft",
+  "entity_type": "aircraft",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "announced",
+  "last_verified": "2026-08-22",
+  "name": "Qatar — Future Certified Aircraft (placeholder)",
+  "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified.",
+  "latitude": null,
+  "longitude": null,
+  "sources": [
+   {
+    "id": "qna-2025-11-15",
+    "name": "Qatar News Agency — MOT Carries Out Trial of First Flight with Unmanned eVTOL in Qatar (15 Nov 2025)",
+    "url": "https://qna.org.qa/en/News-Area/News/2025-11/15/mot-carries-out-trial-of-first-flight-with-unmanned-evtol-in-qatar",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-news-1310",
+    "name": "EHang — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://www.ehang.com/news/1310.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "aviationweek-qia-beta",
+    "name": "Aviation Week — Qatari Backing Takes Beta Past The $1 Billion Funding Mark (Oct 2024)",
+    "url": "https://aviationweek.com/aerospace/advanced-air-mobility/qatari-backing-takes-beta-past-1-billion-funding-mark",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Qatar — Future Certified Aircraft (placeholder)",
+    "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
+   },
+   "ar": {
+    "name": "Qatar — Future Certified Aircraft (placeholder)",
+    "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
+   },
+   "fr": {
+    "name": "Qatar — Future Certified Aircraft (placeholder)",
+    "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
+   },
+   "de": {
+    "name": "Qatar — Future Certified Aircraft (placeholder)",
+    "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
+   },
+   "zh": {
+    "name": "Qatar — Future Certified Aircraft (placeholder)",
+    "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
+   }
+  }
+ }
+}

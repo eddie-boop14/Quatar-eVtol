@@ -1,0 +1,93 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/aircraft/ehang-eh216-s-qatar.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "ehang-eh216-s-qatar",
+  "entity_type": "aircraft",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "trial_only",
+  "last_verified": "2026-08-22",
+  "name": "EHang EH216-S (Qatar trials)",
+  "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified.",
+  "latitude": 25.36091,
+  "longitude": 51.52474,
+  "sources": [
+   {
+    "id": "ehang-news-1310",
+    "name": "EHang — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://www.ehang.com/news/1310.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-product-page",
+    "name": "EHang — EH216-S Product Page (specifications)",
+    "url": "https://www.ehang.com/ehang216s/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-news-990",
+    "name": "EHang — Successfully Obtains Type Certificate for EH216-S Issued by CAAC (Oct 2023)",
+    "url": "https://www.ehang.com/news/990.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-news-1021",
+    "name": "EHang — Standard Airworthiness Certificate for EH216-S (Dec 2023)",
+    "url": "https://www.ehang.com/news/1021.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-news-1058",
+    "name": "EHang — Production Certificate from CAAC (Apr 2024)",
+    "url": "https://www.ehang.com/news/1058.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-ir-aoc",
+    "name": "EHang IR — EH216-S Operators Obtain Air Operator Certificates (30 Mar 2025)",
+    "url": "https://ir.ehang.com/news-releases/news-release-details/ehangs-eh216-s-evtol-operators-obtain-air-operator-certificates/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "qna-2025-11-15",
+    "name": "Qatar News Agency — MOT Carries Out Trial of First Flight with Unmanned eVTOL in Qatar (15 Nov 2025)",
+    "url": "https://qna.org.qa/en/News-Area/News/2025-11/15/mot-carries-out-trial-of-first-flight-with-unmanned-evtol-in-qatar",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "EHang EH216-S (Qatar trials)",
+    "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
+   },
+   "ar": {
+    "name": "EHang EH216-S (Qatar trials)",
+    "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
+   },
+   "fr": {
+    "name": "EHang EH216-S (Qatar trials)",
+    "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
+   },
+   "de": {
+    "name": "EHang EH216-S (Qatar trials)",
+    "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
+   },
+   "zh": {
+    "name": "EHang EH216-S (Qatar trials)",
+    "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
+   }
+  }
+ }
+}

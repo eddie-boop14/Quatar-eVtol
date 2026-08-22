@@ -1,0 +1,65 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/vertiports/doha-airport-vertiport-future.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "doha-airport-vertiport-future",
+  "entity_type": "vertiport",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "planned",
+  "last_verified": "2026-08-22",
+  "name": "Doha Airport Vertiport (planned)",
+  "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified.",
+  "latitude": 25.2731,
+  "longitude": 51.608,
+  "sources": [
+   {
+    "id": "ehang-news-1310",
+    "name": "EHang — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://www.ehang.com/news/1310.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "qna-2025-11-15",
+    "name": "Qatar News Agency — MOT Carries Out Trial of First Flight with Unmanned eVTOL in Qatar (15 Nov 2025)",
+    "url": "https://qna.org.qa/en/News-Area/News/2025-11/15/mot-carries-out-trial-of-first-flight-with-unmanned-evtol-in-qatar",
+    "type": "official-news",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "hia-press-2025",
+    "name": "Hamad International Airport — 2025 Operational Performance Press Release",
+    "url": "https://dohahamadairport.com/press-releases/news/2025-operational-performance",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Doha Airport Vertiport (planned)",
+    "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
+   },
+   "ar": {
+    "name": "Doha Airport Vertiport (planned)",
+    "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
+   },
+   "fr": {
+    "name": "Doha Airport Vertiport (planned)",
+    "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
+   },
+   "de": {
+    "name": "Doha Airport Vertiport (planned)",
+    "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
+   },
+   "zh": {
+    "name": "Doha Airport Vertiport (planned)",
+    "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
+   }
+  }
+ }
+}
