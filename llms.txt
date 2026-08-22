@@ -32,7 +32,7 @@ The full corpus is published as open data under CC BY 4.0 — free to use, redis
 
 ## Regulators
 
-- [Qatar Civil Aviation Authority (QCAA)](https://qatarevtol.com/regulators/qcaa-qatar.html): The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on
+- [Qatar Civil Aviation Authority (QCAA)](https://qatarevtol.com/regulators/qcaa-qatar.html): The Qatar Civil Aviation Authority (QCAA) authorized the EHang EH216-S first urban pilotless eVTOL flights in the Middle East (Nov 2025). Law No. 10 of 2026 gives QCAA statutory licensing powers over unmanned aircraft. Distinct from MoT.
 - [Qatar Ministry of Transport (MoT)](https://qatarevtol.com/regulators/mot-qatar.html): Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). M
 
 ## Explainers
