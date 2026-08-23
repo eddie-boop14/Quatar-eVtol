@@ -1,0 +1,67 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "qatarevtol.com entity API",
+  "version": "2026-08-22",
+  "description": "Static, read-only JSON for every entity in the reference. CC BY 4.0; per-record primary sources and verification dates included.",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/"
+  }
+ },
+ "servers": [
+  {
+   "url": "https://qatarevtol.com"
+  }
+ ],
+ "paths": {
+  "/api/index.json": {
+   "get": {
+    "summary": "List every entity with status, last_verified and endpoint URL",
+    "responses": {
+     "200": {
+      "description": "Entity index"
+     }
+    }
+   }
+  },
+  "/api/{entityType}/{slug}.json": {
+   "get": {
+    "summary": "One entity record: status, claim, coordinates, i18n, primary sources",
+    "parameters": [
+     {
+      "name": "entityType",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "enum": [
+        "aircraft",
+        "answer",
+        "operator",
+        "regulator",
+        "route",
+        "vertiport"
+       ]
+      }
+     },
+     {
+      "name": "slug",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Entity record"
+     },
+     "404": {
+      "description": "Unknown entity"
+     }
+    }
+   }
+  }
+ }
+}

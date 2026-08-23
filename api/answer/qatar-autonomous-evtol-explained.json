@@ -1,0 +1,65 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/explainers/qatar-autonomous-evtol-explained.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "qatar-autonomous-evtol-explained",
+  "entity_type": "answer",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "trial_only",
+  "last_verified": "2026-08-22",
+  "name": "Qatar autonomous (pilotless) eVTOL — explained",
+  "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation.",
+  "latitude": 25.2854,
+  "longitude": 51.531,
+  "sources": [
+   {
+    "id": "ehang-ir-2025-11-17",
+    "name": "EHang IR — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://ir.ehang.com/news-releases/news-release-details/ehang-eh216-s-conducts-first-urban-human-carrying-pilotless/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-eh216s-product",
+    "name": "EHang official EH216-S product page (manufacturer specs and autonomy description)",
+    "url": "https://www.ehang.com/ehang216s/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-ir-2024-driftx",
+    "name": "EHang — EH216-S Completes Debut Flight in Abu Dhabi at DRIFTx (29 Apr 2024)",
+    "url": "https://www.ehang.com/news/1082.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Qatar autonomous (pilotless) eVTOL — explained",
+    "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+   },
+   "ar": {
+    "name": "Qatar autonomous (pilotless) eVTOL — explained",
+    "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+   },
+   "fr": {
+    "name": "Qatar autonomous (pilotless) eVTOL — explained",
+    "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+   },
+   "de": {
+    "name": "Qatar autonomous (pilotless) eVTOL — explained",
+    "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+   },
+   "zh": {
+    "name": "Qatar autonomous (pilotless) eVTOL — explained",
+    "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+   }
+  }
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/explainers/doha-evtol-vs-taxi-metro.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "doha-evtol-vs-taxi-metro",
+  "entity_type": "answer",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "trial_only",
+  "last_verified": "2026-08-22",
+  "name": "Doha eVTOL vs taxi vs metro — comparison",
+  "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor.",
+  "latitude": 25.2854,
+  "longitude": 51.531,
+  "sources": [
+   {
+    "id": "ehang-ir-2025-11-17",
+    "name": "EHang IR — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://ir.ehang.com/news-releases/news-release-details/ehang-eh216-s-conducts-first-urban-human-carrying-pilotless/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "mowasalat-karwa",
+    "name": "Mowasalat (Karwa) — Taxi & Limousine official services page",
+    "url": "https://www.mowasalat.com/our-service/taxi-limousine/",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "visit-qatar-metro",
+    "name": "Visit Qatar (official) — Doha Metro guide (Qatar Tourism)",
+    "url": "https://visitqatar.com/intl-en/plan-your-trip/getting-around/doha-metro",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-eh216s-product",
+    "name": "EHang official EH216-S product page (manufacturer specs)",
+    "url": "https://www.ehang.com/ehang216s/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "rome2rio-doha-port-katara",
+    "name": "Rome2Rio — Doha Port to Katara distance (auxiliary, ~12 km road distance only)",
+    "url": "https://www.rome2rio.com/s/Doha-Port-Qatar/Katara-Cultural-Village",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Doha eVTOL vs taxi vs metro — comparison",
+    "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+   },
+   "ar": {
+    "name": "Doha eVTOL vs taxi vs metro — comparison",
+    "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+   },
+   "fr": {
+    "name": "Doha eVTOL vs taxi vs metro — comparison",
+    "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+   },
+   "de": {
+    "name": "Doha eVTOL vs taxi vs metro — comparison",
+    "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+   },
+   "zh": {
+    "name": "Doha eVTOL vs taxi vs metro — comparison",
+    "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+   }
+  }
+ }
+}

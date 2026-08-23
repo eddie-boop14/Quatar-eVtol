@@ -1,0 +1,72 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/explainers/qatar-evtol-vision-2030.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "qatar-evtol-vision-2030",
+  "entity_type": "answer",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "operational",
+  "last_verified": "2026-08-22",
+  "name": "Qatar eVTOL & National Vision 2030",
+  "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3.",
+  "latitude": 25.2854,
+  "longitude": 51.531,
+  "sources": [
+   {
+    "id": "qnv-mofa",
+    "name": "Qatar Ministry of Foreign Affairs — Qatar National Vision 2030 (official text)",
+    "url": "https://mofa.gov.qa/en/state-of-qatar/qtr-national-vision-2030/qatar-national-vision-2030",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "mot-strategy-2025-2030",
+    "name": "Qatar Ministry of Transport — Prime Minister Launches Ministry of Transport Strategy 2025-2030",
+    "url": "https://mot.gov.qa/en/news/prime-minister-launches-ministry-transport-strategy-2025-2030",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "gco-mot-strategy",
+    "name": "Qatar Government Communications Office — Prime Minister launches MoT Strategy 2025-2030 (project count, investment scale, electrification figures)",
+    "url": "https://www.gco.gov.qa/en/media-centre/top-news/prime-minister-launches-ministry-of-transport-strategy-2025-2030/",
+    "type": "primary",
+    "accessed": "2026-05-01"
+   },
+   {
+    "id": "ehang-ir-2025-11-17",
+    "name": "EHang IR — EH216-S Conducts First Urban Human-Carrying Pilotless eVTOL Flights in the Middle East, Partnering with Qatar's Ministry of Transport (17 Nov 2025)",
+    "url": "https://ir.ehang.com/news-releases/news-release-details/ehang-eh216-s-conducts-first-urban-human-carrying-pilotless/",
+    "type": "operator-ir",
+    "accessed": "2026-05-01"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Qatar eVTOL & National Vision 2030",
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+   },
+   "ar": {
+    "name": "Qatar eVTOL & National Vision 2030",
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+   },
+   "fr": {
+    "name": "Qatar eVTOL & National Vision 2030",
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+   },
+   "de": {
+    "name": "Qatar eVTOL & National Vision 2030",
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+   },
+   "zh": {
+    "name": "Qatar eVTOL & National Vision 2030",
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+   }
+  }
+ }
+}

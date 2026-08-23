@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>qatarevtol.com — fact changes</title>
+<id>tag:qatarevtol.com,2026:changes</id>
+<updated>2026-08-03T00:00:00Z</updated>
+<link href="https://qatarevtol.com/changes.xml" rel="self"/>
+<link href="https://qatarevtol.com/changes.html"/>
+<entry><id>tag:qatarevtol.com,2026-08-03:doha-evtol-vs-taxi-metro:status:trial_only</id><title>Doha eVTOL vs taxi vs metro — comparison: status trial-only → trial only</title><updated>2026-08-03T00:00:00Z</updated><link href="https://qatarevtol.com/changes.html"/><summary>Doha eVTOL vs taxi vs metro — comparison: status trial-only → trial only</summary></entry>
+<entry><id>tag:qatarevtol.com,2026-08-03:ehang-eh216-s-qatar:status:trial_only</id><title>EHang EH216-S (Qatar trials): status trial-only → trial only</title><updated>2026-08-03T00:00:00Z</updated><link href="https://qatarevtol.com/changes.html"/><summary>EHang EH216-S (Qatar trials): status trial-only → trial only</summary></entry>
+<entry><id>tag:qatarevtol.com,2026-08-03:gulf-evtol-comparison-uae-vs-qatar:status:trial_only</id><title>Gulf eVTOL — UAE vs Qatar compared: status trial-only → trial only</title><updated>2026-08-03T00:00:00Z</updated><link href="https://qatarevtol.com/changes.html"/><summary>Gulf eVTOL — UAE vs Qatar compared: status trial-only → trial only</summary></entry>
+<entry><id>tag:qatarevtol.com,2026-08-03:qatar-autonomous-evtol-explained:status:trial_only</id><title>Qatar autonomous (pilotless) eVTOL — explained: status trial-only → trial only</title><updated>2026-08-03T00:00:00Z</updated><link href="https://qatarevtol.com/changes.html"/><summary>Qatar autonomous (pilotless) eVTOL — explained: status trial-only → trial only</summary></entry>
+<entry><id>tag:qatarevtol.com,2026-05-20:corpus:published:</id><title>Corpus first published — 12 entities</title><updated>2026-05-20T00:00:00Z</updated><link href="https://qatarevtol.com/changes.html"/><summary>Corpus first published — 12 entities</summary></entry>
+</feed>

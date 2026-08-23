@@ -287,4 +287,12 @@ if [ "$fail" -ne 0 ]; then
   echo "Build blocked. Each check above names the regression it prevents."
   exit 1
 fi
+# 24 ── The status a reader sees in the fact grid must be the status in the
+#       dataset. The 2026-08-22 sweep found the DXB vertiport's Status row
+#       still saying "technical completion" in five locales a month after
+#       certification — hand-synced prose drifts; the stamped enum cannot.
+if command -v python3 >/dev/null 2>&1 && [ -f build_atoms.py ]; then
+  python3 build_atoms.py check || say "fact-grid status drift (see ATOMS FAIL lines above)"
+fi
+
 echo "guard.sh: all invariants hold ($(find . -name '*.html' -not -path './.git/*' | wc -l) pages checked)"

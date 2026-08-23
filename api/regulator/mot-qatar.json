@@ -1,0 +1,58 @@
+{
+ "about": {
+  "source": "https://qatarevtol.com/entities.json",
+  "page": "https://qatarevtol.com/regulators/mot-qatar.html",
+  "license": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "qatarevtol.com"
+ },
+ "entity": {
+  "slug": "mot-qatar",
+  "entity_type": "regulator",
+  "country": "Qatar",
+  "city": "Doha",
+  "status": "operational",
+  "last_verified": "2026-08-22",
+  "name": "Qatar Ministry of Transport (MoT)",
+  "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani.",
+  "latitude": 25.2854,
+  "longitude": 51.531,
+  "sources": [
+   {
+    "id": "mot-qatar-2025-11",
+    "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+    "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+    "type": "government",
+    "accessed": "2026-05-20"
+   },
+   {
+    "id": "ehang-2025-11-17",
+    "name": "EHang IR — EH216-S First Urban Pilotless Flights in Middle East with Qatar MoT (17 Nov 2025)",
+    "url": "https://www.ehang.com/news/1310.html",
+    "type": "operator-ir",
+    "accessed": "2026-05-20"
+   }
+  ],
+  "i18n": {
+   "en": {
+    "name": "Qatar Ministry of Transport (MoT)",
+    "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+   },
+   "ar": {
+    "name": "Qatar Ministry of Transport (MoT)",
+    "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+   },
+   "fr": {
+    "name": "Qatar Ministry of Transport (MoT)",
+    "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+   },
+   "de": {
+    "name": "Qatar Ministry of Transport (MoT)",
+    "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+   },
+   "zh": {
+    "name": "Qatar Ministry of Transport (MoT)",
+    "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+   }
+  }
+ }
+}

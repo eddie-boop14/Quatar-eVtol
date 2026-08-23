@@ -15,6 +15,10 @@ The full corpus is published as open data under CC BY 4.0 — free to use, redis
 - [entities.json](https://qatarevtol.com/entities.json): full dataset, five-language i18n block and complete source lists per entity.
 - [entities.csv](https://qatarevtol.com/entities.csv): flat export, one row per entity.
 - [feed.xml](https://qatarevtol.com/feed.xml): Atom feed of recently re-verified entities.
+- [changes.xml](https://qatarevtol.com/changes.xml): Atom feed of fact changes — every status transition, dated (human view: /changes.html).
+- [API index](https://qatarevtol.com/api/index.json): per-entity JSON endpoints (/api/{type}/{slug}.json) — one request per question, CORS-open.
+- [OpenAPI description](https://qatarevtol.com/.well-known/openapi.json): machine description of the endpoints.
+- MCP server: POST JSON-RPC to https://qatarevtol.com/mcp (tools: get_entity, search_entities, list_changes) — the first Gulf AAM dataset an AI agent can mount directly.
 
 ## Aircraft
 
@@ -32,7 +36,7 @@ The full corpus is published as open data under CC BY 4.0 — free to use, redis
 
 ## Regulators
 
-- [Qatar Civil Aviation Authority (QCAA)](https://qatarevtol.com/regulators/qcaa-qatar.html): The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on
+- [Qatar Civil Aviation Authority (QCAA)](https://qatarevtol.com/regulators/qcaa-qatar.html): The Qatar Civil Aviation Authority (QCAA) authorized the EHang EH216-S first urban pilotless eVTOL flights in the Middle East (Nov 2025). Law No. 10 of 2026 gives QCAA statutory licensing powers over unmanned aircraft. Distinct from MoT.
 - [Qatar Ministry of Transport (MoT)](https://qatarevtol.com/regulators/mot-qatar.html): Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). M
 
 ## Explainers
