@@ -67,6 +67,101 @@
     "name": "Qatar Civil Aviation Authority (QCAA)",
     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Civil aviation authority",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "role",
+    "k": "Role",
+    "v": "Airworthiness + operational authorization (Qatar)",
+    "i18n": {
+     "ar": {
+      "k": "الدور",
+      "v": "الصلاحية الجوية + التصريح التشغيلي (قطر)"
+     },
+     "fr": {
+      "k": "Rôle",
+      "v": "Airworthiness + autorisation opérationnel (Qatar)"
+     },
+     "de": {
+      "k": "Rolle",
+      "v": "Lufttüchtigkeit + Betriebsgenehmigung (Katar)"
+     },
+     "zh": {
+      "k": "角色",
+      "v": "空中飞行能力+运营授权（卡塔尔）"
+     }
+    }
+   },
+   {
+    "id": "jurisdiction",
+    "k": "Jurisdiction",
+    "v": "Qatar",
+    "i18n": {
+     "ar": {
+      "k": "الاختصاص"
+     },
+     "fr": {
+      "k": "Juridiction"
+     },
+     "de": {
+      "k": "Zuständigkeit"
+     },
+     "zh": {
+      "k": "管辖范围"
+     }
+    }
+   },
+   {
+    "id": "headquarters",
+    "k": "Headquarters",
+    "v": "Doha, Qatar",
+    "i18n": {
+     "ar": {
+      "k": "المقر"
+     },
+     "fr": {
+      "k": "Siège"
+     },
+     "de": {
+      "k": "Hauptsitz"
+     },
+     "zh": {
+      "k": "总部"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Operational",
+    "i18n": {
+     "ar": {
+      "k": "الحالة"
+     },
+     "fr": {
+      "k": "Statut"
+     },
+     "zh": {
+      "k": "状态"
+     }
+    }
+   }
+  ]
  }
 }

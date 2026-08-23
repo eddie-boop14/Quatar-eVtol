@@ -67,6 +67,79 @@
     "name": "Qatar eVTOL & National Vision 2030",
     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Answer page (policy alignment)",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "framework_top",
+    "k": "Framework Top",
+    "v": "Qatar National Vision 2030 (QNV 2030)"
+   },
+   {
+    "id": "framework_mid",
+    "k": "Framework Mid",
+    "v": "Third National Development Strategy (NDS3)",
+    "i18n": {
+     "ar": {
+      "v": "الاستراتيجية الوطنية للتنمية الثالثة (NDS3)"
+     },
+     "de": {
+      "v": "Dritte nationale Entwicklungsstrategie (NDS3)"
+     },
+     "zh": {
+      "v": "第三国家发展战略（NDS3）"
+     }
+    }
+   },
+   {
+    "id": "framework_sector",
+    "k": "Framework Sector",
+    "v": "MoT Strategy 2025-2030"
+   },
+   {
+    "id": "trial_anchor",
+    "k": "Trial Anchor",
+    "v": "EHang EH216-S, Doha 17 Nov 2025"
+   },
+   {
+    "id": "qnv_pillars",
+    "k": "Qnv Pillars",
+    "v": "Human, Social, Economic, Environmental"
+   },
+   {
+    "id": "evtol_role_per_mot",
+    "k": "Evtol Role Per Mot",
+    "v": "Smart, integrated, secure and sustainable transport ecosystem",
+    "i18n": {
+     "ar": {
+      "v": "نظام بيئة نقل ذكي ومتكامل وآمن واستدام"
+     },
+     "fr": {
+      "v": "Écosystème de transport intelligent, intégré, sûr et durable"
+     },
+     "de": {
+      "v": "Intelligentes, integriertes, sicheres und nachhaltiges Verkehrsökosystem"
+     },
+     "zh": {
+      "v": "智能、综合、安全和可持续的运输生态系统"
+     }
+    }
+   }
+  ]
  }
 }

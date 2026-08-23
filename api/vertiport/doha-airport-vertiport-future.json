@@ -60,6 +60,132 @@
     "name": "Doha Airport Vertiport (planned)",
     "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Vertiport (conceptual)",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "operator",
+    "k": "Operator",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "المشغّل",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Exploitant",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Betreiber",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "运营方",
+      "v": "未公布"
+     }
+    }
+   },
+   {
+    "id": "builder",
+    "k": "Builder",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "جهة الإنشاء",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Constructeur",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Errichter",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "建造方",
+      "v": "未公布"
+     }
+    }
+   },
+   {
+    "id": "aircraft",
+    "k": "Aircraft",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "الطائرة",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Aéronef",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Luftfahrzeug",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "飞行器",
+      "v": "未公布"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Planned · No formal announcement",
+    "i18n": {
+     "ar": {
+      "k": "الحالة"
+     },
+     "fr": {
+      "k": "Statut"
+     },
+     "zh": {
+      "k": "状态"
+     }
+    }
+   },
+   {
+    "id": "exclusivity",
+    "k": "Exclusivity",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "الحصرية",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Exclusivité",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Exklusivität",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "独家权益",
+      "v": "未公布"
+     }
+    }
+   }
+  ]
  }
 }

@@ -60,6 +60,146 @@
     "name": "Qatar autonomous (pilotless) eVTOL — explained",
     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Answer page (technology explainer)",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "aircraft",
+    "k": "Aircraft",
+    "v": "EHang EH216-S",
+    "i18n": {
+     "ar": {
+      "k": "الطائرة"
+     },
+     "fr": {
+      "k": "Aéronef"
+     },
+     "de": {
+      "k": "Luftfahrzeug"
+     },
+     "zh": {
+      "k": "飞行器"
+     }
+    }
+   },
+   {
+    "id": "configuration",
+    "k": "Configuration",
+    "v": "16 propellers, 2 seats, all-electric multicopter",
+    "i18n": {
+     "ar": {
+      "v": "16 دافعة، مقعدان، طائرة متعددة الدوارات كهربائية بالكامل"
+     },
+     "fr": {
+      "v": "16 hélices, 2 sièges, multicoptère tout électrique"
+     },
+     "de": {
+      "v": "16 Propeller, 2 Sitze, vollständig elektrischer Multicopter"
+     },
+     "zh": {
+      "v": "16个螺旋桨、2个座位、全电动多旋翼飞机"
+     }
+    }
+   },
+   {
+    "id": "autonomy",
+    "k": "Autonomy",
+    "v": "Pre-set route, GNSS positioning, ground command centre",
+    "i18n": {
+     "ar": {
+      "k": "الاستقلالية",
+      "v": "مسار محدد مسبقاً، تحديد موقع GNSS، مركز قيادة على الأرض"
+     },
+     "fr": {
+      "k": "Autonomie",
+      "v": "Route prédéfinie, positionnement GNSS, centre de commande au sol"
+     },
+     "de": {
+      "k": "Autonomie",
+      "v": "Voreingestellte Route, GNSS-Positionierung, Bodenbefehlszentrale"
+     },
+     "zh": {
+      "k": "自主性",
+      "v": "预设路线、GNSS定位、地面指挥中心"
+     }
+    }
+   },
+   {
+    "id": "regulator",
+    "k": "Regulator",
+    "v": "QCAA (operational authorisation, Nov 2025)",
+    "i18n": {
+     "ar": {
+      "k": "الجهة التنظيمية",
+      "v": "QCAA (اعتماد تشغيلي، نوفمبر 2025)"
+     },
+     "fr": {
+      "k": "Régulateur",
+      "v": "QCAA (autorisation opérationnelle, novembre 2025)"
+     },
+     "de": {
+      "k": "Aufsichtsbehörde",
+      "v": "QCAA (Genehmigung zum Flugbetrieb, November 2025)"
+     },
+     "zh": {
+      "k": "监管机构",
+      "v": "卡塔尔民航局（操作授权，2025年11月）"
+     }
+    }
+   },
+   {
+    "id": "manufacturer_country",
+    "k": "Manufacturer Country",
+    "v": "China — Civil Aviation Administration of China (CAAC) type-certified",
+    "i18n": {
+     "ar": {
+      "v": "الصين — معتمدة من إدارة الطيران المدني الصينية (CAAC)"
+     },
+     "fr": {
+      "v": "Chine — certifié de type par la Civil Aviation Administration of China (CAAC)"
+     },
+     "de": {
+      "v": "China — Typ-zertifiziert durch die Zivilluftfahrtbehörde Chinas (CAAC)"
+     },
+     "zh": {
+      "v": "中国——中国民用航空局（CAAC）型号合格证"
+     }
+    }
+   },
+   {
+    "id": "qatar_status",
+    "k": "Qatar Status",
+    "v": "Trial flights flown · no commercial operator certificate issued",
+    "i18n": {
+     "ar": {
+      "v": "رحلات تجريبية تم تنفيذها · لم يتم إصدار شهادة مشغل تجاري"
+     },
+     "fr": {
+      "v": "Vols d'essai réalisés · aucun certificat d'opérateur commercial délivré"
+     },
+     "de": {
+      "v": "Versuchsflüge durchgeführt · kein kommerzielles Betreiberzertifikat ausgestellt"
+     },
+     "zh": {
+      "v": "已飞行试验航班·未颁发商业运营人证书"
+     }
+    }
+   }
+  ]
  }
 }

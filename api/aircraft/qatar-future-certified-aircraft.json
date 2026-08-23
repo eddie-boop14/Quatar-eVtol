@@ -60,6 +60,134 @@
     "name": "Qatar — Future Certified Aircraft (placeholder)",
     "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "eVTOL aircraft (placeholder)",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "operator",
+    "k": "Operator",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "المشغّل",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Exploitant",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Betreiber",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "运营方",
+      "v": "未公布"
+     }
+    }
+   },
+   {
+    "id": "builder",
+    "k": "Builder",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "جهة الإنشاء",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Constructeur",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Errichter",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "建造方",
+      "v": "未公布"
+     }
+    }
+   },
+   {
+    "id": "aircraft",
+    "k": "Aircraft",
+    "v": "Not named",
+    "i18n": {
+     "ar": {
+      "k": "الطائرة"
+     },
+     "fr": {
+      "k": "Aéronef"
+     },
+     "de": {
+      "k": "Luftfahrzeug"
+     },
+     "zh": {
+      "k": "飞行器"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Announced (intent only) · Aircraft not named",
+    "i18n": {
+     "ar": {
+      "k": "الحالة",
+      "v": "مُعلنة (نية فقط) · لم تُسمَّ الطائرة"
+     },
+     "fr": {
+      "k": "Statut",
+      "v": "Annoncé (intention uniquement) · Aéronef non nommé"
+     },
+     "de": {
+      "v": "Angekündigt (nur Absicht) · Luftfahrzeug nicht benannt"
+     },
+     "zh": {
+      "k": "状态",
+      "v": "已宣布（仅表示意图）·飞机未命名"
+     }
+    }
+   },
+   {
+    "id": "exclusivity",
+    "k": "Exclusivity",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "الحصرية",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Exclusivité",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Exklusivität",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "独家权益",
+      "v": "未公布"
+     }
+    }
+   }
+  ]
  }
 }

@@ -74,6 +74,87 @@
     "name": "Doha eVTOL vs taxi vs metro — comparison",
     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Answer page (mode comparison)",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "corridor",
+    "k": "Corridor",
+    "v": "Old Doha Port ↔ Katara Cultural Village"
+   },
+   {
+    "id": "evtol_time",
+    "k": "Evtol Time",
+    "v": "8 minutes (trial, 17 Nov 2025)"
+   },
+   {
+    "id": "evtol_aircraft",
+    "k": "Evtol Aircraft",
+    "v": "EHang EH216-S (pilotless)"
+   },
+   {
+    "id": "taxi_time",
+    "k": "Taxi Time",
+    "v": "~30 minutes (per EHang Nov 2025 press release)",
+    "i18n": {
+     "ar": {
+      "v": "حوالي 30 دقيقة (وفقًا لبيان صحفي من EHang بتاريخ نوفمبر 2025)"
+     },
+     "fr": {
+      "v": "~30 minutes (selon le communiqué de presse d'EHang, nov 2025)"
+     },
+     "de": {
+      "v": "~30 Minuten (gemäß EHang-Pressemitteilung vom November 2025)"
+     },
+     "zh": {
+      "v": "约 30 分钟（据亿航 2025 年 11 月新闻稿）"
+     }
+    }
+   },
+   {
+    "id": "metro_time",
+    "k": "Metro Time",
+    "v": "~15 minutes (Msheireb → Katara, Doha Metro)",
+    "i18n": {
+     "ar": {
+      "v": "حوالي 15 دقيقة (المشيرب → كتارا، مترو الدوحة)"
+     },
+     "fr": {
+      "v": "~15 minutes (Msheireb → Katara, Métro de Doha)"
+     },
+     "de": {
+      "v": "~15 Minuten (Msheireb → Katara, Doha Metro)"
+     },
+     "zh": {
+      "v": "约 15 分钟（谢赫萨尼车站 → 卡塔拉，多哈地铁）"
+     }
+    }
+   },
+   {
+    "id": "metro_fare",
+    "k": "Metro Fare",
+    "v": "QAR 2 standard single"
+   },
+   {
+    "id": "evtol_fare",
+    "k": "Evtol Fare",
+    "v": "Not published"
+   }
+  ]
  }
 }
