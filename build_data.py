@@ -31,12 +31,14 @@ CFG = {
         region='United Arab Emirates',
         brand='UAE <em>eVTOL</em>',
         sister='https://qatarevtol.com',
+        doi=None,  # set after the emirates-eVtol Zenodo release mints one
     ),
     'qatarevtol.com': dict(
         title='Qatar eVTOL Reference Dataset',
         region='Qatar',
         brand='Qatar <em>eVTOL</em>',
         sister='https://evtolemirates.com',
+        doi='10.5281/zenodo.22068077',  # Zenodo concept DOI, always latest version
     ),
 }
 PRIMARY_TYPES = {'primary', 'operator-ir', 'regulatory', 'government'}
@@ -140,6 +142,7 @@ def dataset_jsonld(data, host, cfg):
     return {
         '@context': 'https://schema.org/',
         '@type': 'Dataset',
+        **({'identifier': f'https://doi.org/{cfg["doi"]}'} if cfg.get('doi') else {}),
         'name': cfg['title'],
         'alternateName': f'{cfg["region"]} eVTOL entities — operators, aircraft, '
                          'vertiports, routes, regulators',
