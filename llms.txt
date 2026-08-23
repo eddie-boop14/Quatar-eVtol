@@ -11,6 +11,7 @@ Editorial bar: contracted, built, flight-tested, or regulated — backed by prim
 
 The full corpus is published as open data under CC BY 4.0 — free to use, redistribute and build on, attribution the only condition.
 
+- DOI (cite the dataset): https://doi.org/10.5281/zenodo.22068077 (Zenodo, always resolves to the latest version)
 - [Dataset documentation](https://qatarevtol.com/data.html): what is in it, the primary-source-only editorial standard, per-record verification dates, and how to cite it.
 - [entities.json](https://qatarevtol.com/entities.json): full dataset, five-language i18n block and complete source lists per entity.
 - [entities.csv](https://qatarevtol.com/entities.csv): flat export, one row per entity.
