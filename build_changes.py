@@ -115,6 +115,14 @@ def write_xml(events, host):
     return len(entries)
 
 
+def write_json(events, host):
+    rows = [{'date': d, 'kind': k, 'slug': sl, 'name': n, 'entity_type': t,
+             'old_status': o, 'new_status': nw}
+            for d, k, sl, n, t, o, nw in events]
+    (ROOT / 'changes.json').write_text(
+        json.dumps({'site': host, 'events': rows}, indent=1, ensure_ascii=False), encoding='utf-8')
+
+
 def write_html(events, host):
     shell = (ROOT / 'data.html').read_text(encoding='utf-8')
     title = 'Fact changes — every status transition, dated'
@@ -173,6 +181,7 @@ def main():
     host = host_of()
     events = collect_events()
     n = write_xml(events, host)
+    write_json(events, host)
     write_html(events, host)
     ensure_sitemap(host)
     print(f'changes: {n} events -> changes.html + changes.xml')

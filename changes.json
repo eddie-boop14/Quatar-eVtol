@@ -1,0 +1,50 @@
+{
+ "site": "qatarevtol.com",
+ "events": [
+  {
+   "date": "2026-08-03",
+   "kind": "status",
+   "slug": "doha-evtol-vs-taxi-metro",
+   "name": "Doha eVTOL vs taxi vs metro — comparison",
+   "entity_type": "answer",
+   "old_status": "trial-only",
+   "new_status": "trial_only"
+  },
+  {
+   "date": "2026-08-03",
+   "kind": "status",
+   "slug": "ehang-eh216-s-qatar",
+   "name": "EHang EH216-S (Qatar trials)",
+   "entity_type": "aircraft",
+   "old_status": "trial-only",
+   "new_status": "trial_only"
+  },
+  {
+   "date": "2026-08-03",
+   "kind": "status",
+   "slug": "gulf-evtol-comparison-uae-vs-qatar",
+   "name": "Gulf eVTOL — UAE vs Qatar compared",
+   "entity_type": "answer",
+   "old_status": "trial-only",
+   "new_status": "trial_only"
+  },
+  {
+   "date": "2026-08-03",
+   "kind": "status",
+   "slug": "qatar-autonomous-evtol-explained",
+   "name": "Qatar autonomous (pilotless) eVTOL — explained",
+   "entity_type": "answer",
+   "old_status": "trial-only",
+   "new_status": "trial_only"
+  },
+  {
+   "date": "2026-05-20",
+   "kind": "published",
+   "slug": null,
+   "name": "Corpus first published — 12 entities",
+   "entity_type": null,
+   "old_status": null,
+   "new_status": null
+  }
+ ]
+}

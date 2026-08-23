@@ -18,6 +18,7 @@ The full corpus is published as open data under CC BY 4.0 — free to use, redis
 - [changes.xml](https://qatarevtol.com/changes.xml): Atom feed of fact changes — every status transition, dated (human view: /changes.html).
 - [API index](https://qatarevtol.com/api/index.json): per-entity JSON endpoints (/api/{type}/{slug}.json) — one request per question, CORS-open.
 - [OpenAPI description](https://qatarevtol.com/.well-known/openapi.json): machine description of the endpoints.
+- MCP server: POST JSON-RPC to https://qatarevtol.com/mcp (tools: get_entity, search_entities, list_changes) — the first Gulf AAM dataset an AI agent can mount directly.
 
 ## Aircraft
 
