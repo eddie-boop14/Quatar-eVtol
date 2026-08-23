@@ -88,6 +88,130 @@
     "name": "EHang EH216-S (Qatar trials)",
     "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Autonomous (pilotless) two-seat eVTOL",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "operator",
+    "k": "Operator",
+    "v": "EHang (with MoT Qatar / QCAA authorisation)",
+    "i18n": {
+     "ar": {
+      "k": "المشغّل",
+      "v": "EHang (مع تفويض من وزارة النقل القطرية / QCAA)"
+     },
+     "fr": {
+      "k": "Exploitant",
+      "v": "EHang (avec autorisation du MoT Qatar / ACAQ)"
+     },
+     "de": {
+      "k": "Betreiber",
+      "v": "EHang (mit MoT Qatar / QCAA-Genehmigung)"
+     },
+     "zh": {
+      "k": "运营方",
+      "v": "亿航（获卡塔尔交通运输部/QCAA授权）"
+     }
+    }
+   },
+   {
+    "id": "builder",
+    "k": "Builder",
+    "v": "EHang Holdings Limited",
+    "i18n": {
+     "ar": {
+      "k": "جهة الإنشاء"
+     },
+     "fr": {
+      "k": "Constructeur"
+     },
+     "de": {
+      "k": "Errichter"
+     },
+     "zh": {
+      "k": "建造方"
+     }
+    }
+   },
+   {
+    "id": "aircraft",
+    "k": "Aircraft",
+    "v": "EH216-S",
+    "i18n": {
+     "ar": {
+      "k": "الطائرة"
+     },
+     "fr": {
+      "k": "Aéronef"
+     },
+     "de": {
+      "k": "Luftfahrzeug"
+     },
+     "zh": {
+      "k": "飞行器"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Trial-only · QCAA operational authorisation",
+    "i18n": {
+     "ar": {
+      "k": "الحالة",
+      "v": "تجريبية فقط · تفويض تشغيلي من QCAA"
+     },
+     "fr": {
+      "k": "Statut",
+      "v": "Essai uniquement · Autorisation opérationnelle ACAQ"
+     },
+     "de": {
+      "v": "Nur Testflüge · QCAA-Betriebsgenehmigung"
+     },
+     "zh": {
+      "k": "状态",
+      "v": "仅试飞·QCAA运营授权"
+     }
+    }
+   },
+   {
+    "id": "exclusivity",
+    "k": "Exclusivity",
+    "v": "Not published",
+    "i18n": {
+     "ar": {
+      "k": "الحصرية",
+      "v": "غير منشور"
+     },
+     "fr": {
+      "k": "Exclusivité",
+      "v": "Non publié"
+     },
+     "de": {
+      "k": "Exklusivität",
+      "v": "Nicht veröffentlicht"
+     },
+     "zh": {
+      "k": "独家权益",
+      "v": "未公布"
+     }
+    }
+   }
+  ]
  }
 }

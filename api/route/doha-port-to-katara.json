@@ -53,6 +53,155 @@
     "name": "Port of Doha ↔ Katara Cultural Village",
     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Urban autonomous eVTOL trial flight",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "operator",
+    "k": "Operator",
+    "v": "EHang Holdings",
+    "i18n": {
+     "ar": {
+      "k": "المشغّل"
+     },
+     "fr": {
+      "k": "Exploitant"
+     },
+     "de": {
+      "k": "Betreiber"
+     },
+     "zh": {
+      "k": "运营方"
+     }
+    }
+   },
+   {
+    "id": "regulator",
+    "k": "Regulator",
+    "v": "QCAA (operational authorization) + MoT Qatar (strategic support)",
+    "i18n": {
+     "ar": {
+      "k": "الجهة التنظيمية",
+      "v": "QCAA (تفويض تشغيلي) + وزارة النقل القطرية (دعم استراتيجي)"
+     },
+     "fr": {
+      "k": "Régulateur",
+      "v": "ACAQ (autorisation opérationnelle) + ministère des Transports du Qatar (soutien stratégique)"
+     },
+     "de": {
+      "k": "Aufsichtsbehörde",
+      "v": "QCAA (betriebliche Genehmigung) + MoT Qatar (strategische Unterstützung)"
+     },
+     "zh": {
+      "k": "监管机构",
+      "v": "QCAA（运营授权）+ 卡塔尔交通运输部（战略支持）"
+     }
+    }
+   },
+   {
+    "id": "aircraft",
+    "k": "Aircraft",
+    "v": "EHang EH216-S (autonomous)",
+    "i18n": {
+     "ar": {
+      "k": "الطائرة"
+     },
+     "fr": {
+      "k": "Aéronef"
+     },
+     "de": {
+      "k": "Luftfahrzeug"
+     },
+     "zh": {
+      "k": "飞行器"
+     }
+    }
+   },
+   {
+    "id": "origin",
+    "k": "Origin",
+    "v": "Port of Doha",
+    "i18n": {
+     "ar": {
+      "k": "المنشأ"
+     },
+     "fr": {
+      "k": "Origine"
+     },
+     "de": {
+      "k": "Ursprung"
+     },
+     "zh": {
+      "k": "起点"
+     }
+    }
+   },
+   {
+    "id": "destination",
+    "k": "Destination",
+    "v": "Katara Cultural Village",
+    "i18n": {
+     "ar": {
+      "k": "الوجهة"
+     },
+     "de": {
+      "k": "Ziel"
+     },
+     "zh": {
+      "k": "终点"
+     }
+    }
+   },
+   {
+    "id": "duration",
+    "k": "Duration",
+    "v": "8 minutes (vs ~30 min by car)",
+    "i18n": {
+     "ar": {
+      "k": "المدة"
+     },
+     "fr": {
+      "k": "Durée"
+     },
+     "de": {
+      "k": "Dauer"
+     },
+     "zh": {
+      "k": "时长"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Trial flights conducted 17 Nov 2025",
+    "i18n": {
+     "ar": {
+      "k": "الحالة"
+     },
+     "fr": {
+      "k": "Statut"
+     },
+     "zh": {
+      "k": "状态"
+     }
+    }
+   }
+  ]
  }
 }

@@ -40,7 +40,82 @@
      "name": "Did Not Make The Cut: 13 Entities We Cut",
      "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Editorial disclosure",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "role",
+     "k": "Role",
+     "v": "Honest disclosure of cut entities",
+     "i18n": {
+      "ar": {
+       "k": "الدور"
+      },
+      "fr": {
+       "k": "Rôle"
+      },
+      "de": {
+       "k": "Rolle"
+      },
+      "zh": {
+       "k": "角色"
+      }
+     }
+    },
+    {
+     "id": "jurisdiction",
+     "k": "Jurisdiction",
+     "v": "Arab world (UAE + Qatar + Saudi Arabia)",
+     "i18n": {
+      "ar": {
+       "k": "الاختصاص"
+      },
+      "fr": {
+       "k": "Juridiction"
+      },
+      "de": {
+       "k": "Zuständigkeit"
+      },
+      "zh": {
+       "k": "管辖范围"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Living document — updated as evidence emerges",
+     "i18n": {
+      "ar": {
+       "k": "الحالة",
+       "v": "وثيقة حية — تُحدث عند ظهور أدلة جديدة"
+      },
+      "fr": {
+       "k": "Statut",
+       "v": "Document vivant — mis à jour au fur et à mesure que des preuves apparaissent"
+      },
+      "zh": {
+       "k": "状态",
+       "v": "活文档——随证据浮现而更新"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "doha-airport-to-urban-future",
@@ -97,7 +172,139 @@
      "name": "Doha Airport → Urban Centers (future)",
      "meta_description": "EHang named airport-to-urban shuttle as a Qatar eVTOL focus area in Nov 2025. No specific HIA → Doha route announced. Status and sources verified."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Route (future · category-only)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "operator",
+     "k": "Operator",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "المشغّل",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exploitant",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Betreiber",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "运营方",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "builder",
+     "k": "Builder",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "جهة الإنشاء",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Constructeur",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Errichter",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "建造方",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "aircraft",
+     "k": "Aircraft",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "الطائرة",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Aéronef",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Luftfahrzeug",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "飞行器",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Announced — category only, no specific corridor",
+     "i18n": {
+      "ar": {
+       "k": "الحالة",
+       "v": "مُعلن — فئة فقط، لا توجد مسارات محددة"
+      },
+      "fr": {
+       "k": "Statut",
+       "v": "Annoncé — catégorie uniquement, aucun corridor spécifique"
+      },
+      "de": {
+       "v": "Angekündigt — nur Kategorie, keine spezifische Route"
+      },
+      "zh": {
+       "k": "状态",
+       "v": "公布 — 仅类别级,无具体走廊"
+      }
+     }
+    },
+    {
+     "id": "exclusivity",
+     "k": "Exclusivity",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "الحصرية",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exclusivité",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Exklusivität",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "独家权益",
+       "v": "未公布"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "doha-airport-vertiport-future",
@@ -154,7 +361,133 @@
      "name": "Doha Airport Vertiport (planned)",
      "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Vertiport (conceptual)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "operator",
+     "k": "Operator",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "المشغّل",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exploitant",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Betreiber",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "运营方",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "builder",
+     "k": "Builder",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "جهة الإنشاء",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Constructeur",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Errichter",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "建造方",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "aircraft",
+     "k": "Aircraft",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "الطائرة",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Aéronef",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Luftfahrzeug",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "飞行器",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Planned · No formal announcement",
+     "i18n": {
+      "ar": {
+       "k": "الحالة"
+      },
+      "fr": {
+       "k": "Statut"
+      },
+      "zh": {
+       "k": "状态"
+      }
+     }
+    },
+    {
+     "id": "exclusivity",
+     "k": "Exclusivity",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "الحصرية",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exclusivité",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Exklusivität",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "独家权益",
+       "v": "未公布"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "doha-evtol-vs-taxi-metro",
@@ -225,7 +558,88 @@
      "name": "Doha eVTOL vs taxi vs metro — comparison",
      "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Answer page (mode comparison)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "corridor",
+     "k": "Corridor",
+     "v": "Old Doha Port ↔ Katara Cultural Village"
+    },
+    {
+     "id": "evtol_time",
+     "k": "Evtol Time",
+     "v": "8 minutes (trial, 17 Nov 2025)"
+    },
+    {
+     "id": "evtol_aircraft",
+     "k": "Evtol Aircraft",
+     "v": "EHang EH216-S (pilotless)"
+    },
+    {
+     "id": "taxi_time",
+     "k": "Taxi Time",
+     "v": "~30 minutes (per EHang Nov 2025 press release)",
+     "i18n": {
+      "ar": {
+       "v": "حوالي 30 دقيقة (وفقًا لبيان صحفي من EHang بتاريخ نوفمبر 2025)"
+      },
+      "fr": {
+       "v": "~30 minutes (selon le communiqué de presse d'EHang, nov 2025)"
+      },
+      "de": {
+       "v": "~30 Minuten (gemäß EHang-Pressemitteilung vom November 2025)"
+      },
+      "zh": {
+       "v": "约 30 分钟（据亿航 2025 年 11 月新闻稿）"
+      }
+     }
+    },
+    {
+     "id": "metro_time",
+     "k": "Metro Time",
+     "v": "~15 minutes (Msheireb → Katara, Doha Metro)",
+     "i18n": {
+      "ar": {
+       "v": "حوالي 15 دقيقة (المشيرب → كتارا، مترو الدوحة)"
+      },
+      "fr": {
+       "v": "~15 minutes (Msheireb → Katara, Métro de Doha)"
+      },
+      "de": {
+       "v": "~15 Minuten (Msheireb → Katara, Doha Metro)"
+      },
+      "zh": {
+       "v": "约 15 分钟（谢赫萨尼车站 → 卡塔拉，多哈地铁）"
+      }
+     }
+    },
+    {
+     "id": "metro_fare",
+     "k": "Metro Fare",
+     "v": "QAR 2 standard single"
+    },
+    {
+     "id": "evtol_fare",
+     "k": "Evtol Fare",
+     "v": "Not published"
+    }
+   ]
   },
   {
    "slug": "doha-port-to-katara",
@@ -275,7 +689,156 @@
      "name": "Port of Doha ↔ Katara Cultural Village",
      "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Urban autonomous eVTOL trial flight",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "operator",
+     "k": "Operator",
+     "v": "EHang Holdings",
+     "i18n": {
+      "ar": {
+       "k": "المشغّل"
+      },
+      "fr": {
+       "k": "Exploitant"
+      },
+      "de": {
+       "k": "Betreiber"
+      },
+      "zh": {
+       "k": "运营方"
+      }
+     }
+    },
+    {
+     "id": "regulator",
+     "k": "Regulator",
+     "v": "QCAA (operational authorization) + MoT Qatar (strategic support)",
+     "i18n": {
+      "ar": {
+       "k": "الجهة التنظيمية",
+       "v": "QCAA (تفويض تشغيلي) + وزارة النقل القطرية (دعم استراتيجي)"
+      },
+      "fr": {
+       "k": "Régulateur",
+       "v": "ACAQ (autorisation opérationnelle) + ministère des Transports du Qatar (soutien stratégique)"
+      },
+      "de": {
+       "k": "Aufsichtsbehörde",
+       "v": "QCAA (betriebliche Genehmigung) + MoT Qatar (strategische Unterstützung)"
+      },
+      "zh": {
+       "k": "监管机构",
+       "v": "QCAA（运营授权）+ 卡塔尔交通运输部（战略支持）"
+      }
+     }
+    },
+    {
+     "id": "aircraft",
+     "k": "Aircraft",
+     "v": "EHang EH216-S (autonomous)",
+     "i18n": {
+      "ar": {
+       "k": "الطائرة"
+      },
+      "fr": {
+       "k": "Aéronef"
+      },
+      "de": {
+       "k": "Luftfahrzeug"
+      },
+      "zh": {
+       "k": "飞行器"
+      }
+     }
+    },
+    {
+     "id": "origin",
+     "k": "Origin",
+     "v": "Port of Doha",
+     "i18n": {
+      "ar": {
+       "k": "المنشأ"
+      },
+      "fr": {
+       "k": "Origine"
+      },
+      "de": {
+       "k": "Ursprung"
+      },
+      "zh": {
+       "k": "起点"
+      }
+     }
+    },
+    {
+     "id": "destination",
+     "k": "Destination",
+     "v": "Katara Cultural Village",
+     "i18n": {
+      "ar": {
+       "k": "الوجهة"
+      },
+      "de": {
+       "k": "Ziel"
+      },
+      "zh": {
+       "k": "终点"
+      }
+     }
+    },
+    {
+     "id": "duration",
+     "k": "Duration",
+     "v": "8 minutes (vs ~30 min by car)",
+     "i18n": {
+      "ar": {
+       "k": "المدة"
+      },
+      "fr": {
+       "k": "Durée"
+      },
+      "de": {
+       "k": "Dauer"
+      },
+      "zh": {
+       "k": "时长"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Trial flights conducted 17 Nov 2025",
+     "i18n": {
+      "ar": {
+       "k": "الحالة"
+      },
+      "fr": {
+       "k": "Statut"
+      },
+      "zh": {
+       "k": "状态"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "ehang-eh216-s-qatar",
@@ -360,7 +923,131 @@
      "name": "EHang EH216-S (Qatar trials)",
      "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Autonomous (pilotless) two-seat eVTOL",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "operator",
+     "k": "Operator",
+     "v": "EHang (with MoT Qatar / QCAA authorisation)",
+     "i18n": {
+      "ar": {
+       "k": "المشغّل",
+       "v": "EHang (مع تفويض من وزارة النقل القطرية / QCAA)"
+      },
+      "fr": {
+       "k": "Exploitant",
+       "v": "EHang (avec autorisation du MoT Qatar / ACAQ)"
+      },
+      "de": {
+       "k": "Betreiber",
+       "v": "EHang (mit MoT Qatar / QCAA-Genehmigung)"
+      },
+      "zh": {
+       "k": "运营方",
+       "v": "亿航（获卡塔尔交通运输部/QCAA授权）"
+      }
+     }
+    },
+    {
+     "id": "builder",
+     "k": "Builder",
+     "v": "EHang Holdings Limited",
+     "i18n": {
+      "ar": {
+       "k": "جهة الإنشاء"
+      },
+      "fr": {
+       "k": "Constructeur"
+      },
+      "de": {
+       "k": "Errichter"
+      },
+      "zh": {
+       "k": "建造方"
+      }
+     }
+    },
+    {
+     "id": "aircraft",
+     "k": "Aircraft",
+     "v": "EH216-S",
+     "i18n": {
+      "ar": {
+       "k": "الطائرة"
+      },
+      "fr": {
+       "k": "Aéronef"
+      },
+      "de": {
+       "k": "Luftfahrzeug"
+      },
+      "zh": {
+       "k": "飞行器"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Trial-only · QCAA operational authorisation",
+     "i18n": {
+      "ar": {
+       "k": "الحالة",
+       "v": "تجريبية فقط · تفويض تشغيلي من QCAA"
+      },
+      "fr": {
+       "k": "Statut",
+       "v": "Essai uniquement · Autorisation opérationnelle ACAQ"
+      },
+      "de": {
+       "v": "Nur Testflüge · QCAA-Betriebsgenehmigung"
+      },
+      "zh": {
+       "k": "状态",
+       "v": "仅试飞·QCAA运营授权"
+      }
+     }
+    },
+    {
+     "id": "exclusivity",
+     "k": "Exclusivity",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "الحصرية",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exclusivité",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Exklusivität",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "独家权益",
+       "v": "未公布"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "gulf-evtol-comparison-uae-vs-qatar",
@@ -445,7 +1132,126 @@
      "name": "Gulf eVTOL — UAE vs Qatar compared",
      "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025)."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Answer page (cross-country comparison)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "uae_lead_operator",
+     "k": "Uae Lead Operator",
+     "v": "Joby Aviation (Dubai exclusive 6 yrs from launch)",
+     "i18n": {
+      "ar": {
+       "v": "Joby Aviation (حصرية دبي 6 سنوات من الإطلاق)"
+      },
+      "fr": {
+       "v": "Joby Aviation (exclusivité Dubaï 6 ans à partir du lancement)"
+      },
+      "de": {
+       "v": "Joby Aviation (Dubai exklusiv 6 Jahre nach Start)"
+      },
+      "zh": {
+       "v": "Joby 航空公司（迪拜独占 6 年，自推出起计算）"
+      }
+     }
+    },
+    {
+     "id": "uae_secondary_operator",
+     "k": "Uae Secondary Operator",
+     "v": "Archer Aviation (Abu Dhabi)"
+    },
+    {
+     "id": "uae_aircraft",
+     "k": "Uae Aircraft",
+     "v": "Joby S4 (piloted, 1+4) · Archer Midnight (piloted, 1+4)",
+     "i18n": {
+      "ar": {
+       "v": "Joby S4 (مأهول بالركاب، 1+4) · Archer Midnight (مأهول بالركاب، 1+4)"
+      },
+      "fr": {
+       "v": "Joby S4 (piloté, 1+4) · Archer Midnight (piloté, 1+4)"
+      },
+      "de": {
+       "v": "Joby S4 (mit Pilot, 1+4) · Archer Midnight (mit Pilot, 1+4)"
+      },
+      "zh": {
+       "v": "Joby S4（有人驾驶，1+4） · Archer Midnight（有人驾驶，1+4）"
+      }
+     }
+    },
+    {
+     "id": "uae_first_pp_flight",
+     "k": "Uae First Pp Flight",
+     "v": "Joby S4 — Margham → DWC, 9 Nov 2025, 17 minutes",
+     "i18n": {
+      "ar": {
+       "v": "Joby S4 — Margham → DWC، 9 نوفمبر 2025، 17 دقيقة"
+      },
+      "fr": {
+       "v": "Joby S4 — Margham → DWC, 9 nov 2025, 17 minutes"
+      },
+      "de": {
+       "v": "Joby S4 – Margham → DWC, 9. Nov. 2025, 17 Minuten"
+      },
+      "zh": {
+       "v": "Joby S4 — Margham → DWC，2025 年 11 月 9 日，17 分钟"
+      }
+     }
+    },
+    {
+     "id": "uae_commercial_target",
+     "k": "Uae Commercial Target",
+     "v": "2026 (Dubai)"
+    },
+    {
+     "id": "qatar_lead_operator",
+     "k": "Qatar Lead Operator",
+     "v": "EHang (with MoT and QCAA)"
+    },
+    {
+     "id": "qatar_aircraft",
+     "k": "Qatar Aircraft",
+     "v": "EHang EH216-S (pilotless, 2 seats)"
+    },
+    {
+     "id": "qatar_first_pp_flight",
+     "k": "Qatar First Pp Flight",
+     "v": "EH216-S — Old Doha Port ↔ Katara, 17 Nov 2025, 8 minutes",
+     "i18n": {
+      "ar": {
+       "v": "EH216-S — ميناء الدوحة القديم ↔ كتارا، 17 نوفمبر 2025، 8 دقائق"
+      },
+      "fr": {
+       "v": "EH216-S — Port de Doha ancien ↔ Katara, 17 nov 2025, 8 minutes"
+      },
+      "de": {
+       "v": "EH216-S – Alter Doha-Hafen ↔ Katara, 17. Nov. 2025, 8 Minuten"
+      },
+      "zh": {
+       "v": "EH216-S — 老多哈港 ↔ 卡塔拉，2025 年 11 月 17 日，8 分钟"
+      }
+     }
+    },
+    {
+     "id": "qatar_commercial_target",
+     "k": "Qatar Commercial Target",
+     "v": "Not published"
+    }
+   ]
   },
   {
    "slug": "mot-qatar",
@@ -495,7 +1301,102 @@
      "name": "Qatar Ministry of Transport (MoT)",
      "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Government ministry (transport policy)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "role",
+     "k": "Role",
+     "v": "Strategic eVTOL sponsor; non-airworthiness",
+     "i18n": {
+      "ar": {
+       "k": "الدور",
+       "v": "راعي eVTOL استراتيجي؛ غير متعلق بالصلاحية الجوية"
+      },
+      "fr": {
+       "k": "Rôle",
+       "v": "Sponsor stratégique eVTOL ; sans responsabilité d'airworthiness"
+      },
+      "de": {
+       "k": "Rolle",
+       "v": "Strategischer eVTOL-Sponsor; keine Lufttüchtigkeitsfunktion"
+      },
+      "zh": {
+       "k": "角色",
+       "v": "战略 eVTOL 赞助商;非空中飞行能力"
+      }
+     }
+    },
+    {
+     "id": "jurisdiction",
+     "k": "Jurisdiction",
+     "v": "Qatar",
+     "i18n": {
+      "ar": {
+       "k": "الاختصاص"
+      },
+      "fr": {
+       "k": "Juridiction"
+      },
+      "de": {
+       "k": "Zuständigkeit"
+      },
+      "zh": {
+       "k": "管辖范围"
+      }
+     }
+    },
+    {
+     "id": "headquarters",
+     "k": "Headquarters",
+     "v": "Doha, Qatar",
+     "i18n": {
+      "ar": {
+       "k": "المقر"
+      },
+      "fr": {
+       "k": "Siège"
+      },
+      "de": {
+       "k": "Hauptsitz"
+      },
+      "zh": {
+       "k": "总部"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Operational",
+     "i18n": {
+      "ar": {
+       "k": "الحالة"
+      },
+      "fr": {
+       "k": "Statut"
+      },
+      "zh": {
+       "k": "状态"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "qatar-autonomous-evtol-explained",
@@ -552,7 +1453,147 @@
      "name": "Qatar autonomous (pilotless) eVTOL — explained",
      "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Answer page (technology explainer)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "aircraft",
+     "k": "Aircraft",
+     "v": "EHang EH216-S",
+     "i18n": {
+      "ar": {
+       "k": "الطائرة"
+      },
+      "fr": {
+       "k": "Aéronef"
+      },
+      "de": {
+       "k": "Luftfahrzeug"
+      },
+      "zh": {
+       "k": "飞行器"
+      }
+     }
+    },
+    {
+     "id": "configuration",
+     "k": "Configuration",
+     "v": "16 propellers, 2 seats, all-electric multicopter",
+     "i18n": {
+      "ar": {
+       "v": "16 دافعة، مقعدان، طائرة متعددة الدوارات كهربائية بالكامل"
+      },
+      "fr": {
+       "v": "16 hélices, 2 sièges, multicoptère tout électrique"
+      },
+      "de": {
+       "v": "16 Propeller, 2 Sitze, vollständig elektrischer Multicopter"
+      },
+      "zh": {
+       "v": "16个螺旋桨、2个座位、全电动多旋翼飞机"
+      }
+     }
+    },
+    {
+     "id": "autonomy",
+     "k": "Autonomy",
+     "v": "Pre-set route, GNSS positioning, ground command centre",
+     "i18n": {
+      "ar": {
+       "k": "الاستقلالية",
+       "v": "مسار محدد مسبقاً، تحديد موقع GNSS، مركز قيادة على الأرض"
+      },
+      "fr": {
+       "k": "Autonomie",
+       "v": "Route prédéfinie, positionnement GNSS, centre de commande au sol"
+      },
+      "de": {
+       "k": "Autonomie",
+       "v": "Voreingestellte Route, GNSS-Positionierung, Bodenbefehlszentrale"
+      },
+      "zh": {
+       "k": "自主性",
+       "v": "预设路线、GNSS定位、地面指挥中心"
+      }
+     }
+    },
+    {
+     "id": "regulator",
+     "k": "Regulator",
+     "v": "QCAA (operational authorisation, Nov 2025)",
+     "i18n": {
+      "ar": {
+       "k": "الجهة التنظيمية",
+       "v": "QCAA (اعتماد تشغيلي، نوفمبر 2025)"
+      },
+      "fr": {
+       "k": "Régulateur",
+       "v": "QCAA (autorisation opérationnelle, novembre 2025)"
+      },
+      "de": {
+       "k": "Aufsichtsbehörde",
+       "v": "QCAA (Genehmigung zum Flugbetrieb, November 2025)"
+      },
+      "zh": {
+       "k": "监管机构",
+       "v": "卡塔尔民航局（操作授权，2025年11月）"
+      }
+     }
+    },
+    {
+     "id": "manufacturer_country",
+     "k": "Manufacturer Country",
+     "v": "China — Civil Aviation Administration of China (CAAC) type-certified",
+     "i18n": {
+      "ar": {
+       "v": "الصين — معتمدة من إدارة الطيران المدني الصينية (CAAC)"
+      },
+      "fr": {
+       "v": "Chine — certifié de type par la Civil Aviation Administration of China (CAAC)"
+      },
+      "de": {
+       "v": "China — Typ-zertifiziert durch die Zivilluftfahrtbehörde Chinas (CAAC)"
+      },
+      "zh": {
+       "v": "中国——中国民用航空局（CAAC）型号合格证"
+      }
+     }
+    },
+    {
+     "id": "qatar_status",
+     "k": "Qatar Status",
+     "v": "Trial flights flown · no commercial operator certificate issued",
+     "i18n": {
+      "ar": {
+       "v": "رحلات تجريبية تم تنفيذها · لم يتم إصدار شهادة مشغل تجاري"
+      },
+      "fr": {
+       "v": "Vols d'essai réalisés · aucun certificat d'opérateur commercial délivré"
+      },
+      "de": {
+       "v": "Versuchsflüge durchgeführt · kein kommerzielles Betreiberzertifikat ausgestellt"
+      },
+      "zh": {
+       "v": "已飞行试验航班·未颁发商业运营人证书"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "qatar-evtol-vision-2030",
@@ -616,7 +1657,80 @@
      "name": "Qatar eVTOL & National Vision 2030",
      "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Answer page (policy alignment)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "framework_top",
+     "k": "Framework Top",
+     "v": "Qatar National Vision 2030 (QNV 2030)"
+    },
+    {
+     "id": "framework_mid",
+     "k": "Framework Mid",
+     "v": "Third National Development Strategy (NDS3)",
+     "i18n": {
+      "ar": {
+       "v": "الاستراتيجية الوطنية للتنمية الثالثة (NDS3)"
+      },
+      "de": {
+       "v": "Dritte nationale Entwicklungsstrategie (NDS3)"
+      },
+      "zh": {
+       "v": "第三国家发展战略（NDS3）"
+      }
+     }
+    },
+    {
+     "id": "framework_sector",
+     "k": "Framework Sector",
+     "v": "MoT Strategy 2025-2030"
+    },
+    {
+     "id": "trial_anchor",
+     "k": "Trial Anchor",
+     "v": "EHang EH216-S, Doha 17 Nov 2025"
+    },
+    {
+     "id": "qnv_pillars",
+     "k": "Qnv Pillars",
+     "v": "Human, Social, Economic, Environmental"
+    },
+    {
+     "id": "evtol_role_per_mot",
+     "k": "Evtol Role Per Mot",
+     "v": "Smart, integrated, secure and sustainable transport ecosystem",
+     "i18n": {
+      "ar": {
+       "v": "نظام بيئة نقل ذكي ومتكامل وآمن واستدام"
+      },
+      "fr": {
+       "v": "Écosystème de transport intelligent, intégré, sûr et durable"
+      },
+      "de": {
+       "v": "Intelligentes, integriertes, sicheres und nachhaltiges Verkehrsökosystem"
+      },
+      "zh": {
+       "v": "智能、综合、安全和可持续的运输生态系统"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "qatar-future-certified-aircraft",
@@ -673,7 +1787,135 @@
      "name": "Qatar — Future Certified Aircraft (placeholder)",
      "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "eVTOL aircraft (placeholder)",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "operator",
+     "k": "Operator",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "المشغّل",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exploitant",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Betreiber",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "运营方",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "builder",
+     "k": "Builder",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "جهة الإنشاء",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Constructeur",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Errichter",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "建造方",
+       "v": "未公布"
+      }
+     }
+    },
+    {
+     "id": "aircraft",
+     "k": "Aircraft",
+     "v": "Not named",
+     "i18n": {
+      "ar": {
+       "k": "الطائرة"
+      },
+      "fr": {
+       "k": "Aéronef"
+      },
+      "de": {
+       "k": "Luftfahrzeug"
+      },
+      "zh": {
+       "k": "飞行器"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Announced (intent only) · Aircraft not named",
+     "i18n": {
+      "ar": {
+       "k": "الحالة",
+       "v": "مُعلنة (نية فقط) · لم تُسمَّ الطائرة"
+      },
+      "fr": {
+       "k": "Statut",
+       "v": "Annoncé (intention uniquement) · Aéronef non nommé"
+      },
+      "de": {
+       "v": "Angekündigt (nur Absicht) · Luftfahrzeug nicht benannt"
+      },
+      "zh": {
+       "k": "状态",
+       "v": "已宣布（仅表示意图）·飞机未命名"
+      }
+     }
+    },
+    {
+     "id": "exclusivity",
+     "k": "Exclusivity",
+     "v": "Not published",
+     "i18n": {
+      "ar": {
+       "k": "الحصرية",
+       "v": "غير منشور"
+      },
+      "fr": {
+       "k": "Exclusivité",
+       "v": "Non publié"
+      },
+      "de": {
+       "k": "Exklusivität",
+       "v": "Nicht veröffentlicht"
+      },
+      "zh": {
+       "k": "独家权益",
+       "v": "未公布"
+      }
+     }
+    }
+   ]
   },
   {
    "slug": "qcaa-qatar",
@@ -737,7 +1979,102 @@
      "name": "Qatar Civil Aviation Authority (QCAA)",
      "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
     }
-   }
+   },
+   "facts": [
+    {
+     "id": "type",
+     "k": "Type",
+     "v": "Civil aviation authority",
+     "i18n": {
+      "ar": {
+       "k": "النوع"
+      },
+      "de": {
+       "k": "Typ"
+      },
+      "zh": {
+       "k": "类型"
+      }
+     }
+    },
+    {
+     "id": "role",
+     "k": "Role",
+     "v": "Airworthiness + operational authorization (Qatar)",
+     "i18n": {
+      "ar": {
+       "k": "الدور",
+       "v": "الصلاحية الجوية + التصريح التشغيلي (قطر)"
+      },
+      "fr": {
+       "k": "Rôle",
+       "v": "Airworthiness + autorisation opérationnel (Qatar)"
+      },
+      "de": {
+       "k": "Rolle",
+       "v": "Lufttüchtigkeit + Betriebsgenehmigung (Katar)"
+      },
+      "zh": {
+       "k": "角色",
+       "v": "空中飞行能力+运营授权（卡塔尔）"
+      }
+     }
+    },
+    {
+     "id": "jurisdiction",
+     "k": "Jurisdiction",
+     "v": "Qatar",
+     "i18n": {
+      "ar": {
+       "k": "الاختصاص"
+      },
+      "fr": {
+       "k": "Juridiction"
+      },
+      "de": {
+       "k": "Zuständigkeit"
+      },
+      "zh": {
+       "k": "管辖范围"
+      }
+     }
+    },
+    {
+     "id": "headquarters",
+     "k": "Headquarters",
+     "v": "Doha, Qatar",
+     "i18n": {
+      "ar": {
+       "k": "المقر"
+      },
+      "fr": {
+       "k": "Siège"
+      },
+      "de": {
+       "k": "Hauptsitz"
+      },
+      "zh": {
+       "k": "总部"
+      }
+     }
+    },
+    {
+     "id": "status",
+     "k": "Status",
+     "v": "Operational",
+     "i18n": {
+      "ar": {
+       "k": "الحالة"
+      },
+      "fr": {
+       "k": "Statut"
+      },
+      "zh": {
+       "k": "状态"
+      }
+     }
+    }
+   ]
   }
  ],
  "generated": "2026-05-20T06:55:55.535Z"

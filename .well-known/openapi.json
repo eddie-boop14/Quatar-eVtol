@@ -2,7 +2,7 @@
  "openapi": "3.1.0",
  "info": {
   "title": "qatarevtol.com entity API",
-  "version": "2026-08-22",
+  "version": "2026-08-23",
   "description": "Static, read-only JSON for every entity in the reference. CC BY 4.0; per-record primary sources and verification dates included.",
   "license": {
    "name": "CC BY 4.0",

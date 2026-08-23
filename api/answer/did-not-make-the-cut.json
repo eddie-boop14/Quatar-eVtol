@@ -45,6 +45,81 @@
     "name": "Did Not Make The Cut: 13 Entities We Cut",
     "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Editorial disclosure",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "role",
+    "k": "Role",
+    "v": "Honest disclosure of cut entities",
+    "i18n": {
+     "ar": {
+      "k": "الدور"
+     },
+     "fr": {
+      "k": "Rôle"
+     },
+     "de": {
+      "k": "Rolle"
+     },
+     "zh": {
+      "k": "角色"
+     }
+    }
+   },
+   {
+    "id": "jurisdiction",
+    "k": "Jurisdiction",
+    "v": "Arab world (UAE + Qatar + Saudi Arabia)",
+    "i18n": {
+     "ar": {
+      "k": "الاختصاص"
+     },
+     "fr": {
+      "k": "Juridiction"
+     },
+     "de": {
+      "k": "Zuständigkeit"
+     },
+     "zh": {
+      "k": "管辖范围"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Living document — updated as evidence emerges",
+    "i18n": {
+     "ar": {
+      "k": "الحالة",
+      "v": "وثيقة حية — تُحدث عند ظهور أدلة جديدة"
+     },
+     "fr": {
+      "k": "Statut",
+      "v": "Document vivant — mis à jour au fur et à mesure que des preuves apparaissent"
+     },
+     "zh": {
+      "k": "状态",
+      "v": "活文档——随证据浮现而更新"
+     }
+    }
+   }
+  ]
  }
 }

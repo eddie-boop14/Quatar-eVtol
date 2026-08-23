@@ -53,6 +53,101 @@
     "name": "Qatar Ministry of Transport (MoT)",
     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
    }
-  }
+  },
+  "facts": [
+   {
+    "id": "type",
+    "k": "Type",
+    "v": "Government ministry (transport policy)",
+    "i18n": {
+     "ar": {
+      "k": "النوع"
+     },
+     "de": {
+      "k": "Typ"
+     },
+     "zh": {
+      "k": "类型"
+     }
+    }
+   },
+   {
+    "id": "role",
+    "k": "Role",
+    "v": "Strategic eVTOL sponsor; non-airworthiness",
+    "i18n": {
+     "ar": {
+      "k": "الدور",
+      "v": "راعي eVTOL استراتيجي؛ غير متعلق بالصلاحية الجوية"
+     },
+     "fr": {
+      "k": "Rôle",
+      "v": "Sponsor stratégique eVTOL ; sans responsabilité d'airworthiness"
+     },
+     "de": {
+      "k": "Rolle",
+      "v": "Strategischer eVTOL-Sponsor; keine Lufttüchtigkeitsfunktion"
+     },
+     "zh": {
+      "k": "角色",
+      "v": "战略 eVTOL 赞助商;非空中飞行能力"
+     }
+    }
+   },
+   {
+    "id": "jurisdiction",
+    "k": "Jurisdiction",
+    "v": "Qatar",
+    "i18n": {
+     "ar": {
+      "k": "الاختصاص"
+     },
+     "fr": {
+      "k": "Juridiction"
+     },
+     "de": {
+      "k": "Zuständigkeit"
+     },
+     "zh": {
+      "k": "管辖范围"
+     }
+    }
+   },
+   {
+    "id": "headquarters",
+    "k": "Headquarters",
+    "v": "Doha, Qatar",
+    "i18n": {
+     "ar": {
+      "k": "المقر"
+     },
+     "fr": {
+      "k": "Siège"
+     },
+     "de": {
+      "k": "Hauptsitz"
+     },
+     "zh": {
+      "k": "总部"
+     }
+    }
+   },
+   {
+    "id": "status",
+    "k": "Status",
+    "v": "Operational",
+    "i18n": {
+     "ar": {
+      "k": "الحالة"
+     },
+     "fr": {
+      "k": "Statut"
+     },
+     "zh": {
+      "k": "状态"
+     }
+    }
+   }
+  ]
  }
 }

@@ -1,0 +1,189 @@
+{
+ "Aircraft": {
+  "ar": {
+   "label": "الطائرة"
+  },
+  "fr": {
+   "label": "Aéronef"
+  },
+  "de": {
+   "label": "Luftfahrzeug"
+  },
+  "zh": {
+   "label": "飞行器"
+  }
+ },
+ "Autonomy": {
+  "ar": {
+   "label": "الاستقلالية"
+  },
+  "fr": {
+   "label": "Autonomie"
+  },
+  "de": {
+   "label": "Autonomie"
+  },
+  "zh": {
+   "label": "自主性"
+  }
+ },
+ "Builder": {
+  "ar": {
+   "label": "جهة الإنشاء"
+  },
+  "fr": {
+   "label": "Constructeur"
+  },
+  "de": {
+   "label": "Errichter"
+  },
+  "zh": {
+   "label": "建造方"
+  }
+ },
+ "Destination": {
+  "ar": {
+   "label": "الوجهة"
+  },
+  "de": {
+   "label": "Ziel"
+  },
+  "zh": {
+   "label": "终点"
+  }
+ },
+ "Duration": {
+  "ar": {
+   "label": "المدة"
+  },
+  "fr": {
+   "label": "Durée"
+  },
+  "de": {
+   "label": "Dauer"
+  },
+  "zh": {
+   "label": "时长"
+  }
+ },
+ "Exclusivity": {
+  "ar": {
+   "label": "الحصرية"
+  },
+  "fr": {
+   "label": "Exclusivité"
+  },
+  "de": {
+   "label": "Exklusivität"
+  },
+  "zh": {
+   "label": "独家权益"
+  }
+ },
+ "Headquarters": {
+  "ar": {
+   "label": "المقر"
+  },
+  "fr": {
+   "label": "Siège"
+  },
+  "de": {
+   "label": "Hauptsitz"
+  },
+  "zh": {
+   "label": "总部"
+  }
+ },
+ "Jurisdiction": {
+  "ar": {
+   "label": "الاختصاص"
+  },
+  "fr": {
+   "label": "Juridiction"
+  },
+  "de": {
+   "label": "Zuständigkeit"
+  },
+  "zh": {
+   "label": "管辖范围"
+  }
+ },
+ "Operator": {
+  "ar": {
+   "label": "المشغّل"
+  },
+  "fr": {
+   "label": "Exploitant"
+  },
+  "de": {
+   "label": "Betreiber"
+  },
+  "zh": {
+   "label": "运营方"
+  }
+ },
+ "Origin": {
+  "ar": {
+   "label": "المنشأ"
+  },
+  "fr": {
+   "label": "Origine"
+  },
+  "de": {
+   "label": "Ursprung"
+  },
+  "zh": {
+   "label": "起点"
+  }
+ },
+ "Regulator": {
+  "ar": {
+   "label": "الجهة التنظيمية"
+  },
+  "fr": {
+   "label": "Régulateur"
+  },
+  "de": {
+   "label": "Aufsichtsbehörde"
+  },
+  "zh": {
+   "label": "监管机构"
+  }
+ },
+ "Role": {
+  "ar": {
+   "label": "الدور"
+  },
+  "fr": {
+   "label": "Rôle"
+  },
+  "de": {
+   "label": "Rolle"
+  },
+  "zh": {
+   "label": "角色"
+  }
+ },
+ "Status": {
+  "ar": {
+   "label": "الحالة"
+  },
+  "fr": {
+   "label": "Statut"
+  },
+  "zh": {
+   "label": "状态"
+  }
+ },
+ "Type": {
+  "ar": {
+   "label": "النوع"
+  },
+  "de": {
+   "label": "Typ"
+  },
+  "zh": {
+   "label": "类型"
+  }
+ }
+}
