@@ -295,4 +295,14 @@ if command -v python3 >/dev/null 2>&1 && [ -f build_atoms.py ]; then
   python3 build_atoms.py check || say "fact-grid status drift (see ATOMS FAIL lines above)"
 fi
 
+# 25 ── Every canonical page carries a social card. build_og.py once stripped
+#       og:title from all 30 hub pages on every second run (its own marker
+#       block fooled the "already has OG tags" test) and nothing noticed for
+#       five weeks of live traffic.
+miss=0
+for f in $(grep -rl 'rel="canonical"' --include='*.html' . 2>/dev/null | grep -v '^./.git/'); do
+  grep -q 'property="og:title"' "$f" && grep -q 'property="og:image"' "$f" || { miss=$((miss+1)); [ $miss -le 3 ] && echo "  no og:title/og:image: $f"; }
+done
+[ "$miss" -eq 0 ] || say "$miss canonical page(s) missing og:title or og:image — run build_og.py"
+
 echo "guard.sh: all invariants hold ($(find . -name '*.html' -not -path './.git/*' | wc -l) pages checked)"
