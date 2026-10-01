@@ -1,7 +1,7 @@
 {
  "title": "qatarevtol.com entity API",
  "license": "CC BY 4.0",
- "generated": "2026-08-23",
+ "generated": "2026-10-01",
  "count": 12,
  "entities": [
   {
@@ -9,7 +9,7 @@
    "name": "Did Not Make The Cut: 13 Entities We Cut",
    "entity_type": "answer",
    "status": "operational",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/answer/did-not-make-the-cut.json",
    "page": "https://qatarevtol.com/explainers/did-not-make-the-cut.html"
   },
@@ -18,7 +18,7 @@
    "name": "Doha Airport → Urban Centers (future)",
    "entity_type": "route",
    "status": "announced",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/route/doha-airport-to-urban-future.json",
    "page": "https://qatarevtol.com/routes/doha-airport-to-urban-future.html"
   },
@@ -27,7 +27,7 @@
    "name": "Doha Airport Vertiport (planned)",
    "entity_type": "vertiport",
    "status": "planned",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/vertiport/doha-airport-vertiport-future.json",
    "page": "https://qatarevtol.com/vertiports/doha-airport-vertiport-future.html"
   },
@@ -36,7 +36,7 @@
    "name": "Doha eVTOL vs taxi vs metro — comparison",
    "entity_type": "answer",
    "status": "trial_only",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/answer/doha-evtol-vs-taxi-metro.json",
    "page": "https://qatarevtol.com/explainers/doha-evtol-vs-taxi-metro.html"
   },
@@ -45,7 +45,7 @@
    "name": "Port of Doha ↔ Katara Cultural Village",
    "entity_type": "route",
    "status": "trial_only",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/route/doha-port-to-katara.json",
    "page": "https://qatarevtol.com/routes/doha-port-to-katara.html"
   },
@@ -54,7 +54,7 @@
    "name": "EHang EH216-S (Qatar trials)",
    "entity_type": "aircraft",
    "status": "trial_only",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/aircraft/ehang-eh216-s-qatar.json",
    "page": "https://qatarevtol.com/aircraft/ehang-eh216-s-qatar.html"
   },
@@ -63,7 +63,7 @@
    "name": "Gulf eVTOL — UAE vs Qatar compared",
    "entity_type": "answer",
    "status": "trial_only",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/answer/gulf-evtol-comparison-uae-vs-qatar.json",
    "page": "https://qatarevtol.com/explainers/gulf-evtol-comparison-uae-vs-qatar.html"
   },
@@ -72,7 +72,7 @@
    "name": "Qatar Ministry of Transport (MoT)",
    "entity_type": "regulator",
    "status": "operational",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/regulator/mot-qatar.json",
    "page": "https://qatarevtol.com/regulators/mot-qatar.html"
   },
@@ -81,7 +81,7 @@
    "name": "Qatar autonomous (pilotless) eVTOL — explained",
    "entity_type": "answer",
    "status": "trial_only",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/answer/qatar-autonomous-evtol-explained.json",
    "page": "https://qatarevtol.com/explainers/qatar-autonomous-evtol-explained.html"
   },
@@ -90,7 +90,7 @@
    "name": "Qatar eVTOL & National Vision 2030",
    "entity_type": "answer",
    "status": "operational",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/answer/qatar-evtol-vision-2030.json",
    "page": "https://qatarevtol.com/explainers/qatar-evtol-vision-2030.html"
   },
@@ -99,7 +99,7 @@
    "name": "Qatar — Future Certified Aircraft (placeholder)",
    "entity_type": "aircraft",
    "status": "announced",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/aircraft/qatar-future-certified-aircraft.json",
    "page": "https://qatarevtol.com/aircraft/qatar-future-certified-aircraft.html"
   },
@@ -108,7 +108,7 @@
    "name": "Qatar Civil Aviation Authority (QCAA)",
    "entity_type": "regulator",
    "status": "operational",
-   "last_verified": "2026-08-22",
+   "last_verified": "2026-10-01",
    "endpoint": "https://qatarevtol.com/api/regulator/qcaa-qatar.json",
    "page": "https://qatarevtol.com/regulators/qcaa-qatar.html"
   }

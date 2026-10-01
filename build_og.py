@@ -231,7 +231,10 @@ def inject(root, entities):
             f'<meta property="og:image:alt" content="{esc(alt)}">',
             f'<meta name="twitter:image" content="{url}">',
         ]
-        if 'property="og:title"' not in html:
+        # Ignore our own marker block: it may contain og:title from a previous run, and
+        # counting it made alternate runs strip the full block from the hub pages.
+        outside = re.sub(re.escape(MARK_OPEN) + r'.*?' + re.escape(MARK_CLOSE), '', html, flags=re.S)
+        if 'property="og:title"' not in outside:
             title = re.search(r"<title>([^<]+)</title>", html)
             desc = re.search(r'<meta name="description" content="([^"]*)"', html)
             lang = rel.parts[0] if rel.parts[0] in LANG_DIRS else "en"
