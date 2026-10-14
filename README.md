@@ -60,10 +60,12 @@ keeps the two from drifting:
 - **`FRESHNESS.md`** — the re-verification protocol: primary sources are
   re-read on a risk-ranked schedule and `last_verified` moves only when the
   sources were actually re-read. Full-corpus sweep last completed
-  **2026-08-22**.
+  **2026-10-01**.
 - **Build tooling** — `build_data.py`, `build_og.py`, `build_api.py`,
   `build_changes.py`, `build_atoms.py`, `build_redirects.py`,
-  `build_sister.py`, `freshness.py`.
+  `build_sister.py`, `freshness.py`, `build_meta.py` (search-snippet
+  hygiene), `indexnow.py` (pings IndexNow after each production deploy, via
+  `.github/workflows/indexnow.yml`).
 
 ## Citing
 

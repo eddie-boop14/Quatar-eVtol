@@ -5,7 +5,7 @@
 
 [build]
   publish = "."
-  command = "./guard.sh"
+  command = "./guard.sh && echo \"$COMMIT_REF\" > deploy-id.txt"
 
 # Nudge SEO/security headers (safe defaults for a static directory).
 [[headers]]
