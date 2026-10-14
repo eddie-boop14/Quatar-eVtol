@@ -282,11 +282,6 @@ for f in llms.txt llms-full.txt robots.txt sitemap.xml; do
   [ -s "$f" ] || say "missing $f"
 done
 
-if [ "$fail" -ne 0 ]; then
-  echo ""
-  echo "Build blocked. Each check above names the regression it prevents."
-  exit 1
-fi
 # 24 ── The status a reader sees in the fact grid must be the status in the
 #       dataset. The 2026-08-22 sweep found the DXB vertiport's Status row
 #       still saying "technical completion" in five locales a month after
@@ -305,4 +300,40 @@ for f in $(grep -rl 'rel="canonical"' --include='*.html' . 2>/dev/null | grep -v
 done
 [ "$miss" -eq 0 ] || say "$miss canonical page(s) missing og:title or og:image — run build_og.py"
 
+
+# 26 ── Search snippets. Bing Webmaster (Oct 2026) flagged 15 pages sharing one
+#       meta description — the ar/fr/de/zh copies of entity pages all carried
+#       the English text — plus short hub descriptions and a 73-char title.
+#       build_meta.py fixes all three; this keeps them fixed. Also: the
+#       IndexNow key indexnow.py submits with must be served from the root.
+command -v python3 >/dev/null 2>&1 && python3 - <<'PY' || say "search-snippet hygiene (see SNIPPET lines above) — run build_meta.py"
+import html, pathlib, re, sys
+bad = 0; seen = {}
+for p in sorted(pathlib.Path(".").rglob("*.html")):
+    if p.parts[0] in (".git", "og", "netlify"): continue
+    h = p.read_text(encoding="utf-8")
+    if 'rel="canonical"' not in h: continue
+    t = re.search(r"<title>([^<]+)</title>", h)
+    if t and len(html.unescape(t.group(1)).strip()) > 70:
+        bad += 1; print(f"  SNIPPET title > 70 chars: {p}")
+    m = re.search(r'<meta\b[^>]*\bname="description"[^>]*>', h)
+    c = re.search(r'content="([^"]*)"', m.group(0)) if m else None
+    if not c or not c.group(1).strip():
+        bad += 1; print(f"  SNIPPET no meta description: {p}"); continue
+    seen.setdefault(c.group(1), []).append(str(p))
+for d, ps in seen.items():
+    if len(ps) > 1:
+        bad += 1; print(f"  SNIPPET {len(ps)} pages share one description: {ps[:3]}")
+sys.exit(1 if bad else 0)
+PY
+key=$(sed -n 's/^KEY = "\([0-9a-f]*\)"$/\1/p' indexnow.py 2>/dev/null)
+if [ -z "$key" ] || [ "$(cat "$key.txt" 2>/dev/null)" != "$key" ]; then
+  say "IndexNow key file $key.txt missing or wrong — indexnow.py submissions would be rejected"
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo ""
+  echo "Build blocked. Each check above names the regression it prevents."
+  exit 1
+fi
 echo "guard.sh: all invariants hold ($(find . -name '*.html' -not -path './.git/*' | wc -l) pages checked)"

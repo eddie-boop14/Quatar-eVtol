@@ -1,0 +1,54 @@
+# Tell IndexNow engines (Bing, Yandex, Seznam, Naver…) which pages changed,
+# but only once Netlify is actually serving this commit: the build writes the
+# commit SHA to /deploy-id.txt, and we wait for it to match. If production
+# never reaches this commit the job fails — which also flags a stalled
+# auto-deploy (it happened once, Oct 2026).
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Submit every sitemap URL instead of only changed pages"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Wait for production to serve this commit
+        run: |
+          host=$(sed -n 's/^HOST = "\(.*\)"$/\1/p' indexnow.py)
+          for i in $(seq 1 60); do
+            live=$(curl -fsS "https://$host/deploy-id.txt?t=$(date +%s)" 2>/dev/null | tr -d '[:space:]' || true)
+            [ "$live" = "$GITHUB_SHA" ] && { echo "live: $live"; exit 0; }
+            echo "attempt $i: production at '${live:-?}', waiting for $GITHUB_SHA"
+            sleep 15
+          done
+          echo "::error::Production never reached $GITHUB_SHA within 15 minutes — check Netlify deploys."
+          exit 1
+
+      - name: Submit to IndexNow
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; then
+            python3 indexnow.py --all
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python3 indexnow.py --changed HEAD~1 HEAD
+          else
+            python3 indexnow.py --changed "${{ github.event.before }}" "$GITHUB_SHA"
+          fi
