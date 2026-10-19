@@ -331,6 +331,19 @@ if [ -z "$key" ] || [ "$(cat "$key.txt" 2>/dev/null)" != "$key" ]; then
   say "IndexNow key file $key.txt missing or wrong — indexnow.py submissions would be rejected"
 fi
 
+# 27 ── One publisher, said the same way everywhere. Every footer carries the
+#       imprint (signature, legal notice, officiallink.org sister line) and the
+#       legal notice it links to exists. build_data.py / build_changes.py
+#       rewrite their pages from templates, so a forgotten build_legal.py run
+#       would quietly drop it.
+[ -s legal.html ] || say "legal.html missing — run build_legal.py"
+noimp=0
+for f in $(grep -rl 'rel="canonical"' --include='*.html' . 2>/dev/null | grep -v '^./.git/'); do
+  grep -q '</footer>' "$f" || continue
+  grep -q '<!-- imprint -->' "$f" || { noimp=$((noimp+1)); [ $noimp -le 3 ] && echo "  no imprint: $f"; }
+done
+[ "$noimp" -eq 0 ] || say "$noimp page(s) missing the publisher imprint — run build_legal.py"
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Build blocked. Each check above names the regression it prevents."

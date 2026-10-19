@@ -1,7 +1,7 @@
 # Qatar eVTOL — the primary-source reference for eVTOL in Qatar
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22068077.svg)](https://doi.org/10.5281/zenodo.22068077)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Data licence: CC BY 4.0](https://img.shields.io/badge/data-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Site](https://img.shields.io/badge/site-qatarevtol.com-c2410c.svg)](https://qatarevtol.com)
 
 The documented record of Qatar's eVTOL programme — **12 entities** (aircraft,
@@ -65,7 +65,8 @@ keeps the two from drifting:
   `build_changes.py`, `build_atoms.py`, `build_redirects.py`,
   `build_sister.py`, `freshness.py`, `build_meta.py` (search-snippet
   hygiene), `indexnow.py` (pings IndexNow after each production deploy, via
-  `.github/workflows/indexnow.yml`).
+  `.github/workflows/indexnow.yml`), `build_legal.py` (publisher imprint in
+  every footer + `legal.html`).
 
 ## Citing
 
@@ -82,3 +83,8 @@ The DOI always resolves to the latest versioned release.
 This is an independent reference. It is not affiliated with any operator,
 regulator, or government body documented on the site. Source links go to
 original documents — verify anything that matters before relying on it.
+
+Published by Edmaster & Claudius · bleu canard éditions, the publisher of
+[officiallink.org](https://officiallink.org/). The dataset is CC BY 4.0; the
+pages, design and code are © 2026 Edmaster & Claudius, all rights reserved —
+see the [legal notice](https://qatarevtol.com/legal.html).
