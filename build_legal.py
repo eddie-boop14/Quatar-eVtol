@@ -4,7 +4,7 @@
 1. Every page with a footer gets the imprint block (between HTML markers, so
    re-runs refresh it): the publisher's signature — the same one
    officiallink.org carries — a link to /legal.html, and one line naming
-   officiallink.org as the sister site, linking its "why" page. The old
+   the site an officiallink.org project, linking officiallink's "why" page. The old
    "© 2026 <site>" line is removed so the page carries one signature.
 2. legal.html is generated from data.html's shell (like changes.html) and
    follows officiallink.org/legal/ section for section, so the two notices
@@ -30,11 +30,11 @@ UPDATED = "19 October 2026"
 
 # Footer strings (ar/de/zh from DeepL; the French "why" label is officiallink.org's own).
 T = {
-    "en": ("Legal notice", "Sister site of {ol} — nothing sold, every fact sourced.", "Why it exists"),
-    "fr": ("Mentions légales", "Site partenaire d'{ol} — aucune vente, toutes les informations sont sourcées.", "Pourquoi ce site existe"),
-    "de": ("Rechtliche Hinweise", "Schwester-Website von {ol} – hier wird nichts verkauft, jede Angabe ist mit Quellenangaben versehen.", "Warum es existiert"),
-    "ar": ("إشعار قانوني", "موقع شقيق لموقع {ol} — لا يتم بيع أي شيء، وكل معلومة مرفقة بمصدرها.", "لماذا يوجد؟"),
-    "zh": ("法律声明", "{ol} 的姊妹网站——不销售任何商品，所有事实均有来源。", "它为何存在"),
+    "en": ("Legal notice", "An {ol} project.", "Why it exists"),
+    "fr": ("Mentions légales", "Un projet d'{ol}.", "Pourquoi ce site existe"),
+    "de": ("Rechtliche Hinweise", "Ein Projekt von {ol}.", "Warum es existiert"),
+    "ar": ("إشعار قانوني", "أحد مشاريع {ol}.", "لماذا يوجد؟"),
+    "zh": ("法律声明", "{ol} 项目。", "它为何存在"),
 }
 OL_HOME = {"fr": "https://officiallink.org/fr/"}
 OL_WHY = {"fr": "https://officiallink.org/fr/why/"}
@@ -45,7 +45,7 @@ def host():
 
 
 def imprint(lang):
-    legal, sister, why = T[lang]
+    legal, project, why = T[lang]
     arrow = "←" if lang == "ar" else "→"
     a = 'style="color:inherit;text-decoration:underline;text-underline-offset:2px"'
     ol = f'<a {a} href="{OL_HOME.get(lang, "https://officiallink.org/")}">officiallink.org</a>'
@@ -54,7 +54,7 @@ def imprint(lang):
     return (
         f'{MARK_OPEN}\n<div class="imprint" {style}>\n'
         f'<div>{SIGNATURE} · <a {a} href="/legal.html">{legal}</a></div>\n'
-        f'<div>{sister.format(ol=ol)} <a {a} href="{OL_WHY.get(lang, "https://officiallink.org/why/")}">{why} {arrow}</a></div>\n'
+        f'<div>{project.format(ol=ol)} <a {a} href="{OL_WHY.get(lang, "https://officiallink.org/why/")}">{why} {arrow}</a></div>\n'
         f'</div>\n{MARK_CLOSE}\n'
     )
 
@@ -98,7 +98,7 @@ def write_legal(host):
     body = "\n".join([
         sec("Publisher",
             f"{host} is published by a private individual, under the imprint Edmaster &amp; Claudius · "
-            f"bleu canard éditions — the same publisher as <a href=\"https://officiallink.org/\">officiallink.org</a>. "
+            f"bleu canard éditions — the publisher of <a href=\"https://officiallink.org/\">officiallink.org</a>, of which this site is a project. "
             f"It is a non-professional publication: nothing is sold here, no commission is taken, no advertising is carried.",
             "Under article 6-III-2 of French law no. 2004-575 of 21 June 2004 (LCEN), an individual who publishes "
             "non-professionally may keep their identity private. The publisher's identity is held by the host named "

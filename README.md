@@ -84,7 +84,7 @@ This is an independent reference. It is not affiliated with any operator,
 regulator, or government body documented on the site. Source links go to
 original documents — verify anything that matters before relying on it.
 
-Published by Edmaster & Claudius · bleu canard éditions, the publisher of
-[officiallink.org](https://officiallink.org/). The dataset is CC BY 4.0; the
+An [officiallink.org](https://officiallink.org/) project, published by
+Edmaster & Claudius · bleu canard éditions. The dataset is CC BY 4.0; the
 pages, design and code are © 2026 Edmaster & Claudius, all rights reserved —
 see the [legal notice](https://qatarevtol.com/legal.html).
