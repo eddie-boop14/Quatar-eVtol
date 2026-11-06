@@ -389,6 +389,13 @@ for u, where in sorted(dead)[:8]:
 sys.exit(1 if dead else 0)
 PY
 
+# 30 ── No off-screen positioning hacks. The skip link was hidden with
+#       left:-9999px: harmless in LTR, but on the Arabic (RTL) pages it made
+#       the document 11,099px wide — blank screenshots, sideways scroll on
+#       phones (Nov 2026). Hide with a transform instead.
+offs=$(grep -rlE '(left|right): ?-9999px' --include='*.html' . 2>/dev/null | grep -v '^./.git/' | wc -l)
+[ "$offs" -eq 0 ] || say "$offs page(s) position something at -9999px (breaks RTL layout)"
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Build blocked. Each check above names the regression it prevents."
