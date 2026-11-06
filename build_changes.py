@@ -83,7 +83,7 @@ def event_line(ev):
     date, kind, slug, name, etype, old, new = ev
     if kind == 'published':
         return name
-    page = f'/{ {"answer": "explainers"}.get(etype, etype + "s") }/{slug}.html'
+    page = f'/{ {"answer": "explainers", "aircraft": "aircraft"}.get(etype, etype + "s") }/{slug}.html'
     link = f'<a href="{page}">{H.escape(name, quote=False)}</a>'
     if kind == 'added':
         return f'{link} added to the corpus ({etype}, status: {label(new)})'

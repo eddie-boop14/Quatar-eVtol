@@ -245,11 +245,13 @@ if [ ! -s _redirects ]; then
   say "_redirects missing or empty — run build_redirects.py"
 else
   want=$(find . -name '*.html' -not -path './.git/*' ! -name 'index.html' ! -name '404.html' | wc -l)
-  got=$(awk '!/^#/ && NF' _redirects | wc -l)
+  # page rules end where the hand-listed "# Retired URLs" block begins
+  got=$(awk '/^# Retired URLs/{exit} !/^#/ && NF' _redirects | wc -l)
   [ "$want" -eq "$got" ] || say "_redirects has $got rules but $want pages need one — run build_redirects.py"
   bad=0; shadow=0
   while read -r from to code; do
-    [ -f ".${to}" ] || { say "_redirects target does not exist: $to"; bad=$((bad+1)); }
+    case "$to" in *:splat) [ -d ".${to%/:splat}" ] || { say "_redirects target dir does not exist: $to"; bad=$((bad+1)); } ;;
+      *) [ -f ".${to}" ] || { say "_redirects target does not exist: $to"; bad=$((bad+1)); } ;; esac
     [ "$code" = "301!" ] || { say "_redirects rule not a forced 301: $from $code"; bad=$((bad+1)); }
     [ -f ".${from}/index.html" ] && { say "_redirects rule shadows a directory index: $from"; shadow=$((shadow+1)); }
   done < <(awk '!/^#/ && NF' _redirects)
@@ -350,6 +352,42 @@ done
 #       footer is the one deliberate cross-link. build_nav.py keeps this clean.
 cross=$(grep -rhoE 'class="(sibling-card reveal|ticker-item)" href="https?://(www\.)?(evtolemirates|qatarevtol)\.com' --include='*.html' . 2>/dev/null | wc -l)
 [ "$cross" -eq 0 ] || say "$cross ticker/'More' link(s) point at the sister site — run build_nav.py"
+
+# 29 ── Every internal link resolves. feed.xml built entity URLs as type + "s"
+#       (/aircrafts/, /answers/) and changes.html did the same: Search Console
+#       reported the 404s in Nov 2026 while invariant 22 passed, because it only
+#       looked at relative hrefs. This follows root-relative hrefs in every page
+#       and every own-host link in the feeds and the sitemap to a real file.
+command -v python3 >/dev/null 2>&1 && python3 - "$LIVE_HOST" <<'PY' || say "internal link(s) to missing files (see DEAD lines above)"
+import pathlib, re, sys
+host = sys.argv[1] if len(sys.argv) > 1 else ""
+root = pathlib.Path(".")
+ALLOW = {"/mcp"}
+def exists(path):
+    path = path.split("#")[0].split("?")[0]
+    if not path or path in ALLOW:
+        return True
+    f = root / path.lstrip("/")
+    if path.endswith("/"):
+        return (f / "index.html").exists() or f.is_dir()
+    return f.exists()
+dead = set()
+for p in root.rglob("*.html"):
+    if p.parts[0] in (".git", "og", "netlify"):
+        continue
+    for u in re.findall(r'href="(/[^/"][^"]*|/)"', p.read_text(encoding="utf-8")):
+        if not exists(u):
+            dead.add((u, str(p)))
+for name in ("feed.xml", "changes.xml", "sitemap.xml"):
+    f = root / name
+    if host and f.exists():
+        for u in re.findall(r'https://' + re.escape(host) + r'(/[^"<\s]*)', f.read_text(encoding="utf-8")):
+            if not exists(u):
+                dead.add((u, name))
+for u, where in sorted(dead)[:8]:
+    print(f"  DEAD {u}  (in {where})")
+sys.exit(1 if dead else 0)
+PY
 
 if [ "$fail" -ne 0 ]; then
   echo ""

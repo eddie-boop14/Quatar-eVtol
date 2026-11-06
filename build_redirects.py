@@ -30,5 +30,13 @@ out = [
     "",
 ]
 out += [f"{a.ljust(w)}  {b}  301!" for a, b in rows]
+
+# URLs Search Console found that never existed as pages (Nov 2026 404 report):
+# feed.xml once built links as type + "s" (/aircrafts/, /answers/), and a
+# source list once rendered href="internal" on the did-not-make-the-cut page.
+EXTRA = [("/aircrafts/*", "/aircraft/:splat"), ("/answers/*", "/explainers/:splat")]
+for pre in ("", "/ar", "/fr", "/de", "/zh"):
+    EXTRA.append((f"{pre}/explainers/internal", f"{pre}/explainers/did-not-make-the-cut.html"))
+out += ["", "# Retired URLs"] + [f"{a.ljust(w)}  {b}  301!" for a, b in EXTRA]
 (repo / "_redirects").write_text("\n".join(out) + "\n", encoding="utf-8")
 print(f"  {len(rows)} redirect rules -> {repo/'_redirects'}")
