@@ -344,6 +344,13 @@ for f in $(grep -rl 'rel="canonical"' --include='*.html' . 2>/dev/null | grep -v
 done
 [ "$noimp" -eq 0 ] || say "$noimp page(s) missing the publisher imprint — run build_legal.py"
 
+# 28 ── Navigation stays on this site. The homepage ticker and the "More ..."
+#       cards had been copied from the sister site and pointed at it (Nov 2026:
+#       Qatar's homepage listed five UAE pages). The sister band above the
+#       footer is the one deliberate cross-link. build_nav.py keeps this clean.
+cross=$(grep -rhoE 'class="(sibling-card reveal|ticker-item)" href="https?://(www\.)?(evtolemirates|qatarevtol)\.com' --include='*.html' . 2>/dev/null | wc -l)
+[ "$cross" -eq 0 ] || say "$cross ticker/'More' link(s) point at the sister site — run build_nav.py"
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Build blocked. Each check above names the regression it prevents."

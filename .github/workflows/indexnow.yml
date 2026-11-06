@@ -43,6 +43,12 @@ jobs:
           echo "::error::Production never reached $GITHUB_SHA within 15 minutes — check Netlify deploys."
           exit 1
 
+      - name: Live links point at canonical .html pages
+        run: |
+          host=$(sed -n 's/^HOST = "\(.*\)"$/\1/p' indexnow.py)
+          bad=$(curl -fsS "https://$host/?t=$(date +%s)" | grep -oE "href=['\"]/[a-z][a-z0-9/-]*['\"]" | grep -v '\.html' | grep -vE "/['\"]$" | head -5 || true)
+          if [ -n "$bad" ]; then echo "::error::Live homepage links to extensionless URLs (Netlify post-processing back on?): $bad"; exit 1; fi
+
       - name: Submit to IndexNow
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; then
