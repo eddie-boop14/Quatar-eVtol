@@ -8,6 +8,8 @@
 # counted 135 "page with redirect" URLs in Nov 2026. Serve the HTML as built.
 [build.processing]
   skip_processing = true
+[build.processing.html]
+  pretty_urls = false
 
 [build]
   publish = "."
