@@ -7,6 +7,7 @@ Generated: 2026-10-01T00:00:00.000Z. Each entity lists status, location, last-ve
 
 
 
+
 ## EHang EH216-S (Qatar trials)
 Type: aircraft | Status: trial_only | City: Doha | Country: Qatar | Last verified: 2026-10-01
 Coordinates: 25.36091, 51.52474

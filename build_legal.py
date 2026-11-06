@@ -149,9 +149,10 @@ def write_legal(host):
         head = re.sub(f'(<meta (?:property|name)="{prop}" content=")[^"]*', lambda mm: mm.group(1) + H.escape(desc, quote=True), head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>', "", head, flags=re.S)
     head = re.sub(r"<!-- og-image -->.*?<!-- /og-image -->\n?", "", head, flags=re.S)
-    head = head.replace("</head>", "<style>article.body{max-width:46rem;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) var(--space,1.25rem)}"
-                        "article.body h2{font-size:1.35rem;margin:2.2rem 0 .7rem;line-height:1.25}article.body h2:first-child{margin-top:0}"
-                        "article.body p{margin:0 0 .9rem}article.body a{border-bottom-color:var(--rule,#d8d0bc)}</style>\n</head>")
+    if "article.body{" not in head:  # data.html's shell now carries the same rules
+        head = head.replace("</head>", "<style>article.body{max-width:46rem;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) var(--space,1.25rem)}"
+                            "article.body h2{font-size:1.35rem;margin:2.2rem 0 .7rem;line-height:1.25}article.body h2:first-child{margin-top:0}"
+                            "article.body p{margin:0 0 .9rem}article.body a{border-bottom-color:var(--rule,#d8d0bc)}</style>\n</head>")
     head = head.replace("</head>", f'<link rel="alternate" type="application/atom+xml" title="{SITE} — re-verified entities" href="https://{host}/feed.xml">\n</head>')
 
     header = re.search(r"<body>.*?</header>", shell, re.S).group(0)

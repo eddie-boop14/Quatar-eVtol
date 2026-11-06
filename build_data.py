@@ -58,6 +58,12 @@ def load():
     return json.load(open('entities.json', encoding='utf-8'))
 
 
+# entity_type -> URL directory. Not type + "s": that produced /aircrafts/ and
+# /answers/ links in feed.xml, which Search Console reported as 404s (Nov 2026).
+DIRS = {"operator": "operators", "aircraft": "aircraft", "vertiport": "vertiports",
+        "route": "routes", "regulator": "regulators", "answer": "explainers"}
+
+
 def head_block():
     """Reuse the real <head> so the page is native, not a bolt-on.
 
@@ -118,7 +124,7 @@ def write_feed(data, host, cfg, path='feed.xml'):
            f'<updated>{updated}</updated>',
            f'<rights>CC BY 4.0</rights>']
     for e in ents:
-        url = f'https://{host}/{e["entity_type"]}s/{e["slug"]}.html'
+        url = f'https://{host}/{DIRS[e["entity_type"]]}/{e["slug"]}.html'
         lv = e.get('last_verified', date.today().isoformat())
         out += ['<entry>',
                 f'<title>{esc(e["name"])}</title>',
@@ -289,6 +295,7 @@ that is a bug and we want it: the correction path is a primary source we can rea
 <meta name="twitter:title" content="{html.escape(cfg['title'])}">
 <meta name="twitter:description" content="{len(ents)} entities, {len(srcs)} primary sources, CC BY 4.0.">
 {head_block()}
+<style>article.body{{max-width:46rem;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) var(--space,1.25rem)}}article.body h2{{font-size:1.35rem;margin:2.2rem 0 .7rem;line-height:1.25}}article.body h2:first-child{{margin-top:0}}article.body p{{margin:0 0 .9rem}}article.body a{{border-bottom-color:var(--rule,#d8d0bc)}}article.body code{{font-family:"JetBrains Mono",monospace;font-size:.85em;background:var(--bone,#f5f0e1);padding:.05em .3em;border-radius:3px}}article.body .spec-table{{margin:.6rem 0 1.4rem}}article.body .spec-row{{display:flex;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--rule,#d8d0bc)}}article.body .spec-k{{flex:0 0 11rem;font-family:"JetBrains Mono",monospace;font-size:.82rem}}article.body .spec-v{{flex:1}}</style>
 <script type="application/ld+json">
 {jsonld}
 </script>

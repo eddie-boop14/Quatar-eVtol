@@ -5,7 +5,10 @@
    this site's own entities.json: the most recently verified entries, one per
    entity type first, linking to this site's pages in the page's language. It
    had been copied from the sister site and pointed at it (Nov 2026).
-2. "More aircraft / regulators / ..." cards that point at the sister site are
+2. Each section hub's status chips are recounted from entities.json, with
+   every status shown (the old chips covered four statuses and were frozen
+   at whatever the corpus was when the hub was first built).
+3. "More aircraft / regulators / ..." cards that point at the sister site are
    removed; a block left empty goes with them. The sister-site band above the
    footer is the one deliberate cross-link.
 
@@ -68,6 +71,57 @@ def ticker_html(items, lang):
     return "".join(out) * 2  # the strip scrolls a doubled track
 
 
+ORDER = ["operational", "certified", "design_approved", "under_construction", "trial_only",
+         "announced", "planned", "orphaned", "decommissioned"]
+HUBS = {"aircraft": "aircraft", "vertiports": "vertiport", "routes": "route",
+        "regulators": "regulator", "explainers": "answer", "operators": "operator"}
+
+
+def status_labels(entities):
+    """status -> label per locale, as the hub cards already print them."""
+    by_slug = {e["slug"]: e for e in entities}
+    labels = {}
+    for lang in LANGS:
+        pre = "" if lang == "en" else f"{lang}/"
+        lab = {}
+        for hub in HUBS:
+            p = ROOT / f"{pre}{hub}.html"
+            if not p.exists():
+                continue
+            for m in re.finditer(r'<a class="hub-card reveal" href="/(?:[a-z]{2}/)?[a-z]+/([a-z0-9-]+)\.html">.*?'
+                                 r'<div class="hub-card-status">([^<]*)</div>', p.read_text(encoding="utf-8"), re.S):
+                e = by_slug.get(m.group(1))
+                if e:
+                    lab.setdefault(e["status"], m.group(2))
+        labels[lang] = lab
+    return labels
+
+
+def hub_chips(entities):
+    from collections import Counter
+    labels = status_labels(entities)
+    done = 0
+    for lang in LANGS:
+        pre = "" if lang == "en" else f"{lang}/"
+        for hub, etype in HUBS.items():
+            p = ROOT / f"{pre}{hub}.html"
+            if not p.exists():
+                continue
+            h = p.read_text(encoding="utf-8")
+            counts = Counter(e["status"] for e in entities if e["entity_type"] == etype)
+            chips = "".join(
+                f'<div class="hub-stat-chip{" op" if st in ("operational", "certified") else ""}">'
+                f'<span class="hub-stat-num">{counts[st]}</span>'
+                f'<span class="hub-stat-lbl">{labels[lang].get(st) or labels["en"].get(st) or st.replace("_", " ").capitalize()}</span></div>'
+                for st in ORDER if counts[st])
+            new, n = re.subn(r'(<div class="hub-stats">)(?:<div class="hub-stat-chip[^"]*">.*?</div>)*(</div>)',
+                             lambda m: m.group(1) + chips + m.group(2), h, count=1, flags=re.S)
+            if n and new != h:
+                p.write_text(new, encoding="utf-8")
+                done += 1
+    return done
+
+
 def main():
     me = host()
     other = next(s for s in SISTERS if s != me)
@@ -83,6 +137,8 @@ def main():
         if n and new != h:
             p.write_text(new, encoding="utf-8")
         tickers += n
+
+    chips = hub_chips(entities)
 
     card = re.compile(r'<a class="sibling-card reveal" href="https?://(?:www\.)?' + re.escape(other) + r'[^"]*">.*?</a>', re.S)
     empty_block = re.compile(r'<div class="sibling-eyebrow">[^<]*</div><div class="sibling-grid">\s*</div>')
@@ -100,7 +156,7 @@ def main():
         cards += n
         pages += 1
     print(f"nav: ticker rebuilt on {tickers} homepages ({', '.join(e['slug'] for e in items)}) · "
-          f"{cards} cross-site 'more' cards removed from {pages} pages")
+          f"{cards} cross-site 'more' cards removed from {pages} pages · status chips refreshed on {chips} hubs")
     return 0
 
 
