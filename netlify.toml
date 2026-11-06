@@ -3,6 +3,12 @@
 [functions]
   directory = "netlify/functions"
 
+# Netlify's post-processing ("pretty URLs") rewrote every internal link to the
+# extensionless form (/legal), which then 301s to /legal.html: Search Console
+# counted 135 "page with redirect" URLs in Nov 2026. Serve the HTML as built.
+[build.processing]
+  skip_processing = true
+
 [build]
   publish = "."
   command = "./guard.sh && echo \"$COMMIT_REF\" > deploy-id.txt"
