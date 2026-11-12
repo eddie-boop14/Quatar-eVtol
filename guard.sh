@@ -396,6 +396,38 @@ PY
 offs=$(grep -rlE '(left|right): ?-9999px' --include='*.html' . 2>/dev/null | grep -v '^./.git/' | wc -l)
 [ "$offs" -eq 0 ] || say "$offs page(s) position something at -9999px (breaks RTL layout)"
 
+# 31 ── The date a reader sees is the date in the dataset. Every entity page's
+#       footer said "Last verified" May–July 2026 while entities.json (and the
+#       API, CSV, feeds and OG cards built from it) said October: sweeps moved
+#       the data, nothing moved the one line a human visitor reads, and a
+#       current site looked six months stale (Nov 2026). Same check holds
+#       entities.json's own "generated" stamp to the data it describes — it sat
+#       at May while the file carried October dates.
+if command -v python3 >/dev/null 2>&1 && [ -f build_stamps.py ]; then
+  python3 build_stamps.py check || say "page footer dates drifted from entities.json (see STAMPS FAIL lines above) — run build_stamps.py"
+fi
+
+# 32 ── A citation must land on its source. "[skyports-2026-07-07]" — the GCAA
+#       certification of DXB Vertiport, the most important fact on the UAE
+#       site — linked to #src-skyports-2026-07-07 on ten pages whose source
+#       list had no such entry: the cite was added in a sweep, the list was
+#       not (Nov 2026). Invariant 22 passed because "#…" is a valid href
+#       shape. Every in-page anchor must resolve to an id on the same page.
+command -v python3 >/dev/null 2>&1 && python3 - <<'PY' || say "in-page link(s) to a missing anchor (see ANCHOR lines above)"
+import pathlib, re, sys
+bad = 0
+for p in sorted(pathlib.Path(".").rglob("*.html")):
+    if p.parts[0] in (".git", "og", "netlify"):
+        continue
+    h = p.read_text(encoding="utf-8")
+    ids = set(re.findall(r'\bid="([^"]+)"', h))
+    for a in sorted(set(re.findall(r'href="#([^"]+)"', h)) - ids):
+        bad += 1
+        if bad <= 8:
+            print(f"  ANCHOR #{a} has no target in {p}")
+sys.exit(1 if bad else 0)
+PY
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Build blocked. Each check above names the regression it prevents."

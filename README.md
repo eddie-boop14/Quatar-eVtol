@@ -63,7 +63,7 @@ keeps the two from drifting:
   **2026-10-01**.
 - **Build tooling** — `build_data.py`, `build_og.py`, `build_api.py`,
   `build_changes.py`, `build_atoms.py`, `build_redirects.py`,
-  `build_sister.py`, `freshness.py`, `build_meta.py` (search-snippet
+  `build_sister.py`, `build_stamps.py` (page footer dates = dataset dates), `freshness.py`, `build_meta.py` (search-snippet
   hygiene), `indexnow.py` (pings IndexNow after each production deploy, via
   `.github/workflows/indexnow.yml`), `build_legal.py` (publisher imprint in
   every footer + `legal.html`).

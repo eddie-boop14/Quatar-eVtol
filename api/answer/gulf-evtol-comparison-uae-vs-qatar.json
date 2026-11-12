@@ -65,6 +65,13 @@
     "url": "https://www.flyingmag.com/air-taxi-manufacturers-archer-joby-set-sights-on-abu-dhabi/",
     "type": "official-news",
     "accessed": "2026-05-01"
+   },
+   {
+    "id": "mot-qatar-2025-11",
+    "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+    "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+    "type": "government",
+    "accessed": "2026-11-12"
    }
   ],
   "i18n": {
@@ -186,19 +193,19 @@
    {
     "id": "qatar_first_pp_flight",
     "k": "Qatar First Pp Flight",
-    "v": "EH216-S — Old Doha Port ↔ Katara, 17 Nov 2025, 8 minutes",
+    "v": "EH216-S — Old Doha Port ↔ Katara, 15 Nov 2025, 8 minutes",
     "i18n": {
      "ar": {
-      "v": "EH216-S — ميناء الدوحة القديم ↔ كتارا، 17 نوفمبر 2025، 8 دقائق"
+      "v": "EH216-S — ميناء الدوحة القديم ↔ كتارا، 15 نوفمبر 2025، 8 دقائق"
      },
      "fr": {
-      "v": "EH216-S — Port de Doha ancien ↔ Katara, 17 nov 2025, 8 minutes"
+      "v": "EH216-S — Port de Doha ancien ↔ Katara, 15 nov 2025, 8 minutes"
      },
      "de": {
-      "v": "EH216-S – Alter Doha-Hafen ↔ Katara, 17. Nov. 2025, 8 Minuten"
+      "v": "EH216-S – Alter Doha-Hafen ↔ Katara, 15. Nov. 2025, 8 Minuten"
      },
      "zh": {
-      "v": "EH216-S — 老多哈港 ↔ 卡塔拉，2025 年 11 月 17 日，8 分钟"
+      "v": "EH216-S — 老多哈港 ↔ 卡塔拉，2025 年 11 月 15 日，8 分钟"
      }
     }
    },
