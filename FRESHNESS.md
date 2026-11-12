@@ -36,7 +36,7 @@ python3 freshness.py --json           # same, for an agent
    did not exist, the footers stayed at their May–July creation dates while
    the dataset said October, and the site looked stale to every human reader
    (and to the automated sweep that reported it, Nov 2026).
-6. **Run `./guard.sh`.** It blocks the deploy on twelve invariants. If it fails,
+6. **Run `./guard.sh`.** It blocks the deploy on 33 invariants. If it fails,
    read the message; each one names the regression it prevents.
 
 ## The edit protocol — the part that is actually hard
@@ -90,6 +90,12 @@ Four traps, all of which have bitten this project:
    Any regex touching a tag must be order-agnostic.
 4. **Meta descriptions on translated pages are often still English.** They are
    outside the translated body. Check them explicitly.
+
+Since Nov 2026 `guard.sh` invariant 33 blocks the deploy when a locale page's
+source list differs from `entities.json`, so a source added to the English page
+and not to its four twins fails the build instead of waiting for a reader to
+notice. It checks ids, not the prose that cites them: the paragraph or timeline
+entry still has to be carried over by hand.
 
 ## Reviewing machine translation
 

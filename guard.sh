@@ -428,6 +428,35 @@ for p in sorted(pathlib.Path(".").rglob("*.html")):
 sys.exit(1 if bad else 0)
 PY
 
+# 33 ── A page's source list is the dataset's source list, in every locale.
+#       Sources added to English pages between August and November 2026
+#       (Joby's Q3 letter, the GCAA's October visits, the RAK agreement,
+#       Qatar's Law No. 10) never reached fr/de/ar/zh: nine entities, four
+#       locales, a French reader of the Joby page saw a source list three
+#       months behind the English one. Invariants 31 and 32 could not see it
+#       because each locale page was internally consistent. The ids under
+#       <ol class="src-list"> on every locale of an entity page must equal
+#       the ids in entities.json for that entity — no more, no fewer.
+command -v python3 >/dev/null 2>&1 && python3 - <<'PY' || say "page source lists drifted from entities.json (see SOURCES lines above)"
+import glob, json, os, re, sys
+bad = 0
+for e in json.load(open("entities.json", encoding="utf-8"))["entities"]:
+    want = sorted(s["id"] for s in e.get("sources", []))
+    pages = [p for p in glob.glob(f"*/{e['slug']}.html") if p.split("/")[0] not in ("fr", "de", "ar", "zh")]
+    if len(pages) != 1:
+        continue
+    for loc in ("", "fr/", "de/", "ar/", "zh/"):
+        p = loc + pages[0]
+        if not os.path.exists(p):
+            continue
+        have = sorted(set(re.findall(r'<li[^>]*\bid="src-([^"]+)"', open(p, encoding="utf-8").read())))
+        if have != want:
+            bad += 1
+            if bad <= 8:
+                print(f"  SOURCES {p}: page-only {sorted(set(have)-set(want))} data-only {sorted(set(want)-set(have))}")
+sys.exit(1 if bad else 0)
+PY
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Build blocked. Each check above names the regression it prevents."

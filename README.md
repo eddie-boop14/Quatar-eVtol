@@ -52,7 +52,7 @@ keeps the two from drifting:
 - **`entities.json`** — source of truth: status enums, coordinates, dates,
   per-source citations, per-page fact atoms (`facts`) with a five-locale
   label vocabulary (`data/facts_vocab.json`).
-- **`guard.sh`** — 24 invariants, run on every deploy. Among them: every
+- **`guard.sh`** — 33 invariants, run on every deploy. Among them: every
   page canonicalised and in the sitemap, every sitemap URL existing, fonts
   self-hosted, and *atoms check* — every fact row on every page in every
   locale must equal the stored atoms, and every rendered status must equal
