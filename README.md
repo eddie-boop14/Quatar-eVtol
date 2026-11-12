@@ -52,7 +52,7 @@ keeps the two from drifting:
 - **`entities.json`** — source of truth: status enums, coordinates, dates,
   per-source citations, per-page fact atoms (`facts`) with a five-locale
   label vocabulary (`data/facts_vocab.json`).
-- **`guard.sh`** — 24 invariants, run on every deploy. Among them: every
+- **`guard.sh`** — 33 invariants, run on every deploy. Among them: every
   page canonicalised and in the sitemap, every sitemap URL existing, fonts
   self-hosted, and *atoms check* — every fact row on every page in every
   locale must equal the stored atoms, and every rendered status must equal
@@ -63,7 +63,7 @@ keeps the two from drifting:
   **2026-10-01**.
 - **Build tooling** — `build_data.py`, `build_og.py`, `build_api.py`,
   `build_changes.py`, `build_atoms.py`, `build_redirects.py`,
-  `build_sister.py`, `freshness.py`, `build_meta.py` (search-snippet
+  `build_sister.py`, `build_stamps.py` (page footer dates = dataset dates), `freshness.py`, `build_meta.py` (search-snippet
   hygiene), `indexnow.py` (pings IndexNow after each production deploy, via
   `.github/workflows/indexnow.yml`), `build_legal.py` (publisher imprint in
   every footer + `legal.html`).

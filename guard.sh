@@ -396,6 +396,67 @@ PY
 offs=$(grep -rlE '(left|right): ?-9999px' --include='*.html' . 2>/dev/null | grep -v '^./.git/' | wc -l)
 [ "$offs" -eq 0 ] || say "$offs page(s) position something at -9999px (breaks RTL layout)"
 
+# 31 ── The date a reader sees is the date in the dataset. Every entity page's
+#       footer said "Last verified" May–July 2026 while entities.json (and the
+#       API, CSV, feeds and OG cards built from it) said October: sweeps moved
+#       the data, nothing moved the one line a human visitor reads, and a
+#       current site looked six months stale (Nov 2026). Same check holds
+#       entities.json's own "generated" stamp to the data it describes — it sat
+#       at May while the file carried October dates.
+if command -v python3 >/dev/null 2>&1 && [ -f build_stamps.py ]; then
+  python3 build_stamps.py check || say "page footer dates drifted from entities.json (see STAMPS FAIL lines above) — run build_stamps.py"
+fi
+
+# 32 ── A citation must land on its source. "[skyports-2026-07-07]" — the GCAA
+#       certification of DXB Vertiport, the most important fact on the UAE
+#       site — linked to #src-skyports-2026-07-07 on ten pages whose source
+#       list had no such entry: the cite was added in a sweep, the list was
+#       not (Nov 2026). Invariant 22 passed because "#…" is a valid href
+#       shape. Every in-page anchor must resolve to an id on the same page.
+command -v python3 >/dev/null 2>&1 && python3 - <<'PY' || say "in-page link(s) to a missing anchor (see ANCHOR lines above)"
+import pathlib, re, sys
+bad = 0
+for p in sorted(pathlib.Path(".").rglob("*.html")):
+    if p.parts[0] in (".git", "og", "netlify"):
+        continue
+    h = p.read_text(encoding="utf-8")
+    ids = set(re.findall(r'\bid="([^"]+)"', h))
+    for a in sorted(set(re.findall(r'href="#([^"]+)"', h)) - ids):
+        bad += 1
+        if bad <= 8:
+            print(f"  ANCHOR #{a} has no target in {p}")
+sys.exit(1 if bad else 0)
+PY
+
+# 33 ── A page's source list is the dataset's source list, in every locale.
+#       Sources added to English pages between August and November 2026
+#       (Joby's Q3 letter, the GCAA's October visits, the RAK agreement,
+#       Qatar's Law No. 10) never reached fr/de/ar/zh: nine entities, four
+#       locales, a French reader of the Joby page saw a source list three
+#       months behind the English one. Invariants 31 and 32 could not see it
+#       because each locale page was internally consistent. The ids under
+#       <ol class="src-list"> on every locale of an entity page must equal
+#       the ids in entities.json for that entity — no more, no fewer.
+command -v python3 >/dev/null 2>&1 && python3 - <<'PY' || say "page source lists drifted from entities.json (see SOURCES lines above)"
+import glob, json, os, re, sys
+bad = 0
+for e in json.load(open("entities.json", encoding="utf-8"))["entities"]:
+    want = sorted(s["id"] for s in e.get("sources", []))
+    pages = [p for p in glob.glob(f"*/{e['slug']}.html") if p.split("/")[0] not in ("fr", "de", "ar", "zh")]
+    if len(pages) != 1:
+        continue
+    for loc in ("", "fr/", "de/", "ar/", "zh/"):
+        p = loc + pages[0]
+        if not os.path.exists(p):
+            continue
+        have = sorted(set(re.findall(r'<li[^>]*\bid="src-([^"]+)"', open(p, encoding="utf-8").read())))
+        if have != want:
+            bad += 1
+            if bad <= 8:
+                print(f"  SOURCES {p}: page-only {sorted(set(have)-set(want))} data-only {sorted(set(want)-set(have))}")
+sys.exit(1 if bad else 0)
+PY
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Build blocked. Each check above names the regression it prevents."

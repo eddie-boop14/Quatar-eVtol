@@ -13,7 +13,7 @@
   "status": "trial_only",
   "last_verified": "2026-10-01",
   "name": "Port of Doha ↔ Katara Cultural Village",
-  "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car.",
+  "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car.",
   "latitude": 25.3174,
   "longitude": 51.5378,
   "sources": [
@@ -35,23 +35,23 @@
   "i18n": {
    "en": {
     "name": "Port of Doha ↔ Katara Cultural Village",
-    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
    },
    "ar": {
     "name": "Port of Doha ↔ Katara Cultural Village",
-    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
    },
    "fr": {
     "name": "Port of Doha ↔ Katara Cultural Village",
-    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
    },
    "de": {
     "name": "Port of Doha ↔ Katara Cultural Village",
-    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
    },
    "zh": {
     "name": "Port of Doha ↔ Katara Cultural Village",
-    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+    "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
    }
   },
   "facts": [
@@ -189,7 +189,7 @@
    {
     "id": "status",
     "k": "Status",
-    "v": "Trial flights conducted 17 Nov 2025",
+    "v": "Trial flights conducted 15 Nov 2025",
     "i18n": {
      "ar": {
       "k": "الحالة"

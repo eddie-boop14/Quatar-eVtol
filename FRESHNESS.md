@@ -30,8 +30,15 @@ python3 freshness.py --json           # same, for an agent
 4. **For anything that moved, apply the edit protocol below.**
 5. **Update `last_verified` to the date you re-read the sources** — even if
    nothing changed. An entity confirmed unchanged is fresher than one nobody
-   looked at, and the score should reflect that.
-6. **Run `./guard.sh`.** It blocks the deploy on twelve invariants. If it fails,
+   looked at, and the score should reflect that. Then run
+   `python3 build_stamps.py`: it writes that date into the "Last verified"
+   footer line of the entity's page in all five locales, together with the
+   entity's `published` date in the locale's own date format (the month used
+   to be English in every locale — "Publié le 1 May 2026"). For six months it
+   did not exist, the footers stayed at their May–July creation dates while
+   the dataset said October, and the site looked stale to every human reader
+   (and to the automated sweep that reported it, Nov 2026).
+6. **Run `./guard.sh`.** It blocks the deploy on 33 invariants. If it fails,
    read the message; each one names the regression it prevents.
 
 ## The edit protocol — the part that is actually hard
@@ -86,6 +93,12 @@ Four traps, all of which have bitten this project:
 4. **Meta descriptions on translated pages are often still English.** They are
    outside the translated body. Check them explicitly.
 
+Since Nov 2026 `guard.sh` invariant 33 blocks the deploy when a locale page's
+source list differs from `entities.json`, so a source added to the English page
+and not to its four twins fails the build instead of waiting for a reader to
+notice. It checks ids, not the prose that cites them: the paragraph or timeline
+entry still has to be carried over by hand.
+
 ## Reviewing machine translation
 
 Every segment gets read by a human or by an agent instructed to check meaning,
@@ -131,7 +144,7 @@ nothing at all.
 ## What "done" looks like
 
 - `./guard.sh` exits 0
-- every entity you touched has `last_verified` set to today
+- every entity you touched has `last_verified` set to today, and its page footer says so (`build_stamps.py`)
 - every new claim has a primary source in the source list **and** a timeline entry
 - the change is stated in all five languages, including JSON-LD
 - the commit message says what changed, what stayed, and why

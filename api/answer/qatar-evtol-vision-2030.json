@@ -13,7 +13,7 @@
   "status": "operational",
   "last_verified": "2026-10-01",
   "name": "Qatar eVTOL & National Vision 2030",
-  "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3.",
+  "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3.",
   "latitude": 25.2854,
   "longitude": 51.531,
   "sources": [
@@ -44,28 +44,35 @@
     "url": "https://ir.ehang.com/news-releases/news-release-details/ehang-eh216-s-conducts-first-urban-human-carrying-pilotless/",
     "type": "operator-ir",
     "accessed": "2026-05-01"
+   },
+   {
+    "id": "mot-qatar-2025-11",
+    "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+    "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+    "type": "government",
+    "accessed": "2026-11-12"
    }
   ],
   "i18n": {
    "en": {
     "name": "Qatar eVTOL & National Vision 2030",
-    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
    },
    "ar": {
     "name": "Qatar eVTOL & National Vision 2030",
-    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
    },
    "fr": {
     "name": "Qatar eVTOL & National Vision 2030",
-    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
    },
    "de": {
     "name": "Qatar eVTOL & National Vision 2030",
-    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
    },
    "zh": {
     "name": "Qatar eVTOL & National Vision 2030",
-    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+    "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
    }
   },
   "facts": [
@@ -114,7 +121,7 @@
    {
     "id": "trial_anchor",
     "k": "Trial Anchor",
-    "v": "EHang EH216-S, Doha 17 Nov 2025"
+    "v": "EHang EH216-S, Doha 15 Nov 2025"
    },
    {
     "id": "qnv_pillars",

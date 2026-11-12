@@ -7,6 +7,7 @@
    "city": null,
    "status": "operational",
    "last_verified": "2026-10-01",
+   "published": "2026-05-20",
    "name": "Did Not Make The Cut: 13 Entities We Cut",
    "meta_description": "We cut 13 candidate eVTOL entities from the Arab-world database because they failed our contracted/built/flight-tested/regulated bar. Honest disclosure of what was considered and rejected, with primary sources.",
    "latitude": null,
@@ -124,6 +125,7 @@
    "city": "Doha",
    "status": "announced",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Doha Airport → Urban Centers (future)",
    "meta_description": "EHang named airport-to-urban shuttle as a Qatar eVTOL focus area in Nov 2025. No specific HIA → Doha route announced. Status and sources verified.",
    "latitude": 25.2731,
@@ -313,6 +315,7 @@
    "city": "Doha",
    "status": "planned",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Doha Airport Vertiport (planned)",
    "meta_description": "Conceptual eVTOL vertiport at Hamad International Airport (HIA), Doha. No formal announcement by HIA, Qatar Airways, MoT or QCAA. Status and sources verified.",
    "latitude": 25.2731,
@@ -496,8 +499,9 @@
    "city": "Doha",
    "status": "trial_only",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Doha eVTOL vs taxi vs metro — comparison",
-   "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor.",
+   "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~15 min, QAR 2) on the Port–Katara corridor.",
    "latitude": 25.2854,
    "longitude": 51.531,
    "sources": [
@@ -535,28 +539,35 @@
      "url": "https://www.rome2rio.com/s/Doha-Port-Qatar/Katara-Cultural-Village",
      "type": "primary",
      "accessed": "2026-05-01"
+    },
+    {
+     "id": "mot-qatar-2025-11",
+     "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+     "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+     "type": "government",
+     "accessed": "2026-11-12"
     }
    ],
    "i18n": {
     "en": {
      "name": "Doha eVTOL vs taxi vs metro — comparison",
-     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~15 min, QAR 2) on the Port–Katara corridor."
     },
     "ar": {
      "name": "Doha eVTOL vs taxi vs metro — comparison",
-     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~15 min, QAR 2) on the Port–Katara corridor."
     },
     "fr": {
      "name": "Doha eVTOL vs taxi vs metro — comparison",
-     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~15 min, QAR 2) on the Port–Katara corridor."
     },
     "de": {
      "name": "Doha eVTOL vs taxi vs metro — comparison",
-     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~15 min, QAR 2) on the Port–Katara corridor."
     },
     "zh": {
      "name": "Doha eVTOL vs taxi vs metro — comparison",
-     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~30 min, QAR 2) on the Port–Katara corridor."
+     "meta_description": "Compares Doha eVTOL (EHang EH216-S, 8 min trial), Karwa taxi (~30 min, ~QAR 25-35) and Doha Metro (~15 min, QAR 2) on the Port–Katara corridor."
     }
    },
    "facts": [
@@ -584,7 +595,7 @@
     {
      "id": "evtol_time",
      "k": "Evtol Time",
-     "v": "8 minutes (trial, 17 Nov 2025)"
+     "v": "8 minutes (trial, 15 Nov 2025)"
     },
     {
      "id": "evtol_aircraft",
@@ -648,8 +659,9 @@
    "city": "Doha",
    "status": "trial_only",
    "last_verified": "2026-10-01",
+   "published": "2026-05-20",
    "name": "Port of Doha ↔ Katara Cultural Village",
-   "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car.",
+   "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car.",
    "latitude": 25.3174,
    "longitude": 51.5378,
    "sources": [
@@ -671,23 +683,23 @@
    "i18n": {
     "en": {
      "name": "Port of Doha ↔ Katara Cultural Village",
-     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
     },
     "ar": {
      "name": "Port of Doha ↔ Katara Cultural Village",
-     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
     },
     "fr": {
      "name": "Port of Doha ↔ Katara Cultural Village",
-     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
     },
     "de": {
      "name": "Port of Doha ↔ Katara Cultural Village",
-     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
     },
     "zh": {
      "name": "Port of Doha ↔ Katara Cultural Village",
-     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 17 November 2025. 8-minute flight vs ~30 minutes by car."
+     "meta_description": "The EHang EH216-S completed first urban human-carrying pilotless eVTOL flights in the Middle East between Port of Doha and Katara Cultural Village on 15 November 2025. 8-minute flight vs ~30 minutes by car."
     }
    },
    "facts": [
@@ -825,7 +837,7 @@
     {
      "id": "status",
      "k": "Status",
-     "v": "Trial flights conducted 17 Nov 2025",
+     "v": "Trial flights conducted 15 Nov 2025",
      "i18n": {
       "ar": {
        "k": "الحالة"
@@ -847,6 +859,7 @@
    "city": "Doha",
    "status": "trial_only",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "EHang EH216-S (Qatar trials)",
    "meta_description": "EHang EH216-S autonomous eVTOL flew the Middle East's first urban pilotless passenger flights in Doha on 15 November 2025. Specs, regulator, sources verified.",
    "latitude": 25.36091,
@@ -1056,6 +1069,7 @@
    "city": null,
    "status": "trial_only",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Gulf eVTOL — UAE vs Qatar compared",
    "meta_description": "Compares the UAE eVTOL programme (Joby S4 piloted, Dubai 2026 launch) and the Qatar eVTOL programme (EHang EH216-S pilotless, Doha trial Nov 2025).",
    "latitude": 25.0746,
@@ -1109,6 +1123,13 @@
      "url": "https://www.flyingmag.com/air-taxi-manufacturers-archer-joby-set-sights-on-abu-dhabi/",
      "type": "official-news",
      "accessed": "2026-05-01"
+    },
+    {
+     "id": "mot-qatar-2025-11",
+     "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+     "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+     "type": "government",
+     "accessed": "2026-11-12"
     }
    ],
    "i18n": {
@@ -1230,19 +1251,19 @@
     {
      "id": "qatar_first_pp_flight",
      "k": "Qatar First Pp Flight",
-     "v": "EH216-S — Old Doha Port ↔ Katara, 17 Nov 2025, 8 minutes",
+     "v": "EH216-S — Old Doha Port ↔ Katara, 15 Nov 2025, 8 minutes",
      "i18n": {
       "ar": {
-       "v": "EH216-S — ميناء الدوحة القديم ↔ كتارا، 17 نوفمبر 2025، 8 دقائق"
+       "v": "EH216-S — ميناء الدوحة القديم ↔ كتارا، 15 نوفمبر 2025، 8 دقائق"
       },
       "fr": {
-       "v": "EH216-S — Port de Doha ancien ↔ Katara, 17 nov 2025, 8 minutes"
+       "v": "EH216-S — Port de Doha ancien ↔ Katara, 15 nov 2025, 8 minutes"
       },
       "de": {
-       "v": "EH216-S – Alter Doha-Hafen ↔ Katara, 17. Nov. 2025, 8 Minuten"
+       "v": "EH216-S – Alter Doha-Hafen ↔ Katara, 15. Nov. 2025, 8 Minuten"
       },
       "zh": {
-       "v": "EH216-S — 老多哈港 ↔ 卡塔拉，2025 年 11 月 17 日，8 分钟"
+       "v": "EH216-S — 老多哈港 ↔ 卡塔拉，2025 年 11 月 15 日，8 分钟"
       }
      }
     },
@@ -1260,8 +1281,9 @@
    "city": "Doha",
    "status": "operational",
    "last_verified": "2026-10-01",
+   "published": "2026-05-20",
    "name": "Qatar Ministry of Transport (MoT)",
-   "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani.",
+   "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (15 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani.",
    "latitude": 25.2854,
    "longitude": 51.531,
    "sources": [
@@ -1283,23 +1305,23 @@
    "i18n": {
     "en": {
      "name": "Qatar Ministry of Transport (MoT)",
-     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (15 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
     },
     "ar": {
      "name": "Qatar Ministry of Transport (MoT)",
-     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (15 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
     },
     "fr": {
      "name": "Qatar Ministry of Transport (MoT)",
-     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (15 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
     },
     "de": {
      "name": "Qatar Ministry of Transport (MoT)",
-     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (15 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
     },
     "zh": {
      "name": "Qatar Ministry of Transport (MoT)",
-     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (17 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
+     "meta_description": "Qatar Ministry of Transport (MoT) provided strategic support for EHang EH216-S first urban pilotless eVTOL flights in the Middle East (15 Nov 2025). Minister HE Sheikh Mohammed bin Abdulla bin Mohammed Al Thani."
     }
    },
    "facts": [
@@ -1405,8 +1427,9 @@
    "city": "Doha",
    "status": "trial_only",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Qatar autonomous (pilotless) eVTOL — explained",
-   "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation.",
+   "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 15 Nov 2025 — operates without a pilot, under QCAA authorisation.",
    "latitude": 25.2854,
    "longitude": 51.531,
    "sources": [
@@ -1430,28 +1453,35 @@
      "url": "https://www.ehang.com/news/1082.html",
      "type": "operator-ir",
      "accessed": "2026-05-01"
+    },
+    {
+     "id": "mot-qatar-2025-11",
+     "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+     "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+     "type": "government",
+     "accessed": "2026-11-12"
     }
    ],
    "i18n": {
     "en": {
      "name": "Qatar autonomous (pilotless) eVTOL — explained",
-     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 15 Nov 2025 — operates without a pilot, under QCAA authorisation."
     },
     "ar": {
      "name": "Qatar autonomous (pilotless) eVTOL — explained",
-     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 15 Nov 2025 — operates without a pilot, under QCAA authorisation."
     },
     "fr": {
      "name": "Qatar autonomous (pilotless) eVTOL — explained",
-     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 15 Nov 2025 — operates without a pilot, under QCAA authorisation."
     },
     "de": {
      "name": "Qatar autonomous (pilotless) eVTOL — explained",
-     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 15 Nov 2025 — operates without a pilot, under QCAA authorisation."
     },
     "zh": {
      "name": "Qatar autonomous (pilotless) eVTOL — explained",
-     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 17 Nov 2025 — operates without a pilot, under QCAA authorisation."
+     "meta_description": "Explains how Qatar's first urban pilotless eVTOL — EHang EH216-S, flown Doha 15 Nov 2025 — operates without a pilot, under QCAA authorisation."
     }
    },
    "facts": [
@@ -1602,8 +1632,9 @@
    "city": "Doha",
    "status": "operational",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Qatar eVTOL & National Vision 2030",
-   "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3.",
+   "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3.",
    "latitude": 25.2854,
    "longitude": 51.531,
    "sources": [
@@ -1634,28 +1665,35 @@
      "url": "https://ir.ehang.com/news-releases/news-release-details/ehang-eh216-s-conducts-first-urban-human-carrying-pilotless/",
      "type": "operator-ir",
      "accessed": "2026-05-01"
+    },
+    {
+     "id": "mot-qatar-2025-11",
+     "name": "Qatar Ministry of Transport — Minister Witnesses Trial of First eVTOL Flight in Qatar",
+     "url": "https://www.mot.gov.qa/en/news/minister-witnesses-trial-first-flight-unmanned-evtol-qatar",
+     "type": "government",
+     "accessed": "2026-11-12"
     }
    ],
    "i18n": {
     "en": {
      "name": "Qatar eVTOL & National Vision 2030",
-     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
     },
     "ar": {
      "name": "Qatar eVTOL & National Vision 2030",
-     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
     },
     "fr": {
      "name": "Qatar eVTOL & National Vision 2030",
-     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
     },
     "de": {
      "name": "Qatar eVTOL & National Vision 2030",
-     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
     },
     "zh": {
      "name": "Qatar eVTOL & National Vision 2030",
-     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 17 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
+     "meta_description": "How Qatar's first urban pilotless eVTOL trial (Doha, 15 Nov 2025) maps to Qatar National Vision 2030, the MoT 2025-2030 strategy and NDS3."
     }
    },
    "facts": [
@@ -1704,7 +1742,7 @@
     {
      "id": "trial_anchor",
      "k": "Trial Anchor",
-     "v": "EHang EH216-S, Doha 17 Nov 2025"
+     "v": "EHang EH216-S, Doha 15 Nov 2025"
     },
     {
      "id": "qnv_pillars",
@@ -1739,6 +1777,7 @@
    "city": "Doha",
    "status": "announced",
    "last_verified": "2026-10-01",
+   "published": "2026-05-01",
    "name": "Qatar — Future Certified Aircraft (placeholder)",
    "meta_description": "No specific certified eVTOL aircraft has been named for Qatar commercial operations beyond the EH216-S trials. Status, MoT framework and sources verified.",
    "latitude": null,
@@ -1924,6 +1963,7 @@
    "city": "Doha",
    "status": "operational",
    "last_verified": "2026-10-01",
+   "published": "2026-05-20",
    "name": "Qatar Civil Aviation Authority (QCAA)",
    "meta_description": "The Qatar Civil Aviation Authority (QCAA) authorized the EHang EH216-S first urban pilotless eVTOL flights in the Middle East (Nov 2025). Law No. 10 of 2026 gives QCAA statutory licensing powers over unmanned aircraft. Distinct from MoT.",
    "latitude": 25.2854,
@@ -1961,23 +2001,23 @@
    "i18n": {
     "en": {
      "name": "Qatar Civil Aviation Authority (QCAA)",
-     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
+     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 15 November 2025. Distinct from MoT."
     },
     "ar": {
      "name": "Qatar Civil Aviation Authority (QCAA)",
-     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
+     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 15 November 2025. Distinct from MoT."
     },
     "fr": {
      "name": "Qatar Civil Aviation Authority (QCAA)",
-     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
+     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 15 November 2025. Distinct from MoT."
     },
     "de": {
      "name": "Qatar Civil Aviation Authority (QCAA)",
-     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
+     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 15 November 2025. Distinct from MoT."
     },
     "zh": {
      "name": "Qatar Civil Aviation Authority (QCAA)",
-     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 17 November 2025. Distinct from MoT."
+     "meta_description": "The Qatar Civil Aviation Authority (QCAA) issued operational authorization for EHang EH216-S first urban pilotless eVTOL flights in the Middle East on 15 November 2025. Distinct from MoT."
     }
    },
    "facts": [
@@ -2077,5 +2117,5 @@
    ]
   }
  ],
- "generated": "2026-05-20T06:55:55.535Z"
+ "generated": "2026-11-12T10:27:02.000Z"
 }
