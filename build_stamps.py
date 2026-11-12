@@ -4,6 +4,7 @@
 Every entity page ends with a footer line, in five locales:
 
     Published 1 May 2026 · Last verified 2026-05-01
+    Publié le 1er mai 2026 · Dernière vérification 2026-05-01
 
 That line was written once, by hand, when the page was created. Sweeps moved
 `last_verified` in entities.json (and with it the API, the CSV, the feeds, the
@@ -13,18 +14,27 @@ while the dataset said October: the one date a human visitor actually reads
 was the only one not generated from the data, and it made a current site look
 six months stale. An automated reader fell for it too.
 
+The Published half had the same disease in a milder form: it was hand-written
+with an English month in every locale ("Publié le 1 May 2026") and, on six UAE
+pages, the whole line was left in English in all four translations. The date
+lived nowhere in the dataset. Since 12 Nov 2026 each entity carries
+`published` (ISO) and this script renders the whole line — label, date in the
+locale's own format, separator, label, ISO date — from the data.
+
 Same class of drift build_atoms.py closed for the Status row; same cure.
 
 Commands:
 
-  stamp   (default) Writes entities.json's `last_verified` into the footer
-          line of every entity page, all locales. String surgery on the date
-          only — the localised label and the Published date are untouched.
+  stamp   (default) Rewrites the footer line of every entity page, all
+          locales, from entities.json's `published` and `last_verified`.
+          String surgery on the line only; the surrounding markup is kept.
           Then refreshes entities.json's top-level `generated` if (and only
           if) it is older than the newest date inside the file.
 
   check   The gate (wired into guard.sh). Fails when
-            - an entity page's footer date disagrees with entities.json
+            - an entity has no `published` or `last_verified` ISO date
+            - an entity page's footer line is not exactly what the data
+              renders to (wrong date, English month, English label)
             - an entity page (any locale) has no footer line to stamp
             - `generated` is older than a `last_verified` or source
               `accessed` date in the file it claims to describe.
@@ -32,7 +42,8 @@ Commands:
 `generated` is deliberately NOT date.today(): a value that changes on every
 run makes every build a diff. It moves only when the data has moved past it.
 
-Run from the repo root after any last_verified change; then ./guard.sh.
+Run from the repo root after any last_verified or published change; then
+./guard.sh.
 """
 import json
 import re
@@ -44,13 +55,26 @@ ROOT = Path(__file__).resolve().parent
 SECTION = {'aircraft': 'aircraft', 'operator': 'operators', 'vertiport': 'vertiports',
            'route': 'routes', 'regulator': 'regulators', 'answer': 'explainers'}
 LANGS = ('', 'ar', 'fr', 'de', 'zh')
-# <div class="meta-foot"> Published … <span class="sep">·</span> <label> YYYY-MM-DD </div>
-# The verified date is the last ISO date before the closing tag; the label in
-# between is localised prose and must not contain a tag.
-FOOT = re.compile(
-    r'(<div class="meta-foot">(?:(?!</div>).)*?<span class="sep">·</span>[^<]*?)'
-    r'(\d{4}-\d{2}-\d{2})(\s*</div>)', re.S)
-ISO = re.compile(r'^\d{4}-\d{2}-\d{2}')
+LABELS = {  # (published, last verified) — the wording already on the pages
+    'en': ('Published', 'Last verified'),
+    'fr': ('Publié le', 'Dernière vérification'),
+    'de': ('Veröffentlicht', 'Zuletzt geprüft'),
+    'ar': ('تاريخ النشر', 'آخر تحقق'),
+    'zh': ('发布日期', '最近核实'),
+}
+MONTHS = {
+    'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+           'August', 'September', 'October', 'November', 'December'],
+    'fr': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet',
+           'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+    'de': ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli',
+           'August', 'September', 'Oktober', 'November', 'Dezember'],
+    'ar': ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو',
+           'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+}
+# <div class="meta-foot">\n  <inner>\n</div> — inner is one line of prose with one <span class="sep">
+FOOT = re.compile(r'(<div class="meta-foot">\s*)(.*?)(\s*</div>)', re.S)
+ISO = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 
 
 def load_text():
@@ -65,6 +89,29 @@ def pages_of(e):
         p = (ROOT / L / sec if L else ROOT / sec) / f'{e["slug"]}.html'
         if p.exists():
             yield L or 'en', p
+
+
+def human_date(lang, iso):
+    """The locale's own way of writing a day: 1 May 2026 · 1er mai 2026 ·
+    1. Mai 2026 · 1 مايو 2026 · 2026年5月1日."""
+    y, m, d = (int(x) for x in iso.split('-'))
+    if lang == 'zh':
+        return f'{y}年{m}月{d}日'
+    month = MONTHS[lang][m - 1]
+    if lang == 'fr':
+        return f'{d}er {month} {y}' if d == 1 else f'{d} {month} {y}'
+    if lang == 'de':
+        return f'{d}. {month} {y}'
+    return f'{d} {month} {y}'
+
+
+def render(lang, e):
+    pub, ver = LABELS[lang]
+    return f'{pub} {human_date(lang, e["published"])}<span class="sep">·</span>\n  {ver} {e["last_verified"]}'
+
+
+def dates_ok(e):
+    return bool(ISO.match(e.get('published') or '') and ISO.match(e.get('last_verified') or ''))
 
 
 def newest_date(d):
@@ -84,9 +131,14 @@ def stamp():
     d = json.loads(raw)
     changed = same = 0
     for e in d['entities']:
+        if e['entity_type'] not in SECTION:
+            continue
+        if not dates_ok(e):
+            print(f'STAMPS: {e["slug"]}: published/last_verified missing or not ISO — nothing stamped')
+            continue
         for lang, p in pages_of(e):
             h = p.read_text(encoding='utf-8')
-            out, n = FOOT.subn(lambda m: m.group(1) + e['last_verified'] + m.group(3), h)
+            out, n = FOOT.subn(lambda m: m.group(1) + render(lang, e) + m.group(3), h, count=1)
             if not n:
                 print(f'STAMPS: {p.relative_to(ROOT)}: no meta-foot line to stamp')
                 continue
@@ -95,7 +147,7 @@ def stamp():
                 changed += 1
             else:
                 same += 1
-    print(f'stamps: last_verified written to {changed} page(s), {same} already current')
+    print(f'stamps: footer line written to {changed} page(s), {same} already current')
 
     newest = newest_date(d)
     gen = d.get('generated', '')
@@ -117,23 +169,27 @@ def check():
     for e in d['entities']:
         if e['entity_type'] not in SECTION:
             continue
+        if not dates_ok(e):
+            print(f'STAMPS FAIL: {e["slug"]}: published={e.get("published")!r} last_verified={e.get("last_verified")!r} (need ISO dates)')
+            fail += 1
+            continue
         seen = 0
         for lang, p in pages_of(e):
             seen += 1
             m = FOOT.search(p.read_text(encoding='utf-8'))
             if not m:
-                print(f'STAMPS FAIL: {p.relative_to(ROOT)}: no "last verified" footer line')
+                print(f'STAMPS FAIL: {p.relative_to(ROOT)}: no footer line')
                 fail += 1
-            elif m.group(2) != e['last_verified']:
-                print(f'STAMPS FAIL: {p.relative_to(ROOT)}: page says last verified {m.group(2)}, '
-                      f'entities.json says {e["last_verified"]}')
+            elif m.group(2) != render(lang, e):
+                print(f'STAMPS FAIL: {p.relative_to(ROOT)}: footer says {" ".join(m.group(2).split())!r}, '
+                      f'data renders {" ".join(render(lang, e).split())!r}')
                 fail += 1
         if not seen:
             print(f'STAMPS FAIL: {e["slug"]}: no page found for this entity')
             fail += 1
     newest = newest_date(d)
     gen = d.get('generated', '')
-    if not ISO.match(gen):
+    if not ISO.match(gen[:10]):
         print(f'STAMPS FAIL: entities.json "generated" is missing or not a date: {gen!r}')
         fail += 1
     elif gen[:10] < newest:
@@ -142,7 +198,7 @@ def check():
     if fail:
         print(f'stamps check: {fail} failure(s) — run build_stamps.py')
         return 1
-    print('stamps check: every page footer date equals entities.json; generated is not older than the data')
+    print('stamps check: every page footer line (published, last verified, in its own locale) equals entities.json; generated is not older than the data')
     return 0
 
 

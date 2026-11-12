@@ -32,7 +32,9 @@ python3 freshness.py --json           # same, for an agent
    nothing changed. An entity confirmed unchanged is fresher than one nobody
    looked at, and the score should reflect that. Then run
    `python3 build_stamps.py`: it writes that date into the "Last verified"
-   footer line of the entity's page in all five locales. For six months it
+   footer line of the entity's page in all five locales, together with the
+   entity's `published` date in the locale's own date format (the month used
+   to be English in every locale — "Publié le 1 May 2026"). For six months it
    did not exist, the footers stayed at their May–July creation dates while
    the dataset said October, and the site looked stale to every human reader
    (and to the automated sweep that reported it, Nov 2026).
